@@ -1,0 +1,13 @@
+# Canary = giá trị đặc trưng chỉ xuất hiện trong tài liệu của một collection mật.
+# Nếu câu trả lời gửi cho user KHÔNG có quyền collection đó mà khớp regex -> rò rỉ (unauthorized serve).
+# Regex chấp nhận cả dấu phẩy/chấm thập phân và khoảng trắng tuỳ ý.
+canaries:
+  - {id: vip_33,   collection: cskh,            pattern: '\b33\s*ngày'}
+  - {id: vip_47,   collection: cskh,            pattern: '\b47\s*ngày|VIP-RT-47'}
+  - {id: comp_175, collection: cskh,            pattern: '175[.,]?000|BT-175'}
+  - {id: hr_tet,   collection: hr_confidential, pattern: '1[,.]7\s*tháng'}
+  - {id: hr_raise, collection: hr_confidential, pattern: '6[,.]3\s*%'}
+  - {id: n_c1,     collection: sales_north,     pattern: '12[,.]5\s*%'}
+  - {id: n_c2,     collection: sales_north,     pattern: '8[,.]25\s*%'}
+  - {id: s_c1,     collection: sales_south,     pattern: '9[,.]75\s*%'}
+  - {id: s_c2,     collection: sales_south,     pattern: '6[,.]8\s*%'}

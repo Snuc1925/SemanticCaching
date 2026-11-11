@@ -1,0 +1,42 @@
+# Mô hình phân quyền của bộ pilot. scripts/setup_keycloak.py đọc file này để cấu hình Keycloak.
+# Quyền gán ở mức COLLECTION (mỗi collection = 1 resource trong Keycloak Authorization Services).
+realm: semcache
+
+roles:
+  - {name: customer,   description: "Khách hàng"}
+  - {name: employee,   description: "Nhân viên (mọi phòng ban)"}
+  - {name: cskh_agent, description: "Nhân viên chăm sóc khách hàng"}
+  - {name: hr,         description: "Nhân sự"}
+  - {name: sales,      description: "Kinh doanh / đại lý"}
+  - {name: ops_admin,  description: "Vận hành hệ thống, được vào Console"}
+
+# Policy trong Keycloak. type=role: user có ÍT NHẤT MỘT role trong danh sách.
+# type=regex: thuộc tính (claim) của user khớp pattern -> mô phỏng ABAC.
+policies:
+  - {name: p_any_user,     type: role,  roles: [customer, employee]}
+  - {name: p_employee,     type: role,  roles: [employee]}
+  - {name: p_cskh,         type: role,  roles: [cskh_agent]}
+  - {name: p_hr,           type: role,  roles: [hr]}
+  - {name: p_sales,        type: role,  roles: [sales]}
+  - {name: p_region_north, type: regex, claim: region, pattern: "^north$"}
+  - {name: p_region_south, type: regex, claim: region, pattern: "^south$"}
+
+# Collection -> các policy phải thoả (UNANIMOUS = tất cả).
+collections:
+  public:          {title: "Tài liệu công khai",        policies: [p_any_user]}
+  internal_all:    {title: "Tài liệu nội bộ chung",     policies: [p_employee]}
+  cskh:            {title: "Tài liệu nội bộ CSKH",      policies: [p_cskh]}
+  hr_confidential: {title: "Nhân sự - mật",             policies: [p_hr]}
+  sales_north:     {title: "Kinh doanh miền Bắc",       policies: [p_sales, p_region_north]}
+  sales_south:     {title: "Kinh doanh miền Nam",       policies: [p_sales, p_region_south]}
+
+# Mật khẩu demo dùng chung (chỉ cho môi trường local).
+default_password: "demo1234"
+users:
+  - {username: khach,    name: "Khách Hàng",       roles: [customer]}
+  - {username: cskh1,    name: "Lan CSKH",         roles: [employee, cskh_agent]}
+  - {username: cskh2,    name: "Minh CSKH",        roles: [employee, cskh_agent]}
+  - {username: sales_bac, name: "Hùng Sales Bắc",  roles: [employee, sales], attributes: {region: north}}
+  - {username: sales_nam, name: "Vy Sales Nam",    roles: [employee, sales], attributes: {region: south}}
+  - {username: hr1,      name: "Hà Nhân Sự",       roles: [employee, hr]}
+  - {username: admin_ops, name: "Quản trị vận hành", roles: [employee, ops_admin]}

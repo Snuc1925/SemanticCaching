@@ -1,0 +1,2556 @@
+{
+ "title": "Console: khôi phục dữ liệu demo",
+ "calls": [
+  {
+   "name": "auth.current_user",
+   "line": 35,
+   "args": {
+    "request": "<Request>"
+   },
+   "children": [
+    1086
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": null,
+   "id": 1085,
+   "ms": 0.6,
+   "result": "UserContext(user_id='5b7a9394-f2ca-44a8-acb5-37953e298ad1', username='admin_ops', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'ops_admin', 'employee'), display_name='Quản trị vận hành')"
+  },
+  {
+   "name": "auth.decode",
+   "line": 23,
+   "args": {
+    "token": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiZGU1ODRiZGQtOTA3OS00NTQ1LTkwZWQtZmE1MGNjYjAyNzA3Iiwi…(+1219 ký tự)'"
+   },
+   "children": [
+    1087
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1085,
+   "id": 1086,
+   "ms": 0.5,
+   "result": "UserContext(user_id='5b7a9394-f2ca-44a8-acb5-37953e298ad1', username='admin_ops', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'ops_admin', 'employee'), display_name='Quản trị vận hành')"
+  },
+  {
+   "name": "auth.issuer",
+   "line": 19,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1086,
+   "id": 1087,
+   "ms": 0.0,
+   "result": "'http://localhost:8080/realms/semcache'"
+  },
+  {
+   "name": "auth.console_user",
+   "line": 42,
+   "args": {
+    "user": "UserContext(user_id='5b7a9394-f2ca-44a8-acb5-37953e298ad1', username='admin_ops', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'ops_admin', 'employee'), display_name='Quản trị vận hành')"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": null,
+   "id": 1088,
+   "ms": 0.0,
+   "result": "UserContext(user_id='5b7a9394-f2ca-44a8-acb5-37953e298ad1', username='admin_ops', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'ops_admin', 'employee'), display_name='Quản trị vận hành')"
+  },
+  {
+   "name": "main.admin_reset",
+   "line": 274,
+   "args": {
+    "body": "ResetIn({clear_history: False})",
+    "actor": "UserContext(user_id='5b7a9394-f2ca-44a8-acb5-37953e298ad1', username='admin_ops', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'ops_admin', 'employee'), display_name='Quản trị vận hành')"
+   },
+   "children": [
+    1090,
+    1092,
+    1095,
+    1098,
+    1101,
+    1104,
+    1110,
+    1113,
+    1116,
+    1119,
+    1122,
+    1125,
+    1128,
+    1131,
+    1134,
+    1137,
+    1140,
+    1158,
+    1237,
+    1244
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": null,
+   "id": 1089,
+   "ms": 818.5,
+   "result": "{ok: True}"
+  },
+  {
+   "name": "main._acl",
+   "line": 207,
+   "args": {},
+   "children": [
+    1091
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1090,
+   "ms": 24.3,
+   "result": "{realm: 'semcache', roles: [{name: 'customer', description: 'Khách hàng'}, {name: 'employee', description: 'Nhân viên (mọi phòng ban)'}, {name: 'cskh_agent', description: 'Nhân viên chăm sóc khách hàng'}, {name: 'hr', description: 'Nhân sự'}, {name: 'sales', description: 'Kinh doanh / đại lý'}, {name: 'ops_admin', description: 'Vận hành hệ thống, được vào Console'}], policies: [{name: 'p_any_user', type: 'role', roles: <list>}, {name: 'p_employee', type: 'role', roles: <list>}, {name: 'p_cskh', type: 'role', roles: <list>}, {name: 'p_hr', type: 'role', roles: <list>}, {name: 'p_sales', type: 'role', roles: <list>}, {name: 'p_region_north', type: 'regex', claim: 'region', pattern: '^north$'}, …(+1)], collections: {public: {title: 'Tài liệu công khai', policies: <list>}, internal_all: {title: 'Tài liệu nội bộ chung', policies: <list>}, cskh: {title: 'Tài liệu nội bộ CSKH', policies: <list>}, hr_confidential: {title: 'Nhân sự - mật', policies: <list>}, sales_north: {title: 'Kinh doanh miền Bắc', policies: <list>}, sales_south: {title: 'Kinh doanh miền Nam', policies: <list>}}, default_password: 'demo1234', users: [{username: 'khach', name: 'Khách Hàng', roles: <list>}, {username: 'cskh1', name: 'Lan CSKH', roles: <list>}, {username: 'cskh2', name: 'Minh CSKH', roles: <list>}, {username: 'sales_bac', name: 'Hùng Sales Bắc', roles: <list>, attributes: <dict>}, {username: 'sales_nam', name: 'Vy Sales Nam', roles: <list>, attributes: <dict>}, {username: 'hr1', name: 'Hà Nhân Sự', roles: <list>}, …(+1)]}"
+  },
+  {
+   "name": "config.data_dir",
+   "line": 79,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1090,
+   "id": 1091,
+   "ms": 0.0,
+   "result": "<PosixPath>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.find_user",
+   "line": 65,
+   "args": {
+    "username": "'khach'"
+   },
+   "children": [
+    1093
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1092,
+   "ms": 15.1,
+   "result": "{id: '25b9ebd4-6b31-4faa-bc66-0a84d42aafff', username: 'khach', firstName: 'Khách', lastName: 'Hàng', email: 'khach@saomai.local', emailVerified: True, createdTimestamp: 1794339204501, enabled: True, totp: False, disableableCredentialTypes: [], …(+3 khoá)}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/users'",
+    "kw": "{params: {username: 'khach', exact: 'true'}}"
+   },
+   "children": [
+    1094
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1092,
+   "id": 1093,
+   "ms": 15.0,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/users?username=khach&exact=true>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1093,
+   "id": 1094,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.user_realm_roles",
+   "line": 72,
+   "args": {
+    "user_id": "'25b9ebd4-6b31-4faa-bc66-0a84d42aafff'"
+   },
+   "children": [
+    1096
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1095,
+   "ms": 7.3,
+   "result": "['default-roles-semcache', 'customer']"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/users/25b9ebd4-6b31-4faa-bc66-0a84d42aafff/role-mappings/realm'",
+    "kw": "{}"
+   },
+   "children": [
+    1097
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1095,
+   "id": 1096,
+   "ms": 7.3,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/users/25b9ebd4-6b31-4faa-bc66-0a84d42aafff/role-mappings/realm>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1096,
+   "id": 1097,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.find_user",
+   "line": 65,
+   "args": {
+    "username": "'cskh1'"
+   },
+   "children": [
+    1099
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1098,
+   "ms": 9.5,
+   "result": "{id: '829671b9-5f8b-431d-9b2f-8a31158a3a2d', username: 'cskh1', firstName: 'Lan', lastName: 'CSKH', email: 'cskh1@saomai.local', emailVerified: True, createdTimestamp: 1794339204584, enabled: True, totp: False, disableableCredentialTypes: [], …(+3 khoá)}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/users'",
+    "kw": "{params: {username: 'cskh1', exact: 'true'}}"
+   },
+   "children": [
+    1100
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1098,
+   "id": 1099,
+   "ms": 9.5,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/users?username=cskh1&exact=true>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1099,
+   "id": 1100,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.user_realm_roles",
+   "line": 72,
+   "args": {
+    "user_id": "'829671b9-5f8b-431d-9b2f-8a31158a3a2d'"
+   },
+   "children": [
+    1102
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1101,
+   "ms": 5.0,
+   "result": "['employee', 'default-roles-semcache']"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm'",
+    "kw": "{}"
+   },
+   "children": [
+    1103
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1101,
+   "id": 1102,
+   "ms": 4.9,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1102,
+   "id": 1103,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.set_realm_role",
+   "line": 78,
+   "args": {
+    "user_id": "'829671b9-5f8b-431d-9b2f-8a31158a3a2d'",
+    "role": "'cskh_agent'",
+    "grant": "True"
+   },
+   "children": [
+    1105,
+    1108
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1104,
+   "ms": 18.6,
+   "result": "None"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.realm_role",
+   "line": 75,
+   "args": {
+    "name": "'cskh_agent'"
+   },
+   "children": [
+    1106
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1104,
+   "id": 1105,
+   "ms": 4.7,
+   "result": "{id: 'fce33e7e-8385-4b19-a094-2f378867ecfb', name: 'cskh_agent', description: 'Nhân viên chăm sóc khách hàng', composite: False, clientRole: False, containerId: '36a24d23-b72a-438a-a29d-ea82714c2772', attributes: {}}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/roles/cskh_agent'",
+    "kw": "{}"
+   },
+   "children": [
+    1107
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1105,
+   "id": 1106,
+   "ms": 4.7,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/roles/cskh_agent>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1106,
+   "id": 1107,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'POST'",
+    "path": "'/users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm'",
+    "kw": "{json: [{id: 'fce33e7e-8385-4b19-a094-2f378867ecfb', name: 'cskh_agent'}]}"
+   },
+   "children": [
+    1109
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1104,
+   "id": 1108,
+   "ms": 13.8,
+   "result": "<HTTP 204 http://localhost:8080/admin/realms/semcache/users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1108,
+   "id": 1109,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.find_user",
+   "line": 65,
+   "args": {
+    "username": "'cskh2'"
+   },
+   "children": [
+    1111
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1110,
+   "ms": 9.0,
+   "result": "{id: '5bc2c24a-35fd-4b7d-a57c-5e41fe659e8a', username: 'cskh2', firstName: 'Minh', lastName: 'CSKH', email: 'cskh2@saomai.local', emailVerified: True, createdTimestamp: 1794339204657, enabled: True, totp: False, disableableCredentialTypes: [], …(+3 khoá)}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/users'",
+    "kw": "{params: {username: 'cskh2', exact: 'true'}}"
+   },
+   "children": [
+    1112
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1110,
+   "id": 1111,
+   "ms": 8.9,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/users?username=cskh2&exact=true>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1111,
+   "id": 1112,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.user_realm_roles",
+   "line": 72,
+   "args": {
+    "user_id": "'5bc2c24a-35fd-4b7d-a57c-5e41fe659e8a'"
+   },
+   "children": [
+    1114
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1113,
+   "ms": 5.1,
+   "result": "['cskh_agent', 'employee', 'default-roles-semcache']"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/users/5bc2c24a-35fd-4b7d-a57c-5e41fe659e8a/role-mappings/realm'",
+    "kw": "{}"
+   },
+   "children": [
+    1115
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1113,
+   "id": 1114,
+   "ms": 5.0,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/users/5bc2c24a-35fd-4b7d-a57c-5e41fe659e8a/role-mappings/realm>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1114,
+   "id": 1115,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.find_user",
+   "line": 65,
+   "args": {
+    "username": "'sales_bac'"
+   },
+   "children": [
+    1117
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1116,
+   "ms": 10.8,
+   "result": "{id: 'eea2aee0-a6a6-4a31-9243-6534436b6068', username: 'sales_bac', firstName: 'Hùng', lastName: 'Sales Bắc', email: 'sales_bac@saomai.local', emailVerified: True, attributes: {region: ['north']}, createdTimestamp: 1794339204705, enabled: True, totp: False, …(+4 khoá)}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/users'",
+    "kw": "{params: {username: 'sales_bac', exact: 'true'}}"
+   },
+   "children": [
+    1118
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1116,
+   "id": 1117,
+   "ms": 10.8,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/users?username=sales_bac&exact=true>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1117,
+   "id": 1118,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.user_realm_roles",
+   "line": 72,
+   "args": {
+    "user_id": "'eea2aee0-a6a6-4a31-9243-6534436b6068'"
+   },
+   "children": [
+    1120
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1119,
+   "ms": 5.2,
+   "result": "['sales', 'employee', 'default-roles-semcache']"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/users/eea2aee0-a6a6-4a31-9243-6534436b6068/role-mappings/realm'",
+    "kw": "{}"
+   },
+   "children": [
+    1121
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1119,
+   "id": 1120,
+   "ms": 5.1,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/users/eea2aee0-a6a6-4a31-9243-6534436b6068/role-mappings/realm>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1120,
+   "id": 1121,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.find_user",
+   "line": 65,
+   "args": {
+    "username": "'sales_nam'"
+   },
+   "children": [
+    1123
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1122,
+   "ms": 10.1,
+   "result": "{id: '395ec0ea-23cf-4123-a7f2-9b7376c7b5cb', username: 'sales_nam', firstName: 'Vy', lastName: 'Sales Nam', email: 'sales_nam@saomai.local', emailVerified: True, attributes: {region: ['south']}, createdTimestamp: 1794339204792, enabled: True, totp: False, …(+4 khoá)}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/users'",
+    "kw": "{params: {username: 'sales_nam', exact: 'true'}}"
+   },
+   "children": [
+    1124
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1122,
+   "id": 1123,
+   "ms": 10.0,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/users?username=sales_nam&exact=true>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1123,
+   "id": 1124,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.user_realm_roles",
+   "line": 72,
+   "args": {
+    "user_id": "'395ec0ea-23cf-4123-a7f2-9b7376c7b5cb'"
+   },
+   "children": [
+    1126
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1125,
+   "ms": 5.0,
+   "result": "['sales', 'employee', 'default-roles-semcache']"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/users/395ec0ea-23cf-4123-a7f2-9b7376c7b5cb/role-mappings/realm'",
+    "kw": "{}"
+   },
+   "children": [
+    1127
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1125,
+   "id": 1126,
+   "ms": 4.9,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/users/395ec0ea-23cf-4123-a7f2-9b7376c7b5cb/role-mappings/realm>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1126,
+   "id": 1127,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.find_user",
+   "line": 65,
+   "args": {
+    "username": "'hr1'"
+   },
+   "children": [
+    1129
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1128,
+   "ms": 11.2,
+   "result": "{id: 'be87ef13-5309-4c33-bc9d-bf50cb5647a9', username: 'hr1', firstName: 'Hà', lastName: 'Nhân Sự', email: 'hr1@saomai.local', emailVerified: True, createdTimestamp: 1794339204896, enabled: True, totp: False, disableableCredentialTypes: [], …(+3 khoá)}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/users'",
+    "kw": "{params: {username: 'hr1', exact: 'true'}}"
+   },
+   "children": [
+    1130
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1128,
+   "id": 1129,
+   "ms": 11.1,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/users?username=hr1&exact=true>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1129,
+   "id": 1130,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.user_realm_roles",
+   "line": 72,
+   "args": {
+    "user_id": "'be87ef13-5309-4c33-bc9d-bf50cb5647a9'"
+   },
+   "children": [
+    1132
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1131,
+   "ms": 11.9,
+   "result": "['hr', 'employee', 'default-roles-semcache']"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/users/be87ef13-5309-4c33-bc9d-bf50cb5647a9/role-mappings/realm'",
+    "kw": "{}"
+   },
+   "children": [
+    1133
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1131,
+   "id": 1132,
+   "ms": 11.8,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/users/be87ef13-5309-4c33-bc9d-bf50cb5647a9/role-mappings/realm>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1132,
+   "id": 1133,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.find_user",
+   "line": 65,
+   "args": {
+    "username": "'admin_ops'"
+   },
+   "children": [
+    1135
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1134,
+   "ms": 12.3,
+   "result": "{id: '5b7a9394-f2ca-44a8-acb5-37953e298ad1', username: 'admin_ops', firstName: 'Quản', lastName: 'trị vận hành', email: 'admin_ops@saomai.local', emailVerified: True, createdTimestamp: 1794339204963, enabled: True, totp: False, disableableCredentialTypes: [], …(+3 khoá)}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/users'",
+    "kw": "{params: {username: 'admin_ops', exact: 'true'}}"
+   },
+   "children": [
+    1136
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1134,
+   "id": 1135,
+   "ms": 12.2,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/users?username=admin_ops&exact=true>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1135,
+   "id": 1136,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.user_realm_roles",
+   "line": 72,
+   "args": {
+    "user_id": "'5b7a9394-f2ca-44a8-acb5-37953e298ad1'"
+   },
+   "children": [
+    1138
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1137,
+   "ms": 8.3,
+   "result": "['ops_admin', 'employee', 'default-roles-semcache']"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/users/5b7a9394-f2ca-44a8-acb5-37953e298ad1/role-mappings/realm'",
+    "kw": "{}"
+   },
+   "children": [
+    1139
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1137,
+   "id": 1138,
+   "ms": 8.2,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/users/5b7a9394-f2ca-44a8-acb5-37953e298ad1/role-mappings/realm>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1138,
+   "id": 1139,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "documents.list_documents",
+   "line": 103,
+   "args": {},
+   "children": [
+    1141,
+    1144
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1140,
+   "ms": 17.7,
+   "result": "[{doc_id: 'complaint_handling', title: 'Kịch bản xử lý khiếu nại khách hàng', collection: 'cskh', versions: [1], current_version: 1, updated_at: '2026-11-10T19:33:30.986039+00:00'}, {doc_id: 'dealer_discount_north', title: 'Bảng chiết khấu đại lý miền Bắc', collection: 'sales_north', versions: [1], current_version: 1, updated_at: '2026-11-10T19:33:31.012496+00:00'}, {doc_id: 'dealer_discount_south', title: 'Bảng chiết khấu đại lý miền Nam', collection: 'sales_south', versions: [1], current_version: 1, updated_at: '2026-11-10T19:33:31.030838+00:00'}, {doc_id: 'leave_policy', title: 'Nội quy nghỉ phép', collection: 'internal_all', versions: [1], current_version: 1, updated_at: '2026-11-10T19:33:31.053447+00:00'}, {doc_id: 'membership_faq', title: 'Câu hỏi thường gặp về hạng thành viên', collection: 'public', versions: [1], current_version: 1, updated_at: '2026-11-10T19:33:31.070515+00:00'}, {doc_id: 'return_policy', title: 'Chính sách đổi trả hàng', collection: 'public', versions: [1, 2], current_version: 2, updated_at: '2026-11-11T04:37:58.224386+00:00'}, …(+4)]"
+  },
+  {
+   "name": "db.fetch_all",
+   "line": 99,
+   "args": {
+    "sql": "'SELECT * FROM documents ORDER BY collection, doc_id'",
+    "params": "()"
+   },
+   "children": [
+    1142,
+    1143
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1140,
+   "id": 1141,
+   "ms": 3.5,
+   "result": "[{doc_id: 'complaint_handling', title: 'Kịch bản xử lý khiếu nại khách hàng', collection: 'cskh', version: 1, updated_at: <datetime>}, {doc_id: 'vip_return_exception', title: 'Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', collection: 'cskh', version: 1, updated_at: <datetime>}, {doc_id: 'salary_bonus', title: 'Quy chế lương thưởng (MẬT)', collection: 'hr_confidential', version: 1, updated_at: <datetime>}, {doc_id: 'leave_policy', title: 'Nội quy nghỉ phép', collection: 'internal_all', version: 1, updated_at: <datetime>}, {doc_id: 'membership_faq', title: 'Câu hỏi thường gặp về hạng thành viên', collection: 'public', version: 1, updated_at: <datetime>}, {doc_id: 'return_policy', title: 'Chính sách đổi trả hàng', collection: 'public', version: 2, updated_at: <datetime>}, …(+4)]"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1141,
+   "id": 1142,
+   "ms": 0.0,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1141,
+   "id": 1143,
+   "ms": 0.9,
+   "result": "None"
+  },
+  {
+   "name": "documents.available_versions",
+   "line": 30,
+   "args": {},
+   "children": [
+    1145,
+    1147,
+    1148,
+    1149,
+    1150,
+    1151,
+    1152,
+    1153,
+    1154,
+    1155,
+    1156,
+    1157
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1140,
+   "id": 1144,
+   "ms": 14.0,
+   "result": "{complaint_handling: {title: 'Kịch bản xử lý khiếu nại khách hàng', collection: 'cskh', versions: [1]}, dealer_discount_north: {title: 'Bảng chiết khấu đại lý miền Bắc', collection: 'sales_north', versions: [1]}, dealer_discount_south: {title: 'Bảng chiết khấu đại lý miền Nam', collection: 'sales_south', versions: [1]}, leave_policy: {title: 'Nội quy nghỉ phép', collection: 'internal_all', versions: [1]}, membership_faq: {title: 'Câu hỏi thường gặp về hạng thành viên', collection: 'public', versions: [1]}, return_policy: {title: 'Chính sách đổi trả hàng', collection: 'public', versions: [1, 2]}, salary_bonus: {title: 'Quy chế lương thưởng (MẬT)', collection: 'hr_confidential', versions: [1]}, shipping_policy: {title: 'Chính sách giao hàng và lắp đặt', collection: 'public', versions: [1]}, vip_return_exception: {title: 'Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', collection: 'cskh', versions: [1]}, warranty_policy: {title: 'Chính sách bảo hành và gói bảo hành mở rộng', collection: 'public', versions: [1]}}"
+  },
+  {
+   "name": "documents.docs_dir",
+   "line": 19,
+   "args": {},
+   "children": [
+    1146
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1144,
+   "id": 1145,
+   "ms": 0.1,
+   "result": "<PosixPath>"
+  },
+  {
+   "name": "config.data_dir",
+   "line": 79,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1145,
+   "id": 1146,
+   "ms": 0.0,
+   "result": "<PosixPath>"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1144,
+   "id": 1147,
+   "ms": 1.1,
+   "result": "({doc_id: 'complaint_handling', title: 'Kịch bản xử lý khiếu nại khách hàng', collection: 'cskh', version: 1}, '# Kịch bản xử lý khiếu nại khách hàng⏎⏎## Thời gian phản hồi⏎Mọi khiếu nại phải được phản hồi lần đầu trong vòng **24 gi…(+494 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1144,
+   "id": 1148,
+   "ms": 1.0,
+   "result": "({doc_id: 'dealer_discount_north', title: 'Bảng chiết khấu đại lý miền Bắc', collection: 'sales_north', version: 1}, '# Bảng chiết khấu đại lý miền Bắc⏎⏎## Mức chiết khấu theo cấp đại lý⏎| Cấp đại lý | Doanh số tháng tối thiểu | Chiết khấ…(+327 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1144,
+   "id": 1149,
+   "ms": 1.8,
+   "result": "({doc_id: 'dealer_discount_south', title: 'Bảng chiết khấu đại lý miền Nam', collection: 'sales_south', version: 1}, '# Bảng chiết khấu đại lý miền Nam⏎⏎## Mức chiết khấu theo cấp đại lý⏎| Cấp đại lý | Doanh số tháng tối thiểu | Chiết khấ…(+321 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1144,
+   "id": 1150,
+   "ms": 0.9,
+   "result": "({doc_id: 'leave_policy', title: 'Nội quy nghỉ phép', collection: 'internal_all', version: 1}, '# Nội quy nghỉ phép⏎⏎## Số ngày phép năm⏎Nhân viên chính thức được **12 ngày phép năm**. Cứ đủ 5 năm làm việc được cộng …(+363 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1144,
+   "id": 1151,
+   "ms": 1.0,
+   "result": "({doc_id: 'membership_faq', title: 'Câu hỏi thường gặp về hạng thành viên', collection: 'public', version: 1}, '# Câu hỏi thường gặp về hạng thành viên⏎⏎## Có những hạng thành viên nào?⏎Có 3 hạng: **Thường**, **Bạc** và **VIP**. Hạn…(+457 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1144,
+   "id": 1152,
+   "ms": 0.9,
+   "result": "({doc_id: 'return_policy', title: 'Chính sách đổi trả hàng', collection: 'public', version: 1}, '# Chính sách đổi trả hàng⏎⏎## Phạm vi áp dụng⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Đ…(+892 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1144,
+   "id": 1153,
+   "ms": 1.1,
+   "result": "({doc_id: 'return_policy', title: 'Chính sách đổi trả hàng', collection: 'public', version: 2}, '# Chính sách đổi trả hàng⏎⏎## Phạm vi áp dụng⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Đ…(+908 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1144,
+   "id": 1154,
+   "ms": 1.9,
+   "result": "({doc_id: 'salary_bonus', title: 'Quy chế lương thưởng (MẬT)', collection: 'hr_confidential', version: 1}, '# Quy chế lương thưởng (MẬT)⏎⏎## Thưởng Tết⏎Thưởng Tết năm nay bằng **1,7 tháng lương** cơ bản cho nhân viên có thời gia…(+335 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1144,
+   "id": 1155,
+   "ms": 1.5,
+   "result": "({doc_id: 'shipping_policy', title: 'Chính sách giao hàng và lắp đặt', collection: 'public', version: 1}, '# Chính sách giao hàng và lắp đặt⏎⏎## Thời gian giao hàng⏎- Nội thành Hà Nội và TP. Hồ Chí Minh: giao trong **2 giờ** vớ…(+572 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1144,
+   "id": 1156,
+   "ms": 1.0,
+   "result": "({doc_id: 'vip_return_exception', title: 'Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', collection: 'cskh', version: 1}, '# Hướng dẫn nội bộ CSKH: Ngoại lệ đổi trả cho khách VIP⏎⏎## Thời hạn đổi trả của khách VIP⏎Khách hàng hạng VIP được đổi …(+541 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1144,
+   "id": 1157,
+   "ms": 1.0,
+   "result": "({doc_id: 'warranty_policy', title: 'Chính sách bảo hành và gói bảo hành mở rộng', collection: 'public', version: 1}, '# Chính sách bảo hành và gói bảo hành mở rộng⏎⏎## Bảo hành tiêu chuẩn⏎Tất cả sản phẩm điện máy được bảo hành tiêu chuẩn …(+736 ký tự)')"
+  },
+  {
+   "name": "documents.ingest",
+   "line": 70,
+   "args": {
+    "doc_id": "'return_policy'",
+    "version": "1"
+   },
+   "children": [
+    1159,
+    1162,
+    1163,
+    1201,
+    1233,
+    1234
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1158,
+   "ms": 346.0,
+   "result": "4"
+  },
+  {
+   "name": "documents.file_for",
+   "line": 40,
+   "args": {
+    "doc_id": "'return_policy'",
+    "version": "1"
+   },
+   "children": [
+    1160
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1158,
+   "id": 1159,
+   "ms": 0.0,
+   "result": "<PosixPath>"
+  },
+  {
+   "name": "documents.docs_dir",
+   "line": 19,
+   "args": {},
+   "children": [
+    1161
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1159,
+   "id": 1160,
+   "ms": 0.0,
+   "result": "<PosixPath>"
+  },
+  {
+   "name": "config.data_dir",
+   "line": 79,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1160,
+   "id": 1161,
+   "ms": 0.0,
+   "result": "<PosixPath>"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1158,
+   "id": 1162,
+   "ms": 0.9,
+   "result": "({doc_id: 'return_policy', title: 'Chính sách đổi trả hàng', collection: 'public', version: 1}, '# Chính sách đổi trả hàng⏎⏎## Phạm vi áp dụng⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Đ…(+892 ký tự)')"
+  },
+  {
+   "name": "chunking.chunk_document",
+   "line": 107,
+   "args": {
+    "doc_id": "'return_policy'",
+    "version": "1",
+    "collection": "'public'",
+    "title": "'Chính sách đổi trả hàng'",
+    "md": "'# Chính sách đổi trả hàng⏎⏎## Phạm vi áp dụng⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎## Thời hạn đổi trả⏎Khách h…(+792 ký tự)'",
+    "max_tokens": "400",
+    "min_tokens": "80",
+    "overlap": "50"
+   },
+   "children": [
+    1164,
+    1173,
+    1174,
+    1175,
+    1176,
+    1177,
+    1178,
+    1179,
+    1180,
+    1181,
+    1182,
+    1183,
+    1184,
+    1185,
+    1186,
+    1187,
+    1188,
+    1189,
+    1190,
+    1191,
+    1192,
+    1193,
+    1194,
+    1195,
+    1196,
+    1197,
+    1198,
+    1199,
+    1200
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1158,
+   "id": 1163,
+   "ms": 1.0,
+   "result": "[Chunk(chunk_id='232c157bca68b49d', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng', text='Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh m…(+194 ký tự)', embed_text='[Chính sách đổi trả hàng > Phạm vi áp dụng]⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điệ…(+238 ký tự)', index=0), Chunk(chunk_id='5f795b0c2ed5e7a5', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Điều kiện đổi trả', text='- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎-…(+64 ký tự)', embed_text='[Chính sách đổi trả hàng > Điều kiện đổi trả]⏎- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá …(+110 ký tự)', index=1), Chunk(chunk_id='2bca42c3afd3fc40', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Hàng điện tử và điện thoại', text='Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâ…(+164 ký tự)', embed_text='[Chính sách đổi trả hàng > Hàng điện tử và điện thoại]⏎Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử…(+219 ký tự)', index=2), Chunk(chunk_id='0d3884b099feeb56', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả', text='Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".', embed_text='[Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả]⏎Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi…(+35 ký tự)', index=3)]"
+  },
+  {
+   "name": "chunking._sections",
+   "line": 54,
+   "args": {
+    "md": "'# Chính sách đổi trả hàng⏎⏎## Phạm vi áp dụng⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎## Thời hạn đổi trả⏎Khách h…(+792 ký tự)'",
+    "title": "'Chính sách đổi trả hàng'"
+   },
+   "children": [
+    1165,
+    1166,
+    1167,
+    1168,
+    1169,
+    1170,
+    1171,
+    1172
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1164,
+   "ms": 0.1,
+   "result": "[_Section(path=['Chính sách đổi trả hàng', 'Phạm vi áp dụng'], lines=['Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh m…(+25 ký tự)', '']), _Section(path=['Chính sách đổi trả hàng', 'Thời hạn đổi trả'], lines=['Khách hàng được đổi trả sản phẩm trong vòng **7 ngày** kể từ ngày nhận hàng. Sau thời hạn này, sản phẩm chỉ được hỗ trợ …(+25 ký tự)', '']), _Section(path=['Chính sách đổi trả hàng', 'Điều kiện đổi trả'], lines=['- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.', '- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.', '- Sản phẩm không có dấu hiệu va đập, vào nước hoặc tự ý sửa chữa.', '']), _Section(path=['Chính sách đổi trả hàng', 'Hàng điện tử và điện thoại'], lines=['Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâ…(+20 ký tự)', '']), _Section(path=['Chính sách đổi trả hàng', 'Hoàn tiền'], lines=['Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh toán ban đầu. Đơn thanh toán tiền mặt được hoàn bằng chuyển…(+7 ký tự)', '']), _Section(path=['Chính sách đổi trả hàng', 'Sản phẩm không áp dụng đổi trả'], lines=['Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".'])]"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1164,
+   "id": 1165,
+   "ms": 0.0,
+   "result": "''"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1164,
+   "id": 1166,
+   "ms": 0.0,
+   "result": "''"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1164,
+   "id": 1167,
+   "ms": 0.0,
+   "result": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1164,
+   "id": 1168,
+   "ms": 0.0,
+   "result": "'Khách hàng được đổi trả sản phẩm trong vòng **7 ngày** kể từ ngày nhận hàng. Sau thời hạn này, sản phẩm chỉ được hỗ trợ theo chính sách bảo hành.'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1164,
+   "id": 1169,
+   "ms": 0.0,
+   "result": "'- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎- Sản phẩm không có dấu hiệu va đập, vào nước hoặc tự ý sửa chữa.'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1164,
+   "id": 1170,
+   "ms": 0.0,
+   "result": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1164,
+   "id": 1171,
+   "ms": 0.0,
+   "result": "'Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh toán ban đầu. Đơn thanh toán tiền mặt được hoàn bằng chuyển khoản.'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1164,
+   "id": 1172,
+   "ms": 0.0,
+   "result": "'Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1173,
+   "ms": 0.0,
+   "result": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1174,
+   "ms": 0.1,
+   "result": "60"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1175,
+   "ms": 0.0,
+   "result": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1176,
+   "ms": 0.0,
+   "result": "'Khách hàng được đổi trả sản phẩm trong vòng **7 ngày** kể từ ngày nhận hàng. Sau thời hạn này, sản phẩm chỉ được hỗ trợ theo chính sách bảo hành.'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.Khách hàng được đổi trả sản phẩm trong vòng **7 ngày** kể từ ngày nhận hàng…(+70 ký tự)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1177,
+   "ms": 0.1,
+   "result": "115"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1178,
+   "ms": 0.0,
+   "result": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎⏎**Thời hạn đổi trả**⏎Khách hàng được đổi trả sản phẩm trong vòng **7 ngà…(+94 ký tự)'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎⏎**Thời hạn đổi trả**⏎Khách hàng được đổi trả sản phẩm trong vòng **7 ngà…(+94 ký tự)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1179,
+   "ms": 0.0,
+   "result": "126"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1180,
+   "ms": 0.0,
+   "result": "'- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎- Sản phẩm không có dấu hiệu va đập, vào nước hoặc tự ý sửa chữa.'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎- Sản phẩm không có dấu hiệu va đập, vào nước hoặc tự ý sửa chữa.'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1181,
+   "ms": 0.0,
+   "result": "91"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1182,
+   "ms": 0.0,
+   "result": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1183,
+   "ms": 0.0,
+   "result": "61"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1184,
+   "ms": 0.0,
+   "result": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1185,
+   "ms": 0.0,
+   "result": "'Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh toán ban đầu. Đơn thanh toán tiền mặt được hoàn bằng chuyển khoản.'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh toán ban đầu. Đơn t…(+47 ký tự)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1186,
+   "ms": 0.0,
+   "result": "115"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1187,
+   "ms": 0.0,
+   "result": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.⏎⏎⏎**Hoàn tiền**⏎Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh to…(+64 ký tự)'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.⏎⏎⏎**Hoàn tiền**⏎Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh to…(+64 ký tự)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1188,
+   "ms": 0.0,
+   "result": "121"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1189,
+   "ms": 0.0,
+   "result": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎⏎**Thời hạn đổi trả**⏎Khách hàng được đổi trả sản phẩm trong vòng **7 ngà…(+94 ký tự)'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎⏎**Thời hạn đổi trả**⏎Khách hàng được đổi trả sản phẩm trong vòng **7 ngà…(+94 ký tự)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1190,
+   "ms": 0.0,
+   "result": "126"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1191,
+   "ms": 0.0,
+   "result": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎⏎**Thời hạn đổi trả**⏎Khách hàng được đổi trả sản phẩm trong vòng **7 ngà…(+94 ký tự)'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1192,
+   "ms": 0.0,
+   "result": "'- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎- Sản phẩm không có dấu hiệu va đập, vào nước hoặc tự ý sửa chữa.'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎- Sản phẩm không có dấu hiệu va đập, vào nước hoặc tự ý sửa chữa.'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1193,
+   "ms": 0.0,
+   "result": "91"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1194,
+   "ms": 0.0,
+   "result": "'- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎- Sản phẩm không có dấu hiệu va đập, vào nước hoặc tự ý sửa chữa.'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1195,
+   "ms": 0.0,
+   "result": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.⏎⏎⏎**Hoàn tiền**⏎Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh to…(+64 ký tự)'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.⏎⏎⏎**Hoàn tiền**⏎Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh to…(+64 ký tự)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1196,
+   "ms": 0.0,
+   "result": "121"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1197,
+   "ms": 0.0,
+   "result": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.⏎⏎⏎**Hoàn tiền**⏎Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh to…(+64 ký tự)'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1198,
+   "ms": 0.0,
+   "result": "'Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1199,
+   "ms": 0.1,
+   "result": "48"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1163,
+   "id": 1200,
+   "ms": 0.0,
+   "result": "'Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".'"
+  },
+  {
+   "name": "embeddings.embed",
+   "line": 23,
+   "args": {
+    "texts": "['[Chính sách đổi trả hàng > Phạm vi áp dụng]⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điệ…(+238 ký tự)', '[Chính sách đổi trả hàng > Điều kiện đổi trả]⏎- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá …(+110 ký tự)', '[Chính sách đổi trả hàng > Hàng điện tử và điện thoại]⏎Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử…(+219 ký tự)', '[Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả]⏎Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi…(+35 ký tự)']"
+   },
+   "children": [
+    1202,
+    1204,
+    1206,
+    1208,
+    1210,
+    1231
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1158,
+   "id": 1201,
+   "ms": 305.5,
+   "result": "([<vector 1536 số: [-0.0053, 0.0216, -0.0529, …]>, <vector 1536 số: [0.0212, 0.0231, -0.0797, …]>, <vector 1536 số: [-0.0054, 0.0251, -0.0288, …]>, <vector 1536 số: [-0.0192, 0.0438, -0.0110, …]>], 147, False)"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'[Chính sách đổi trả hàng > Phạm vi áp dụng]⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎⏎**Thời hạn đổi trả**⏎Khách h…(+138 ký tự)'"
+   },
+   "children": [
+    1203
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1201,
+   "id": 1202,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:155e107e37582f3385933176cf4ed0f4ed2177ae'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1202,
+   "id": 1203,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'[Chính sách đổi trả hàng > Điều kiện đổi trả]⏎- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎- Sản phẩm không có dấu hiệu va đập, vào nước hoặc tự ý…(+10 ký tự)'"
+   },
+   "children": [
+    1205
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1201,
+   "id": 1204,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:872843448abcb558d8c77d6292b8b5496bfaeb7f'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1204,
+   "id": 1205,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'[Chính sách đổi trả hàng > Hàng điện tử và điện thoại]⏎Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.⏎⏎⏎**Hoàn tiền**⏎Tiền đượ…(+119 ký tự)'"
+   },
+   "children": [
+    1207
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1201,
+   "id": 1206,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:e60f1f0be5f599a69f386d76f64b1fe899e5dc0d'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1206,
+   "id": 1207,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'[Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả]⏎Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".'"
+   },
+   "children": [
+    1209
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1201,
+   "id": 1208,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:0c8e429913bdb13e51a615a96772ff5972d5b661'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1208,
+   "id": 1209,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1201,
+   "id": 1210,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "sync.PermissionSync.poll_once",
+   "line": 66,
+   "args": {},
+   "children": [
+    1212,
+    1219,
+    1220,
+    1222,
+    1224,
+    1225
+   ],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 96,
+   "id": 1211,
+   "ms": 44.8,
+   "result": "1"
+  },
+  {
+   "name": "iam.keycloak.KeycloakEventSource.poll",
+   "line": 156,
+   "args": {},
+   "children": [
+    1213,
+    1216,
+    1217,
+    1218
+   ],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1211,
+   "id": 1212,
+   "ms": 16.7,
+   "result": "[AccessChangeEvent(occurred_at=<datetime>, kind='role_mapping', summary='CREATE REALM_ROLE_MAPPING (users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm)', user_ids=['829671b9-5f8b-431d-9b2f-8a31158a3a2d'], affects_all=False, raw={time: 1794371878907, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: <dict>, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'})]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.admin_events",
+   "line": 112,
+   "args": {
+    "max_results": "200"
+   },
+   "children": [
+    1214
+   ],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1212,
+   "id": 1213,
+   "ms": 16.3,
+   "result": "[{time: 1794371878907, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794371861745, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370061899, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370051386, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369953009, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369939412, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, …(+50)]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/admin-events'",
+    "kw": "{params: {max: 200}}"
+   },
+   "children": [
+    1215
+   ],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1213,
+   "id": 1214,
+   "ms": 15.7,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/admin-events?max=200>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1214,
+   "id": 1215,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMjM3NDlhMGQtMGYxNC00NGI0LThlNjQtODZiODliZGQ5YzZhIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak._event_key",
+   "line": 142,
+   "args": {
+    "e": "{time: 1794371878907, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}"
+   },
+   "children": [],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1212,
+   "id": 1216,
+   "ms": 0.0,
+   "result": "'1794371878907|CREATE|REALM_ROLE_MAPPING|users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm|35052e3dac'"
+  },
+  {
+   "name": "iam.keycloak._event_key",
+   "line": 142,
+   "args": {
+    "e": "{time: 1794371861745, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}"
+   },
+   "children": [],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1212,
+   "id": 1217,
+   "ms": 0.0,
+   "result": "'1794371861745|DELETE|REALM_ROLE_MAPPING|users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm|35052e3dac'"
+  },
+  {
+   "name": "iam.keycloak._event_key",
+   "line": 142,
+   "args": {
+    "e": "{time: 1794371878907, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}"
+   },
+   "children": [],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1212,
+   "id": 1218,
+   "ms": 0.0,
+   "result": "'1794371878907|CREATE|REALM_ROLE_MAPPING|users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm|35052e3dac'"
+  },
+  {
+   "name": "sync._now",
+   "line": 23,
+   "args": {},
+   "children": [],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1211,
+   "id": 1219,
+   "ms": 0.0,
+   "result": "<datetime>"
+  },
+  {
+   "name": "access.invalidate",
+   "line": 62,
+   "args": {
+    "user_id": "'829671b9-5f8b-431d-9b2f-8a31158a3a2d'"
+   },
+   "children": [
+    1221
+   ],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1211,
+   "id": 1220,
+   "ms": 1.5,
+   "result": "True"
+  },
+  {
+   "name": "access._key",
+   "line": 33,
+   "args": {
+    "user_id": "'829671b9-5f8b-431d-9b2f-8a31158a3a2d'"
+   },
+   "children": [],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1220,
+   "id": 1221,
+   "ms": 0.0,
+   "result": "'sig:user:829671b9-5f8b-431d-9b2f-8a31158a3a2d'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/users/829671b9-5f8b-431d-9b2f-8a31158a3a2d'",
+    "kw": "{}"
+   },
+   "children": [
+    1223
+   ],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1211,
+   "id": 1222,
+   "ms": 20.7,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/users/829671b9-5f8b-431d-9b2f-8a31158a3a2d>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1222,
+   "id": 1223,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMjM3NDlhMGQtMGYxNC00NGI0LThlNjQtODZiODliZGQ5YzZhIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "sync._now",
+   "line": 23,
+   "args": {},
+   "children": [],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1211,
+   "id": 1224,
+   "ms": 0.0,
+   "result": "<datetime>"
+  },
+  {
+   "name": "sync.record_event",
+   "line": 27,
+   "args": {
+    "kind": "'permission_change'",
+    "source": "'keycloak'",
+    "occurred_at": "<datetime>",
+    "detected_at": "<datetime>",
+    "effective_at": "<datetime>",
+    "summary": "'CREATE REALM_ROLE_MAPPING (users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm) -> tính lại signature: cskh1'",
+    "details": "{kind: 'role_mapping', user_ids: ['829671b9-5f8b-431d-9b2f-8a31158a3a2d'], usernames: ['cskh1'], signatures_invalidated: 1, operation: 'CREATE', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}"
+   },
+   "children": [
+    1226,
+    1229,
+    1230
+   ],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1211,
+   "id": 1225,
+   "ms": 5.5,
+   "result": "{id: 24, kind: 'permission_change', source: 'keycloak', occurred_at: '2026-11-11T04:37:58.907000+00:00', detected_at: '2026-11-11T04:37:59.083887+00:00', effective_at: '2026-11-11T04:37:59.106279+00:00', summary: 'CREATE REALM_ROLE_MAPPING (users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm) -> tính lại signature: cskh1', details: {kind: 'role_mapping', user_ids: ['829671b9-5f8b-431d-9b2f-8a31158a3a2d'], operation: 'CREATE', usernames: ['cskh1'], representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]', signatures_invalidated: 1}}"
+  },
+  {
+   "name": "db.fetch_one",
+   "line": 104,
+   "args": {
+    "sql": "'INSERT INTO security_events(kind,source,occurred_at,detected_at,effective_at,summary,details)⏎           VALUES (%s,%s,%s,%s,%s,%s,%s) RETURNING *'",
+    "params": "('permission_change', 'keycloak', <datetime>, <datetime>, <datetime>, 'CREATE REALM_ROLE_MAPPING (users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm) -> tính lại signature: cskh1', …(+1))"
+   },
+   "children": [
+    1227,
+    1228
+   ],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1225,
+   "id": 1226,
+   "ms": 4.5,
+   "result": "{id: 24, kind: 'permission_change', source: 'keycloak', occurred_at: <datetime>, detected_at: <datetime>, effective_at: <datetime>, summary: 'CREATE REALM_ROLE_MAPPING (users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm) -> tính lại signature: cskh1', details: {kind: 'role_mapping', user_ids: ['829671b9-5f8b-431d-9b2f-8a31158a3a2d'], operation: 'CREATE', usernames: ['cskh1'], representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]', signatures_invalidated: 1}}"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1226,
+   "id": 1227,
+   "ms": 0.0,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1226,
+   "id": 1228,
+   "ms": 2.4,
+   "result": "None"
+  },
+  {
+   "name": "tracing.jsonable",
+   "line": 73,
+   "args": {
+    "row": "{id: 24, kind: 'permission_change', source: 'keycloak', occurred_at: <datetime>, detected_at: <datetime>, effective_at: <datetime>, summary: 'CREATE REALM_ROLE_MAPPING (users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm) -> tính lại signature: cskh1', details: {kind: 'role_mapping', user_ids: ['829671b9-5f8b-431d-9b2f-8a31158a3a2d'], operation: 'CREATE', usernames: ['cskh1'], representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]', signatures_invalidated: 1}}"
+   },
+   "children": [],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1225,
+   "id": 1229,
+   "ms": 0.0,
+   "result": "{id: 24, kind: 'permission_change', source: 'keycloak', occurred_at: '2026-11-11T04:37:58.907000+00:00', detected_at: '2026-11-11T04:37:59.083887+00:00', effective_at: '2026-11-11T04:37:59.106279+00:00', summary: 'CREATE REALM_ROLE_MAPPING (users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm) -> tính lại signature: cskh1', details: {kind: 'role_mapping', user_ids: ['829671b9-5f8b-431d-9b2f-8a31158a3a2d'], operation: 'CREATE', usernames: ['cskh1'], representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]', signatures_invalidated: 1}}"
+  },
+  {
+   "name": "tracing.publish",
+   "line": 85,
+   "args": {
+    "kind": "'security'",
+    "data": "{id: 24, kind: 'permission_change', source: 'keycloak', occurred_at: '2026-11-11T04:37:58.907000+00:00', detected_at: '2026-11-11T04:37:59.083887+00:00', effective_at: '2026-11-11T04:37:59.106279+00:00', summary: 'CREATE REALM_ROLE_MAPPING (users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm) -> tính lại signature: cskh1', details: {kind: 'role_mapping', user_ids: ['829671b9-5f8b-431d-9b2f-8a31158a3a2d'], operation: 'CREATE', usernames: ['cskh1'], representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]', signatures_invalidated: 1}}"
+   },
+   "children": [],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1225,
+   "id": 1230,
+   "ms": 0.8,
+   "result": "None"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'[Chính sách đổi trả hàng > Phạm vi áp dụng]⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎⏎**Thời hạn đổi trả**⏎Khách h…(+138 ký tự)'"
+   },
+   "children": [
+    1232
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1201,
+   "id": 1231,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:155e107e37582f3385933176cf4ed0f4ed2177ae'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1231,
+   "id": 1232,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "documents.ensure_collection",
+   "line": 44,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1158,
+   "id": 1233,
+   "ms": 9.1,
+   "result": "None"
+  },
+  {
+   "name": "db.execute",
+   "line": 109,
+   "args": {
+    "sql": "'INSERT INTO documents(doc_id,title,collection,version,updated_at) VALUES (%s,%s,%s,%s,now())⏎                  ON CONFLICT (doc_id) DO UPDATE SET title=EXCLUDED.title, collection=EXCLUDED.collection,⏎                  ve…(+40 ký tự)'",
+    "params": "('return_policy', 'Chính sách đổi trả hàng', 'public', 1)"
+   },
+   "children": [
+    1235,
+    1236
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1158,
+   "id": 1234,
+   "ms": 3.4,
+   "result": "None"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1234,
+   "id": 1235,
+   "ms": 0.0,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1234,
+   "id": 1236,
+   "ms": 1.5,
+   "result": "None"
+  },
+  {
+   "name": "cache.flush",
+   "line": 249,
+   "args": {},
+   "children": [
+    1238
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1237,
+   "ms": 279.8,
+   "result": "1"
+  },
+  {
+   "name": "cache.ensure_collection",
+   "line": 92,
+   "args": {},
+   "children": [
+    1239
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1237,
+   "id": 1238,
+   "ms": 261.8,
+   "result": "None"
+  },
+  {
+   "name": "embeddings.dim",
+   "line": 48,
+   "args": {},
+   "children": [
+    1240
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1238,
+   "id": 1239,
+   "ms": 1.3,
+   "result": "1536"
+  },
+  {
+   "name": "embeddings.embed_one",
+   "line": 43,
+   "args": {
+    "text": "'dimension probe'"
+   },
+   "children": [
+    1241
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1239,
+   "id": 1240,
+   "ms": 1.3,
+   "result": "(<vector 1536 số: [0.0041, 0.0050, -0.0016, …]>, 0, True)"
+  },
+  {
+   "name": "embeddings.embed",
+   "line": 23,
+   "args": {
+    "texts": "['dimension probe']"
+   },
+   "children": [
+    1242
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1240,
+   "id": 1241,
+   "ms": 1.2,
+   "result": "([<vector 1536 số: [0.0041, 0.0050, -0.0016, …]>], 0, True)"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'dimension probe'"
+   },
+   "children": [
+    1243
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1241,
+   "id": 1242,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:308dd23d388da99ccbf354a45b37d28892fc9763'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1242,
+   "id": 1243,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "access.invalidate_all",
+   "line": 66,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "10_reset",
+   "parent": 1089,
+   "id": 1244,
+   "ms": 4.8,
+   "result": "1"
+  },
+  {
+   "name": "sync.PermissionSync.poll_once",
+   "line": 66,
+   "args": {},
+   "children": [
+    1246
+   ],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 96,
+   "id": 1245,
+   "ms": 17.2,
+   "result": "0"
+  },
+  {
+   "name": "iam.keycloak.KeycloakEventSource.poll",
+   "line": 156,
+   "args": {},
+   "children": [
+    1247,
+    1250
+   ],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1245,
+   "id": 1246,
+   "ms": 17.2,
+   "result": "[]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.admin_events",
+   "line": 112,
+   "args": {
+    "max_results": "200"
+   },
+   "children": [
+    1248
+   ],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1246,
+   "id": 1247,
+   "ms": 16.9,
+   "result": "[{time: 1794371878907, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794371861745, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370061899, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370051386, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369953009, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369939412, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, …(+50)]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/admin-events'",
+    "kw": "{params: {max: 200}}"
+   },
+   "children": [
+    1249
+   ],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1247,
+   "id": 1248,
+   "ms": 16.3,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/admin-events?max=200>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1248,
+   "id": 1249,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMjM3NDlhMGQtMGYxNC00NGI0LThlNjQtODZiODliZGQ5YzZhIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak._event_key",
+   "line": 142,
+   "args": {
+    "e": "{time: 1794371878907, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}"
+   },
+   "children": [],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1246,
+   "id": 1250,
+   "ms": 0.0,
+   "result": "'1794371878907|CREATE|REALM_ROLE_MAPPING|users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm|35052e3dac'"
+  },
+  {
+   "name": "sync.PermissionSync.poll_once",
+   "line": 66,
+   "args": {},
+   "children": [
+    1252
+   ],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 96,
+   "id": 1251,
+   "ms": 21.7,
+   "result": "0"
+  },
+  {
+   "name": "iam.keycloak.KeycloakEventSource.poll",
+   "line": 156,
+   "args": {},
+   "children": [
+    1253,
+    1256
+   ],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1251,
+   "id": 1252,
+   "ms": 21.7,
+   "result": "[]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.admin_events",
+   "line": 112,
+   "args": {
+    "max_results": "200"
+   },
+   "children": [
+    1254
+   ],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1252,
+   "id": 1253,
+   "ms": 21.4,
+   "result": "[{time: 1794371878907, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794371861745, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370061899, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370051386, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369953009, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369939412, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, …(+50)]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/admin-events'",
+    "kw": "{params: {max: 200}}"
+   },
+   "children": [
+    1255
+   ],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1253,
+   "id": 1254,
+   "ms": 20.6,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/admin-events?max=200>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1254,
+   "id": 1255,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMjM3NDlhMGQtMGYxNC00NGI0LThlNjQtODZiODliZGQ5YzZhIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak._event_key",
+   "line": 142,
+   "args": {
+    "e": "{time: 1794371878907, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}"
+   },
+   "children": [],
+   "thread": "permission-sync",
+   "label": "10_reset",
+   "parent": 1252,
+   "id": 1256,
+   "ms": 0.0,
+   "result": "'1794371878907|CREATE|REALM_ROLE_MAPPING|users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm|35052e3dac'"
+  }
+ ]
+}

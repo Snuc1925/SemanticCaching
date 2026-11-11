@@ -1,0 +1,4550 @@
+{
+ "title": "cskh1 hỏi lần đầu: 'Khách VIP được đổi trả trong bao lâu?' → MISS",
+ "calls": [
+  {
+   "name": "auth.current_user",
+   "line": 35,
+   "args": {
+    "request": "<Request>"
+   },
+   "children": [
+    114
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": null,
+   "id": 113,
+   "ms": 0.4,
+   "result": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')"
+  },
+  {
+   "name": "auth.decode",
+   "line": 23,
+   "args": {
+    "token": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiZGUwNzI1NzQtOWQyZS00ODY3LWI0OTItOWNkZGM4OWQ5MGM1Iiwi…(+1167 ký tự)'"
+   },
+   "children": [
+    115
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 113,
+   "id": 114,
+   "ms": 0.3,
+   "result": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')"
+  },
+  {
+   "name": "auth.issuer",
+   "line": 19,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 114,
+   "id": 115,
+   "ms": 0.0,
+   "result": "'http://localhost:8080/realms/semcache'"
+  },
+  {
+   "name": "main.chat",
+   "line": 76,
+   "args": {
+    "body": "ChatIn({message: 'Khách VIP được đổi trả trong bao lâu?', session_id: None})",
+    "bg": "<BackgroundTasks>",
+    "user": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')"
+   },
+   "children": [
+    117,
+    120,
+    123,
+    126,
+    127,
+    380,
+    390,
+    393
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": null,
+   "id": 116,
+   "ms": 5322.2,
+   "result": "{session_id: '7808365c-6682-411c-82ba-438243673b27', message_id: 'd643980e-2f40-4012-842c-b3e05932ea9f', trace_id: '69867628-3075-495d-8f5e-30ee64405ecd', status: 'MISS', answer: 'Khách hàng hạng VIP được đổi trả trong vòng 33 ngày kể từ ngày nhận hàng [c2]. Trưởng ca CSKH có thể duyệt kéo dài đến t…(+19 ký tự)', citations: [{label: 'c2', doc_id: 'vip_return_exception', title: 'Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', section: 'Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Thời hạn đổi trả của khách VIP', collection: 'cskh', version: 1}], latency_ms: 5284.3, similarity: None, policy: 'NORMAL'}"
+  },
+  {
+   "name": "db.execute",
+   "line": 109,
+   "args": {
+    "sql": "'INSERT INTO sessions(id,user_id,username,title) VALUES (%s,%s,%s,%s)'",
+    "params": "('7808365c-6682-411c-82ba-438243673b27', '829671b9-5f8b-431d-9b2f-8a31158a3a2d', 'cskh1', 'Khách VIP được đổi trả trong bao lâu?')"
+   },
+   "children": [
+    118,
+    119
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 116,
+   "id": 117,
+   "ms": 5.0,
+   "result": "None"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 117,
+   "id": 118,
+   "ms": 0.0,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 117,
+   "id": 119,
+   "ms": 1.4,
+   "result": "None"
+  },
+  {
+   "name": "db.fetch_all",
+   "line": 99,
+   "args": {
+    "sql": "'SELECT role, content FROM messages WHERE session_id=%s ORDER BY created_at DESC LIMIT 4'",
+    "params": "('7808365c-6682-411c-82ba-438243673b27')"
+   },
+   "children": [
+    121,
+    122
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 116,
+   "id": 120,
+   "ms": 4.8,
+   "result": "[]"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 120,
+   "id": 121,
+   "ms": 0.0,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 120,
+   "id": 122,
+   "ms": 0.8,
+   "result": "None"
+  },
+  {
+   "name": "db.execute",
+   "line": 109,
+   "args": {
+    "sql": "\"INSERT INTO messages(id,session_id,role,content) VALUES (%s,%s,'user',%s)\"",
+    "params": "('95ed22b5-af38-4b34-970a-ed243259e046', '7808365c-6682-411c-82ba-438243673b27', 'Khách VIP được đổi trả trong bao lâu?')"
+   },
+   "children": [
+    124,
+    125
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 116,
+   "id": 123,
+   "ms": 5.3,
+   "result": "None"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 123,
+   "id": 124,
+   "ms": 0.0,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 123,
+   "id": 125,
+   "ms": 1.3,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.__init__",
+   "line": 17,
+   "args": {
+    "user_id": "'829671b9-5f8b-431d-9b2f-8a31158a3a2d'",
+    "username": "'cskh1'",
+    "question": "'Khách VIP được đổi trả trong bao lâu?'",
+    "session_id": "'7808365c-6682-411c-82ba-438243673b27'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 116,
+   "id": 126,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "pipeline.answer",
+   "line": 44,
+   "args": {
+    "user": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')",
+    "question": "'Khách VIP được đổi trả trong bao lâu?'",
+    "session_id": "'7808365c-6682-411c-82ba-438243673b27'",
+    "history": "[]",
+    "tr": "Trace(id='69867628-3075-495d-8f5e-30ee64405ecd', status='ERROR', 0 span)"
+   },
+   "children": [
+    128,
+    129,
+    131,
+    132,
+    133,
+    134,
+    146,
+    147,
+    148,
+    149,
+    150,
+    314,
+    315,
+    316,
+    318,
+    319,
+    321,
+    322,
+    323,
+    324,
+    325,
+    326,
+    327,
+    328,
+    337,
+    338,
+    339,
+    340,
+    342,
+    363,
+    364,
+    365,
+    366,
+    367,
+    368,
+    370,
+    371,
+    372,
+    376,
+    377,
+    378,
+    379
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 116,
+   "id": 127,
+   "ms": 5284.3,
+   "result": "(ChatResult(trace_id='69867628-3075-495d-8f5e-30ee64405ecd', status='MISS', answer='Khách hàng hạng VIP được đổi trả trong vòng 33 ngày kể từ ngày nhận hàng [c2]. Trưởng ca CSKH có thể duyệt kéo dài đến t…(+19 ký tự)', citations=[<dict>], latency_ms=5284.3, policy='NORMAL', similarity=None), Trace(id='69867628-3075-495d-8f5e-30ee64405ecd', status='MISS', 8 span))"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'identity'",
+    "title": "'Danh tính & access signature'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 128,
+   "ms": 0.0,
+   "result": "{}"
+  },
+  {
+   "name": "access.get",
+   "line": 42,
+   "args": {
+    "user": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')"
+   },
+   "children": [
+    130
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 129,
+   "ms": 1.1,
+   "result": "Signature(signature='95503c7831d2f7ed', collections=['cskh', 'internal_all', 'public'], computed_at=1.794e+09, from_cache=True)"
+  },
+  {
+   "name": "access._key",
+   "line": 33,
+   "args": {
+    "user_id": "'829671b9-5f8b-431d-9b2f-8a31158a3a2d'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 129,
+   "id": 130,
+   "ms": 0.0,
+   "result": "'sig:user:829671b9-5f8b-431d-9b2f-8a31158a3a2d'"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'identity'",
+    "title": "'Danh tính & access signature'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 131,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.set",
+   "line": 40,
+   "args": {
+    "kw": "{partition: '95503c7831d2f7ed'}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 132,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'embed'",
+    "title": "'Embedding câu hỏi'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 133,
+   "ms": 0.0,
+   "result": "{}"
+  },
+  {
+   "name": "embeddings.embed_one",
+   "line": 43,
+   "args": {
+    "text": "'Khách VIP được đổi trả trong bao lâu?'"
+   },
+   "children": [
+    135
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 134,
+   "ms": 831.9,
+   "result": "(<vector 1536 số: [-0.0111, 0.0120, -0.0202, …]>, 15, False)"
+  },
+  {
+   "name": "embeddings.embed",
+   "line": 23,
+   "args": {
+    "texts": "['Khách VIP được đổi trả trong bao lâu?']"
+   },
+   "children": [
+    136,
+    138,
+    144
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 134,
+   "id": 135,
+   "ms": 831.8,
+   "result": "([<vector 1536 số: [-0.0111, 0.0120, -0.0202, …]>], 15, False)"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Khách VIP được đổi trả trong bao lâu?'"
+   },
+   "children": [
+    137
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 135,
+   "id": 136,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:4e54d9e6e85d48f3ee51be2160d4a63c4cd21078'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 136,
+   "id": 137,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 135,
+   "id": 138,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "sync.PermissionSync.poll_once",
+   "line": 66,
+   "args": {},
+   "children": [
+    140
+   ],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 96,
+   "id": 139,
+   "ms": 26.3,
+   "result": "0"
+  },
+  {
+   "name": "iam.keycloak.KeycloakEventSource.poll",
+   "line": 156,
+   "args": {},
+   "children": [
+    141
+   ],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 139,
+   "id": 140,
+   "ms": 26.2,
+   "result": "[]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.admin_events",
+   "line": 112,
+   "args": {
+    "max_results": "200"
+   },
+   "children": [
+    142
+   ],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 140,
+   "id": 141,
+   "ms": 26.0,
+   "result": "[{time: 1794370061899, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370051386, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369953009, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369939412, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794339261520, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.6'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794339241649, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.6'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, …(+48)]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/admin-events'",
+    "kw": "{params: {max: 200}}"
+   },
+   "children": [
+    143
+   ],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 141,
+   "id": 142,
+   "ms": 25.4,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/admin-events?max=200>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 142,
+   "id": 143,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMjM3NDlhMGQtMGYxNC00NGI0LThlNjQtODZiODliZGQ5YzZhIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Khách VIP được đổi trả trong bao lâu?'"
+   },
+   "children": [
+    145
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 135,
+   "id": 144,
+   "ms": 0.1,
+   "result": "'emb:text-embedding-3-small:4e54d9e6e85d48f3ee51be2160d4a63c4cd21078'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 144,
+   "id": 145,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 146,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'embed'",
+    "title": "'Embedding câu hỏi'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 147,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.set",
+   "line": 40,
+   "args": {
+    "kw": "{embed_tokens: 15}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 148,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'classify'",
+    "title": "'Phân loại câu hỏi'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 149,
+   "ms": 0.0,
+   "result": "{}"
+  },
+  {
+   "name": "classifier.classify",
+   "line": 95,
+   "args": {
+    "question": "'Khách VIP được đổi trả trong bao lâu?'",
+    "vec": "<vector 1536 số: [-0.0111, 0.0120, -0.0202, …]>"
+   },
+   "children": [
+    151,
+    244,
+    312
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 150,
+   "ms": 549.9,
+   "result": "Classification(policy='NORMAL', reason='câu hỏi tĩnh', intent='return_policy', intent_similarity=0.72, entities={tier: 'vip'})"
+  },
+  {
+   "name": "classifier.cache_policy",
+   "line": 34,
+   "args": {
+    "question": "'Khách VIP được đổi trả trong bao lâu?'"
+   },
+   "children": [
+    152,
+    153,
+    241,
+    242,
+    243
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 150,
+   "id": 151,
+   "ms": 32.6,
+   "result": "('NORMAL', 'câu hỏi tĩnh')"
+  },
+  {
+   "name": "classifier.normalize",
+   "line": 23,
+   "args": {
+    "text": "'Khách VIP được đổi trả trong bao lâu?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 151,
+   "id": 152,
+   "ms": 0.2,
+   "result": "'khách vip được đổi trả trong bao lâu?'"
+  },
+  {
+   "name": "config.classifier_config",
+   "line": 74,
+   "args": {},
+   "children": [
+    154
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 151,
+   "id": 153,
+   "ms": 32.3,
+   "result": "{policies: {NO_CACHE: {keywords: <list>}, SHORT_TTL: {keywords: <list>}, BYPASS: {starts_with: <list>, keywords: <list>, min_words: 4}}, intent: {min_similarity: 0.45, examples: {return_policy: <list>, warranty: <list>, shipping: <list>, membership: <list>, hr_leave: <list>, hr_salary: <list>, sales_discount: <list>, complaint: <list>}}, entities: {package: {bac: <list>, vang: <list>}, region: {north: <list>, south: <list>}, tier: {vip: <list>, silver: <list>}}}"
+  },
+  {
+   "name": "config.load_yaml",
+   "line": 31,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [
+    155
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 153,
+   "id": 154,
+   "ms": 32.1,
+   "result": "{policies: {NO_CACHE: {keywords: <list>}, SHORT_TTL: {keywords: <list>}, BYPASS: {starts_with: <list>, keywords: <list>, min_words: 4}}, intent: {min_similarity: 0.45, examples: {return_policy: <list>, warranty: <list>, shipping: <list>, membership: <list>, hr_leave: <list>, hr_salary: <list>, sales_discount: <list>, complaint: <list>}}, entities: {package: {bac: <list>, vang: <list>}, region: {north: <list>, south: <list>}, tier: {vip: <list>, silver: <list>}}}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{policies: {NO_CACHE: {keywords: <list>}, SHORT_TTL: {keywords: <list>}, BYPASS: {starts_with: <list>, keywords: <list>, min_words: 4}}, intent: {min_similarity: 0.45, examples: {return_policy: <list>, warranty: <list>, shipping: <list>, membership: <list>, hr_leave: <list>, hr_salary: <list>, sales_discount: <list>, complaint: <list>}}, entities: {package: {bac: <list>, vang: <list>}, region: {north: <list>, south: <list>}, tier: {vip: <list>, silver: <list>}}}"
+   },
+   "children": [
+    156,
+    190,
+    217
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 154,
+   "id": 155,
+   "ms": 1.0,
+   "result": "{policies: {NO_CACHE: {keywords: <list>}, SHORT_TTL: {keywords: <list>}, BYPASS: {starts_with: <list>, keywords: <list>, min_words: 4}}, intent: {min_similarity: 0.45, examples: {return_policy: <list>, warranty: <list>, shipping: <list>, membership: <list>, hr_leave: <list>, hr_salary: <list>, sales_discount: <list>, complaint: <list>}}, entities: {package: {bac: <list>, vang: <list>}, region: {north: <list>, south: <list>}, tier: {vip: <list>, silver: <list>}}}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{NO_CACHE: {keywords: ['của tôi', 'của mình', 'tôi còn', 'mình còn', 'đơn hàng của', 'tài khoản của', …(+1)]}, SHORT_TTL: {keywords: ['hôm nay', 'ngày mai', 'tuần này', 'tháng này', 'năm nay', 'hiện tại', …(+2)]}, BYPASS: {starts_with: ['thế còn', 'còn ', 'vậy còn', 'vậy thì', 'thế thì', 'cái đó', …(+1)], keywords: ['cái đó', 'cái này thì', 'như trên'], min_words: 4}}"
+   },
+   "children": [
+    157,
+    166,
+    176
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 155,
+   "id": 156,
+   "ms": 0.3,
+   "result": "{NO_CACHE: {keywords: ['của tôi', 'của mình', 'tôi còn', 'mình còn', 'đơn hàng của', 'tài khoản của', …(+1)]}, SHORT_TTL: {keywords: ['hôm nay', 'ngày mai', 'tuần này', 'tháng này', 'năm nay', 'hiện tại', …(+2)]}, BYPASS: {starts_with: ['thế còn', 'còn ', 'vậy còn', 'vậy thì', 'thế thì', 'cái đó', …(+1)], keywords: ['cái đó', 'cái này thì', 'như trên'], min_words: 4}}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{keywords: ['của tôi', 'của mình', 'tôi còn', 'mình còn', 'đơn hàng của', 'tài khoản của', …(+1)]}"
+   },
+   "children": [
+    158
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 156,
+   "id": 157,
+   "ms": 0.1,
+   "result": "{keywords: ['của tôi', 'của mình', 'tôi còn', 'mình còn', 'đơn hàng của', 'tài khoản của', …(+1)]}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['của tôi', 'của mình', 'tôi còn', 'mình còn', 'đơn hàng của', 'tài khoản của', …(+1)]"
+   },
+   "children": [
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 157,
+   "id": 158,
+   "ms": 0.1,
+   "result": "['của tôi', 'của mình', 'tôi còn', 'mình còn', 'đơn hàng của', 'tài khoản của', …(+1)]"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'của tôi'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 158,
+   "id": 159,
+   "ms": 0.0,
+   "result": "'của tôi'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'của mình'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 158,
+   "id": 160,
+   "ms": 0.0,
+   "result": "'của mình'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'tôi còn'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 158,
+   "id": 161,
+   "ms": 0.0,
+   "result": "'tôi còn'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'mình còn'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 158,
+   "id": 162,
+   "ms": 0.0,
+   "result": "'mình còn'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'đơn hàng của'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 158,
+   "id": 163,
+   "ms": 0.0,
+   "result": "'đơn hàng của'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'tài khoản của'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 158,
+   "id": 164,
+   "ms": 0.0,
+   "result": "'tài khoản của'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'lương của tôi'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 158,
+   "id": 165,
+   "ms": 0.0,
+   "result": "'lương của tôi'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{keywords: ['hôm nay', 'ngày mai', 'tuần này', 'tháng này', 'năm nay', 'hiện tại', …(+2)]}"
+   },
+   "children": [
+    167
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 156,
+   "id": 166,
+   "ms": 0.1,
+   "result": "{keywords: ['hôm nay', 'ngày mai', 'tuần này', 'tháng này', 'năm nay', 'hiện tại', …(+2)]}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['hôm nay', 'ngày mai', 'tuần này', 'tháng này', 'năm nay', 'hiện tại', …(+2)]"
+   },
+   "children": [
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 166,
+   "id": 167,
+   "ms": 0.1,
+   "result": "['hôm nay', 'ngày mai', 'tuần này', 'tháng này', 'năm nay', 'hiện tại', …(+2)]"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'hôm nay'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 167,
+   "id": 168,
+   "ms": 0.0,
+   "result": "'hôm nay'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'ngày mai'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 167,
+   "id": 169,
+   "ms": 0.0,
+   "result": "'ngày mai'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'tuần này'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 167,
+   "id": 170,
+   "ms": 0.0,
+   "result": "'tuần này'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'tháng này'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 167,
+   "id": 171,
+   "ms": 0.0,
+   "result": "'tháng này'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'năm nay'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 167,
+   "id": 172,
+   "ms": 0.0,
+   "result": "'năm nay'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'hiện tại'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 167,
+   "id": 173,
+   "ms": 0.0,
+   "result": "'hiện tại'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'bây giờ'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 167,
+   "id": 174,
+   "ms": 0.0,
+   "result": "'bây giờ'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'đang có'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 167,
+   "id": 175,
+   "ms": 0.0,
+   "result": "'đang có'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{starts_with: ['thế còn', 'còn ', 'vậy còn', 'vậy thì', 'thế thì', 'cái đó', …(+1)], keywords: ['cái đó', 'cái này thì', 'như trên'], min_words: 4}"
+   },
+   "children": [
+    177,
+    185,
+    189
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 156,
+   "id": 176,
+   "ms": 0.1,
+   "result": "{starts_with: ['thế còn', 'còn ', 'vậy còn', 'vậy thì', 'thế thì', 'cái đó', …(+1)], keywords: ['cái đó', 'cái này thì', 'như trên'], min_words: 4}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['thế còn', 'còn ', 'vậy còn', 'vậy thì', 'thế thì', 'cái đó', …(+1)]"
+   },
+   "children": [
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 176,
+   "id": 177,
+   "ms": 0.1,
+   "result": "['thế còn', 'còn ', 'vậy còn', 'vậy thì', 'thế thì', 'cái đó', …(+1)]"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'thế còn'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 177,
+   "id": 178,
+   "ms": 0.0,
+   "result": "'thế còn'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'còn '"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 177,
+   "id": 179,
+   "ms": 0.0,
+   "result": "'còn '"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'vậy còn'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 177,
+   "id": 180,
+   "ms": 0.0,
+   "result": "'vậy còn'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'vậy thì'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 177,
+   "id": 181,
+   "ms": 0.0,
+   "result": "'vậy thì'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'thế thì'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 177,
+   "id": 182,
+   "ms": 0.0,
+   "result": "'thế thì'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'cái đó'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 177,
+   "id": 183,
+   "ms": 0.0,
+   "result": "'cái đó'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'nó '"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 177,
+   "id": 184,
+   "ms": 0.0,
+   "result": "'nó '"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['cái đó', 'cái này thì', 'như trên']"
+   },
+   "children": [
+    186,
+    187,
+    188
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 176,
+   "id": 185,
+   "ms": 0.0,
+   "result": "['cái đó', 'cái này thì', 'như trên']"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'cái đó'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 185,
+   "id": 186,
+   "ms": 0.0,
+   "result": "'cái đó'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'cái này thì'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 185,
+   "id": 187,
+   "ms": 0.0,
+   "result": "'cái này thì'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'như trên'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 185,
+   "id": 188,
+   "ms": 0.0,
+   "result": "'như trên'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "4"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 176,
+   "id": 189,
+   "ms": 0.0,
+   "result": "4"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{min_similarity: 0.45, examples: {return_policy: ['Chính sách đổi trả hàng thế nào?', 'Được trả lại sản phẩm trong bao lâu?'], warranty: ['Bảo hành sản phẩm bao lâu?', 'Gói bảo hành mở rộng giá bao nhiêu?'], shipping: ['Giao hàng mất bao lâu?', 'Phí giao hàng là bao nhiêu?'], membership: ['Có những hạng thành viên nào?', 'Điều kiện lên hạng VIP là gì?'], hr_leave: ['Nhân viên có bao nhiêu ngày phép?', 'Quy trình xin nghỉ phép thế nào?'], hr_salary: ['Thưởng Tết bao nhiêu?', 'Tăng lương mấy phần trăm?'], sales_discount: ['Chiết khấu đại lý là bao nhiêu?', 'Đại lý được công nợ bao lâu?'], complaint: ['Xử lý khiếu nại thế nào?', 'Giao hàng trễ được bồi thường gì?']}}"
+   },
+   "children": [
+    191,
+    192
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 155,
+   "id": 190,
+   "ms": 0.3,
+   "result": "{min_similarity: 0.45, examples: {return_policy: ['Chính sách đổi trả hàng thế nào?', 'Được trả lại sản phẩm trong bao lâu?'], warranty: ['Bảo hành sản phẩm bao lâu?', 'Gói bảo hành mở rộng giá bao nhiêu?'], shipping: ['Giao hàng mất bao lâu?', 'Phí giao hàng là bao nhiêu?'], membership: ['Có những hạng thành viên nào?', 'Điều kiện lên hạng VIP là gì?'], hr_leave: ['Nhân viên có bao nhiêu ngày phép?', 'Quy trình xin nghỉ phép thế nào?'], hr_salary: ['Thưởng Tết bao nhiêu?', 'Tăng lương mấy phần trăm?'], sales_discount: ['Chiết khấu đại lý là bao nhiêu?', 'Đại lý được công nợ bao lâu?'], complaint: ['Xử lý khiếu nại thế nào?', 'Giao hàng trễ được bồi thường gì?']}}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "0.45"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 190,
+   "id": 191,
+   "ms": 0.0,
+   "result": "0.45"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{return_policy: ['Chính sách đổi trả hàng thế nào?', 'Được trả lại sản phẩm trong bao lâu?'], warranty: ['Bảo hành sản phẩm bao lâu?', 'Gói bảo hành mở rộng giá bao nhiêu?'], shipping: ['Giao hàng mất bao lâu?', 'Phí giao hàng là bao nhiêu?'], membership: ['Có những hạng thành viên nào?', 'Điều kiện lên hạng VIP là gì?'], hr_leave: ['Nhân viên có bao nhiêu ngày phép?', 'Quy trình xin nghỉ phép thế nào?'], hr_salary: ['Thưởng Tết bao nhiêu?', 'Tăng lương mấy phần trăm?'], sales_discount: ['Chiết khấu đại lý là bao nhiêu?', 'Đại lý được công nợ bao lâu?'], complaint: ['Xử lý khiếu nại thế nào?', 'Giao hàng trễ được bồi thường gì?']}"
+   },
+   "children": [
+    193,
+    196,
+    199,
+    202,
+    205,
+    208,
+    211,
+    214
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 190,
+   "id": 192,
+   "ms": 0.3,
+   "result": "{return_policy: ['Chính sách đổi trả hàng thế nào?', 'Được trả lại sản phẩm trong bao lâu?'], warranty: ['Bảo hành sản phẩm bao lâu?', 'Gói bảo hành mở rộng giá bao nhiêu?'], shipping: ['Giao hàng mất bao lâu?', 'Phí giao hàng là bao nhiêu?'], membership: ['Có những hạng thành viên nào?', 'Điều kiện lên hạng VIP là gì?'], hr_leave: ['Nhân viên có bao nhiêu ngày phép?', 'Quy trình xin nghỉ phép thế nào?'], hr_salary: ['Thưởng Tết bao nhiêu?', 'Tăng lương mấy phần trăm?'], sales_discount: ['Chiết khấu đại lý là bao nhiêu?', 'Đại lý được công nợ bao lâu?'], complaint: ['Xử lý khiếu nại thế nào?', 'Giao hàng trễ được bồi thường gì?']}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['Chính sách đổi trả hàng thế nào?', 'Được trả lại sản phẩm trong bao lâu?']"
+   },
+   "children": [
+    194,
+    195
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 192,
+   "id": 193,
+   "ms": 0.0,
+   "result": "['Chính sách đổi trả hàng thế nào?', 'Được trả lại sản phẩm trong bao lâu?']"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Chính sách đổi trả hàng thế nào?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 193,
+   "id": 194,
+   "ms": 0.0,
+   "result": "'Chính sách đổi trả hàng thế nào?'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Được trả lại sản phẩm trong bao lâu?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 193,
+   "id": 195,
+   "ms": 0.0,
+   "result": "'Được trả lại sản phẩm trong bao lâu?'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['Bảo hành sản phẩm bao lâu?', 'Gói bảo hành mở rộng giá bao nhiêu?']"
+   },
+   "children": [
+    197,
+    198
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 192,
+   "id": 196,
+   "ms": 0.0,
+   "result": "['Bảo hành sản phẩm bao lâu?', 'Gói bảo hành mở rộng giá bao nhiêu?']"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Bảo hành sản phẩm bao lâu?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 196,
+   "id": 197,
+   "ms": 0.0,
+   "result": "'Bảo hành sản phẩm bao lâu?'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Gói bảo hành mở rộng giá bao nhiêu?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 196,
+   "id": 198,
+   "ms": 0.0,
+   "result": "'Gói bảo hành mở rộng giá bao nhiêu?'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['Giao hàng mất bao lâu?', 'Phí giao hàng là bao nhiêu?']"
+   },
+   "children": [
+    200,
+    201
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 192,
+   "id": 199,
+   "ms": 0.0,
+   "result": "['Giao hàng mất bao lâu?', 'Phí giao hàng là bao nhiêu?']"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Giao hàng mất bao lâu?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 199,
+   "id": 200,
+   "ms": 0.0,
+   "result": "'Giao hàng mất bao lâu?'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Phí giao hàng là bao nhiêu?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 199,
+   "id": 201,
+   "ms": 0.0,
+   "result": "'Phí giao hàng là bao nhiêu?'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['Có những hạng thành viên nào?', 'Điều kiện lên hạng VIP là gì?']"
+   },
+   "children": [
+    203,
+    204
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 192,
+   "id": 202,
+   "ms": 0.0,
+   "result": "['Có những hạng thành viên nào?', 'Điều kiện lên hạng VIP là gì?']"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Có những hạng thành viên nào?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 202,
+   "id": 203,
+   "ms": 0.0,
+   "result": "'Có những hạng thành viên nào?'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Điều kiện lên hạng VIP là gì?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 202,
+   "id": 204,
+   "ms": 0.0,
+   "result": "'Điều kiện lên hạng VIP là gì?'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['Nhân viên có bao nhiêu ngày phép?', 'Quy trình xin nghỉ phép thế nào?']"
+   },
+   "children": [
+    206,
+    207
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 192,
+   "id": 205,
+   "ms": 0.0,
+   "result": "['Nhân viên có bao nhiêu ngày phép?', 'Quy trình xin nghỉ phép thế nào?']"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Nhân viên có bao nhiêu ngày phép?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 205,
+   "id": 206,
+   "ms": 0.0,
+   "result": "'Nhân viên có bao nhiêu ngày phép?'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Quy trình xin nghỉ phép thế nào?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 205,
+   "id": 207,
+   "ms": 0.0,
+   "result": "'Quy trình xin nghỉ phép thế nào?'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['Thưởng Tết bao nhiêu?', 'Tăng lương mấy phần trăm?']"
+   },
+   "children": [
+    209,
+    210
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 192,
+   "id": 208,
+   "ms": 0.0,
+   "result": "['Thưởng Tết bao nhiêu?', 'Tăng lương mấy phần trăm?']"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Thưởng Tết bao nhiêu?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 208,
+   "id": 209,
+   "ms": 0.0,
+   "result": "'Thưởng Tết bao nhiêu?'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Tăng lương mấy phần trăm?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 208,
+   "id": 210,
+   "ms": 0.0,
+   "result": "'Tăng lương mấy phần trăm?'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['Chiết khấu đại lý là bao nhiêu?', 'Đại lý được công nợ bao lâu?']"
+   },
+   "children": [
+    212,
+    213
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 192,
+   "id": 211,
+   "ms": 0.1,
+   "result": "['Chiết khấu đại lý là bao nhiêu?', 'Đại lý được công nợ bao lâu?']"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Chiết khấu đại lý là bao nhiêu?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 211,
+   "id": 212,
+   "ms": 0.0,
+   "result": "'Chiết khấu đại lý là bao nhiêu?'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Đại lý được công nợ bao lâu?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 211,
+   "id": 213,
+   "ms": 0.0,
+   "result": "'Đại lý được công nợ bao lâu?'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['Xử lý khiếu nại thế nào?', 'Giao hàng trễ được bồi thường gì?']"
+   },
+   "children": [
+    215,
+    216
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 192,
+   "id": 214,
+   "ms": 0.0,
+   "result": "['Xử lý khiếu nại thế nào?', 'Giao hàng trễ được bồi thường gì?']"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Xử lý khiếu nại thế nào?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 214,
+   "id": 215,
+   "ms": 0.0,
+   "result": "'Xử lý khiếu nại thế nào?'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Giao hàng trễ được bồi thường gì?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 214,
+   "id": 216,
+   "ms": 0.0,
+   "result": "'Giao hàng trễ được bồi thường gì?'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{package: {bac: ['gói bạc', 'bạc'], vang: ['gói vàng', 'vàng']}, region: {north: ['miền bắc', 'hà nội', 'phía bắc'], south: ['miền nam', 'hồ chí minh', 'phía nam', 'sài gòn']}, tier: {vip: ['vip'], silver: ['hạng bạc', 'khách bạc']}}"
+   },
+   "children": [
+    218,
+    225,
+    235
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 155,
+   "id": 217,
+   "ms": 0.2,
+   "result": "{package: {bac: ['gói bạc', 'bạc'], vang: ['gói vàng', 'vàng']}, region: {north: ['miền bắc', 'hà nội', 'phía bắc'], south: ['miền nam', 'hồ chí minh', 'phía nam', 'sài gòn']}, tier: {vip: ['vip'], silver: ['hạng bạc', 'khách bạc']}}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{bac: ['gói bạc', 'bạc'], vang: ['gói vàng', 'vàng']}"
+   },
+   "children": [
+    219,
+    222
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 217,
+   "id": 218,
+   "ms": 0.0,
+   "result": "{bac: ['gói bạc', 'bạc'], vang: ['gói vàng', 'vàng']}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['gói bạc', 'bạc']"
+   },
+   "children": [
+    220,
+    221
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 218,
+   "id": 219,
+   "ms": 0.0,
+   "result": "['gói bạc', 'bạc']"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'gói bạc'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 219,
+   "id": 220,
+   "ms": 0.0,
+   "result": "'gói bạc'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'bạc'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 219,
+   "id": 221,
+   "ms": 0.0,
+   "result": "'bạc'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['gói vàng', 'vàng']"
+   },
+   "children": [
+    223,
+    224
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 218,
+   "id": 222,
+   "ms": 0.0,
+   "result": "['gói vàng', 'vàng']"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'gói vàng'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 222,
+   "id": 223,
+   "ms": 0.0,
+   "result": "'gói vàng'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'vàng'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 222,
+   "id": 224,
+   "ms": 0.0,
+   "result": "'vàng'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{north: ['miền bắc', 'hà nội', 'phía bắc'], south: ['miền nam', 'hồ chí minh', 'phía nam', 'sài gòn']}"
+   },
+   "children": [
+    226,
+    230
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 217,
+   "id": 225,
+   "ms": 0.1,
+   "result": "{north: ['miền bắc', 'hà nội', 'phía bắc'], south: ['miền nam', 'hồ chí minh', 'phía nam', 'sài gòn']}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['miền bắc', 'hà nội', 'phía bắc']"
+   },
+   "children": [
+    227,
+    228,
+    229
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 225,
+   "id": 226,
+   "ms": 0.0,
+   "result": "['miền bắc', 'hà nội', 'phía bắc']"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'miền bắc'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 226,
+   "id": 227,
+   "ms": 0.0,
+   "result": "'miền bắc'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'hà nội'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 226,
+   "id": 228,
+   "ms": 0.0,
+   "result": "'hà nội'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'phía bắc'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 226,
+   "id": 229,
+   "ms": 0.0,
+   "result": "'phía bắc'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['miền nam', 'hồ chí minh', 'phía nam', 'sài gòn']"
+   },
+   "children": [
+    231,
+    232,
+    233,
+    234
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 225,
+   "id": 230,
+   "ms": 0.0,
+   "result": "['miền nam', 'hồ chí minh', 'phía nam', 'sài gòn']"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'miền nam'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 230,
+   "id": 231,
+   "ms": 0.0,
+   "result": "'miền nam'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'hồ chí minh'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 230,
+   "id": 232,
+   "ms": 0.0,
+   "result": "'hồ chí minh'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'phía nam'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 230,
+   "id": 233,
+   "ms": 0.0,
+   "result": "'phía nam'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'sài gòn'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 230,
+   "id": 234,
+   "ms": 0.0,
+   "result": "'sài gòn'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{vip: ['vip'], silver: ['hạng bạc', 'khách bạc']}"
+   },
+   "children": [
+    236,
+    238
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 217,
+   "id": 235,
+   "ms": 0.0,
+   "result": "{vip: ['vip'], silver: ['hạng bạc', 'khách bạc']}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['vip']"
+   },
+   "children": [
+    237
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 235,
+   "id": 236,
+   "ms": 0.0,
+   "result": "['vip']"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'vip'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 236,
+   "id": 237,
+   "ms": 0.0,
+   "result": "'vip'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "['hạng bạc', 'khách bạc']"
+   },
+   "children": [
+    239,
+    240
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 235,
+   "id": 238,
+   "ms": 0.0,
+   "result": "['hạng bạc', 'khách bạc']"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'hạng bạc'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 238,
+   "id": 239,
+   "ms": 0.0,
+   "result": "'hạng bạc'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'khách bạc'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 238,
+   "id": 240,
+   "ms": 0.0,
+   "result": "'khách bạc'"
+  },
+  {
+   "name": "classifier._has",
+   "line": 27,
+   "args": {
+    "text": "'khách vip được đổi trả trong bao lâu?'",
+    "words": "['của tôi', 'của mình', 'tôi còn', 'mình còn', 'đơn hàng của', 'tài khoản của', …(+1)]"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 151,
+   "id": 241,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "classifier._has",
+   "line": 27,
+   "args": {
+    "text": "'khách vip được đổi trả trong bao lâu?'",
+    "words": "['cái đó', 'cái này thì', 'như trên']"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 151,
+   "id": 242,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "classifier._has",
+   "line": 27,
+   "args": {
+    "text": "'khách vip được đổi trả trong bao lâu?'",
+    "words": "['hôm nay', 'ngày mai', 'tuần này', 'tháng này', 'năm nay', 'hiện tại', …(+2)]"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 151,
+   "id": 243,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "classifier.intent",
+   "line": 68,
+   "args": {
+    "vec": "<vector 1536 số: [-0.0111, 0.0120, -0.0202, …]>"
+   },
+   "children": [
+    245
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 150,
+   "id": 244,
+   "ms": 514.1,
+   "result": "('return_policy', 0.72)"
+  },
+  {
+   "name": "classifier._intent_centroids",
+   "line": 52,
+   "args": {},
+   "children": [
+    246
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 244,
+   "id": 245,
+   "ms": 513.7,
+   "result": "{return_policy: <ndarray>, warranty: <ndarray>, shipping: <ndarray>, membership: <ndarray>, hr_leave: <ndarray>, hr_salary: <ndarray>, sales_discount: <ndarray>, complaint: <ndarray>}"
+  },
+  {
+   "name": "embeddings.embed",
+   "line": 23,
+   "args": {
+    "texts": "['Chính sách đổi trả hàng thế nào?', 'Được trả lại sản phẩm trong bao lâu?', 'Bảo hành sản phẩm bao lâu?', 'Gói bảo hành mở rộng giá bao nhiêu?', 'Giao hàng mất bao lâu?', 'Phí giao hàng là bao nhiêu?', …(+10)]"
+   },
+   "children": [
+    247,
+    249,
+    251,
+    253,
+    255,
+    257,
+    259,
+    261,
+    263,
+    265,
+    267,
+    269,
+    271,
+    273,
+    275,
+    277,
+    279,
+    280,
+    282,
+    284,
+    286,
+    288,
+    290,
+    292,
+    294,
+    296,
+    298,
+    300,
+    302,
+    304,
+    306,
+    308,
+    310
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 245,
+   "id": 246,
+   "ms": 510.9,
+   "result": "([<vector 1536 số: [-0.0093, -0.0078, -0.0057, …]>, <vector 1536 số: [0.0141, 0.0248, -0.0300, …]>, <vector 1536 số: [0.0064, 0.0467, -0.0022, …]>, <vector 1536 số: [-0.0126, 0.0363, 0.0199, …]>, <vector 1536 số: [-0.0145, 0.0183, -0.0003, …]>, <vector 1536 số: [0.0051, -0.0342, 0.0464, …]>, …(+10)], 236, False)"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Chính sách đổi trả hàng thế nào?'"
+   },
+   "children": [
+    248
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 247,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:600141adab4a242454405290fe606df3e1f6dec1'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 247,
+   "id": 248,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Được trả lại sản phẩm trong bao lâu?'"
+   },
+   "children": [
+    250
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 249,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:ba8a714af8b7e86534efcad197e6d638a995c5f0'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 249,
+   "id": 250,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Bảo hành sản phẩm bao lâu?'"
+   },
+   "children": [
+    252
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 251,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:6aa0f36dd2d48d1402979487aae8080d07b30bdb'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 251,
+   "id": 252,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Gói bảo hành mở rộng giá bao nhiêu?'"
+   },
+   "children": [
+    254
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 253,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:145eeaec9e3ec12e77a3b2544d4efc6fd85350cb'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 253,
+   "id": 254,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Giao hàng mất bao lâu?'"
+   },
+   "children": [
+    256
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 255,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:8bd9f296b49dc34f41eb08602faf3d96d315c95e'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 255,
+   "id": 256,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Phí giao hàng là bao nhiêu?'"
+   },
+   "children": [
+    258
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 257,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:af70022e5d8caae99d61c3eac9b8fdabfcbe2e23'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 257,
+   "id": 258,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Có những hạng thành viên nào?'"
+   },
+   "children": [
+    260
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 259,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:9120719dfbd935e6eaa9a032335f208d393ac034'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 259,
+   "id": 260,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Điều kiện lên hạng VIP là gì?'"
+   },
+   "children": [
+    262
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 261,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:9560608dece3298a1f07243b50bf0be8b3e18b05'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 261,
+   "id": 262,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Nhân viên có bao nhiêu ngày phép?'"
+   },
+   "children": [
+    264
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 263,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:d3b1eb168c55b00053c14ef7a64f7671b924b1ea'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 263,
+   "id": 264,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Quy trình xin nghỉ phép thế nào?'"
+   },
+   "children": [
+    266
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 265,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:71a43ac4dc67db1891d4359287f27ab31e9fd1b0'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 265,
+   "id": 266,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Thưởng Tết bao nhiêu?'"
+   },
+   "children": [
+    268
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 267,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:05eeb1a317fca87b32d8caec47d9e5cf30240a48'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 267,
+   "id": 268,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Tăng lương mấy phần trăm?'"
+   },
+   "children": [
+    270
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 269,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:56effc86a853fc678806f36f1abf72e987133222'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 269,
+   "id": 270,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Chiết khấu đại lý là bao nhiêu?'"
+   },
+   "children": [
+    272
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 271,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:863dcdcfe24a5ca8fe6e5ec43af2d35e18dc354a'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 271,
+   "id": 272,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Đại lý được công nợ bao lâu?'"
+   },
+   "children": [
+    274
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 273,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:1b02c508418d7042aa57f084122bcc09d76a264a'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 273,
+   "id": 274,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Xử lý khiếu nại thế nào?'"
+   },
+   "children": [
+    276
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 275,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:6b8c668f5ecc29776d8b90ea3de2e5c3884e5b44'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 275,
+   "id": 276,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Giao hàng trễ được bồi thường gì?'"
+   },
+   "children": [
+    278
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 277,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:f090b1ae0b1db1e28f7f4490c80ba1ec0e16b0dd'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 277,
+   "id": 278,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 279,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Chính sách đổi trả hàng thế nào?'"
+   },
+   "children": [
+    281
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 280,
+   "ms": 0.1,
+   "result": "'emb:text-embedding-3-small:600141adab4a242454405290fe606df3e1f6dec1'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 280,
+   "id": 281,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Được trả lại sản phẩm trong bao lâu?'"
+   },
+   "children": [
+    283
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 282,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:ba8a714af8b7e86534efcad197e6d638a995c5f0'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 282,
+   "id": 283,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Bảo hành sản phẩm bao lâu?'"
+   },
+   "children": [
+    285
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 284,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:6aa0f36dd2d48d1402979487aae8080d07b30bdb'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 284,
+   "id": 285,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Gói bảo hành mở rộng giá bao nhiêu?'"
+   },
+   "children": [
+    287
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 286,
+   "ms": 0.1,
+   "result": "'emb:text-embedding-3-small:145eeaec9e3ec12e77a3b2544d4efc6fd85350cb'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 286,
+   "id": 287,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Giao hàng mất bao lâu?'"
+   },
+   "children": [
+    289
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 288,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:8bd9f296b49dc34f41eb08602faf3d96d315c95e'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 288,
+   "id": 289,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Phí giao hàng là bao nhiêu?'"
+   },
+   "children": [
+    291
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 290,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:af70022e5d8caae99d61c3eac9b8fdabfcbe2e23'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 290,
+   "id": 291,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Có những hạng thành viên nào?'"
+   },
+   "children": [
+    293
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 292,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:9120719dfbd935e6eaa9a032335f208d393ac034'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 292,
+   "id": 293,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Điều kiện lên hạng VIP là gì?'"
+   },
+   "children": [
+    295
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 294,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:9560608dece3298a1f07243b50bf0be8b3e18b05'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 294,
+   "id": 295,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Nhân viên có bao nhiêu ngày phép?'"
+   },
+   "children": [
+    297
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 296,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:d3b1eb168c55b00053c14ef7a64f7671b924b1ea'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 296,
+   "id": 297,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Quy trình xin nghỉ phép thế nào?'"
+   },
+   "children": [
+    299
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 298,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:71a43ac4dc67db1891d4359287f27ab31e9fd1b0'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 298,
+   "id": 299,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Thưởng Tết bao nhiêu?'"
+   },
+   "children": [
+    301
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 300,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:05eeb1a317fca87b32d8caec47d9e5cf30240a48'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 300,
+   "id": 301,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Tăng lương mấy phần trăm?'"
+   },
+   "children": [
+    303
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 302,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:56effc86a853fc678806f36f1abf72e987133222'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 302,
+   "id": 303,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Chiết khấu đại lý là bao nhiêu?'"
+   },
+   "children": [
+    305
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 304,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:863dcdcfe24a5ca8fe6e5ec43af2d35e18dc354a'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 304,
+   "id": 305,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Đại lý được công nợ bao lâu?'"
+   },
+   "children": [
+    307
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 306,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:1b02c508418d7042aa57f084122bcc09d76a264a'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 306,
+   "id": 307,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Xử lý khiếu nại thế nào?'"
+   },
+   "children": [
+    309
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 308,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:6b8c668f5ecc29776d8b90ea3de2e5c3884e5b44'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 308,
+   "id": 309,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Giao hàng trễ được bồi thường gì?'"
+   },
+   "children": [
+    311
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 246,
+   "id": 310,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:f090b1ae0b1db1e28f7f4490c80ba1ec0e16b0dd'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 310,
+   "id": 311,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "classifier.extract_entities",
+   "line": 80,
+   "args": {
+    "question": "'Khách VIP được đổi trả trong bao lâu?'"
+   },
+   "children": [
+    313
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 150,
+   "id": 312,
+   "ms": 3.1,
+   "result": "{tier: 'vip'}"
+  },
+  {
+   "name": "classifier.normalize",
+   "line": 23,
+   "args": {
+    "text": "'Khách VIP được đổi trả trong bao lâu?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 312,
+   "id": 313,
+   "ms": 0.0,
+   "result": "'khách vip được đổi trả trong bao lâu?'"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'classify'",
+    "title": "'Phân loại câu hỏi'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 314,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.set",
+   "line": 40,
+   "args": {
+    "kw": "{policy: 'NORMAL', intent: 'return_policy'}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 315,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "prompts.version",
+   "line": 51,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [
+    317
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 316,
+   "ms": 0.1,
+   "result": "'v1-8cc4d02d'"
+  },
+  {
+   "name": "prompts.get",
+   "line": 21,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 316,
+   "id": 317,
+   "ms": 0.0,
+   "result": "{description: 'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.', temperature: 0.1, max_output_tokens: 600, system: 'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+298 ký tự)', user: '# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎ…(+13 ký tự)'}"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'cache_lookup'",
+    "title": "'Tra cache (partition theo signature)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 318,
+   "ms": 0.0,
+   "result": "{}"
+  },
+  {
+   "name": "cache.lookup",
+   "line": 109,
+   "args": {
+    "vec": "<vector 1536 số: [-0.0111, 0.0120, -0.0202, …]>",
+    "partition": "'95503c7831d2f7ed'",
+    "intent": "'return_policy'",
+    "entities": "{tier: 'vip'}",
+    "prompt_version": "'v1-8cc4d02d'",
+    "reverify": "<function>"
+   },
+   "children": [
+    320
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 319,
+   "ms": 24.0,
+   "result": "LookupResult(hit=None, similarity=None, candidates=[])"
+  },
+  {
+   "name": "cache.threshold_for",
+   "line": 99,
+   "args": {
+    "intent": "'return_policy'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 319,
+   "id": 320,
+   "ms": 0.0,
+   "result": "0.75"
+  },
+  {
+   "name": "cache.threshold_for",
+   "line": 99,
+   "args": {
+    "intent": "'return_policy'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 321,
+   "ms": 0.0,
+   "result": "0.75"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'cache_lookup'",
+    "title": "'Tra cache (partition theo signature)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 322,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.set",
+   "line": 40,
+   "args": {
+    "kw": "{similarity: None}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 323,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'retrieval'",
+    "title": "'Retrieval (pre-filter theo quyền)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 324,
+   "ms": 0.0,
+   "result": "{}"
+  },
+  {
+   "name": "retrieval.search",
+   "line": 30,
+   "args": {
+    "vec": "<vector 1536 số: [-0.0111, 0.0120, -0.0202, …]>",
+    "collections": "['cskh', 'internal_all', 'public']",
+    "top_k": "None"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 325,
+   "ms": 20.8,
+   "result": "[Retrieved(label='', chunk_id='6d104000587bf29f', doc_id='vip_return_exception', version=1, collection='cskh', title='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', section_path='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Khách hạng Bạc', text='Khách hạng Bạc được đổi trả trong vòng 10 ngày nếu sản phẩm còn nguyên hộp.⏎⏎⏎**Lưu ý bảo mật**⏎Không thông báo các thời…(+81 ký tự)', score=0.7714), Retrieved(label='', chunk_id='9037da49391df36c', doc_id='vip_return_exception', version=1, collection='cskh', title='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', section_path='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Thời hạn đổi trả của khách VIP', text='Khách hàng hạng VIP được đổi trả trong vòng **33 ngày** kể từ ngày nhận hàng, thay vì thời hạn tiêu chuẩn công bố cho kh…(+232 ký tự)', score=0.7577), Retrieved(label='', chunk_id='7f3df74338ef5336', doc_id='membership_faq', version=1, collection='public', title='Câu hỏi thường gặp về hạng thành viên', section_path='Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung', text='Thành viên được tích điểm 1% giá trị đơn hàng. Thành viên Bạc và VIP được ưu tiên tổng đài và được hỗ trợ đổi trả linh h…(+61 ký tự)', score=0.5546), Retrieved(label='', chunk_id='232c157bca68b49d', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng', text='Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh m…(+194 ký tự)', score=0.5449), Retrieved(label='', chunk_id='267228f9c1321d68', doc_id='complaint_handling', version=1, collection='cskh', title='Kịch bản xử lý khiếu nại khách hàng', section_path='Kịch bản xử lý khiếu nại khách hàng > Thời gian phản hồi', text='Mọi khiếu nại phải được phản hồi lần đầu trong vòng **24 giờ** và đóng trong vòng 5 ngày làm việc.⏎⏎⏎**Bồi thường giao h…(+176 ký tự)', score=0.5334)]"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'retrieval'",
+    "title": "'Retrieval (pre-filter theo quyền)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 326,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'iam_verify'",
+    "title": "'IAM kiểm tra lại (post-verify)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 327,
+   "ms": 0.0,
+   "result": "{}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAccessControl.check_collections",
+   "line": 126,
+   "args": {
+    "user": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')",
+    "collections": "{'public', 'cskh'}"
+   },
+   "children": [
+    329
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 328,
+   "ms": 36.3,
+   "result": "{public: True, cskh: True}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.evaluate",
+   "line": 83,
+   "args": {
+    "user_id": "'829671b9-5f8b-431d-9b2f-8a31158a3a2d'",
+    "resource_names": "['collection:cskh', 'collection:public']"
+   },
+   "children": [
+    330,
+    331,
+    335
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 328,
+   "id": 329,
+   "ms": 36.3,
+   "result": "{collection:cskh: True, collection:public: True}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.client_uuid",
+   "line": 59,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 329,
+   "id": 330,
+   "ms": 0.0,
+   "result": "'b241a711-46be-488a-b226-d122149c1b86'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.resources",
+   "line": 104,
+   "args": {},
+   "children": [
+    332,
+    333
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 329,
+   "id": 331,
+   "ms": 12.9,
+   "result": "{collection:cskh: '2d0c7fd6-1799-4bbb-a29c-9cde95c01c79', collection:hr_confidential: '78267cbd-2453-4a4f-a081-7d143775c4d5', collection:internal_all: 'cc2eac6b-fcb4-4fb9-b405-f317e4ec5f21', collection:public: 'ee6bb87a-00a8-454e-8116-0ed8a00577e4', collection:sales_north: 'e52e5a77-2054-43a5-8fc1-769830c8dfe1', collection:sales_south: '90f68666-328d-43da-b9e8-150072e05287'}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.client_uuid",
+   "line": 59,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 331,
+   "id": 332,
+   "ms": 0.0,
+   "result": "'b241a711-46be-488a-b226-d122149c1b86'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/clients/b241a711-46be-488a-b226-d122149c1b86/authz/resource-server/resource'",
+    "kw": "{params: {max: 1000}}"
+   },
+   "children": [
+    334
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 331,
+   "id": 333,
+   "ms": 12.7,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/clients/b241a711-46be-488a-b226-d122149c1b86/authz/resource-server/resource?max=1000>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 333,
+   "id": 334,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'POST'",
+    "path": "'/clients/b241a711-46be-488a-b226-d122149c1b86/authz/resource-server/policy/evaluate'",
+    "kw": "{json: {userId: '829671b9-5f8b-431d-9b2f-8a31158a3a2d', clientId: 'b241a711-46be-488a-b226-d122149c1b86', resources: [<dict>, <dict>], roleIds: [], entitlements: False, context: {attributes: <dict>}}}"
+   },
+   "children": [
+    336
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 329,
+   "id": 335,
+   "ms": 23.0,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/clients/b241a711-46be-488a-b226-d122149c1b86/authz/resource-server/policy/evaluate>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 335,
+   "id": 336,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'iam_verify'",
+    "title": "'IAM kiểm tra lại (post-verify)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 337,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'llm'",
+    "title": "'LLM sinh câu trả lời'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 338,
+   "ms": 0.0,
+   "result": "{}"
+  },
+  {
+   "name": "retrieval.format_context",
+   "line": 48,
+   "args": {
+    "chunks": "[Retrieved(label='', chunk_id='6d104000587bf29f', doc_id='vip_return_exception', version=1, collection='cskh', title='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', section_path='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Khách hạng Bạc', text='Khách hạng Bạc được đổi trả trong vòng 10 ngày nếu sản phẩm còn nguyên hộp.⏎⏎⏎**Lưu ý bảo mật**⏎Không thông báo các thời…(+81 ký tự)', score=0.7714), Retrieved(label='', chunk_id='9037da49391df36c', doc_id='vip_return_exception', version=1, collection='cskh', title='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', section_path='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Thời hạn đổi trả của khách VIP', text='Khách hàng hạng VIP được đổi trả trong vòng **33 ngày** kể từ ngày nhận hàng, thay vì thời hạn tiêu chuẩn công bố cho kh…(+232 ký tự)', score=0.7577), Retrieved(label='', chunk_id='7f3df74338ef5336', doc_id='membership_faq', version=1, collection='public', title='Câu hỏi thường gặp về hạng thành viên', section_path='Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung', text='Thành viên được tích điểm 1% giá trị đơn hàng. Thành viên Bạc và VIP được ưu tiên tổng đài và được hỗ trợ đổi trả linh h…(+61 ký tự)', score=0.5546), Retrieved(label='', chunk_id='232c157bca68b49d', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng', text='Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh m…(+194 ký tự)', score=0.5449), Retrieved(label='', chunk_id='267228f9c1321d68', doc_id='complaint_handling', version=1, collection='cskh', title='Kịch bản xử lý khiếu nại khách hàng', section_path='Kịch bản xử lý khiếu nại khách hàng > Thời gian phản hồi', text='Mọi khiếu nại phải được phản hồi lần đầu trong vòng **24 giờ** và đóng trong vòng 5 ngày làm việc.⏎⏎⏎**Bồi thường giao h…(+176 ký tự)', score=0.5334)]"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 339,
+   "ms": 0.0,
+   "result": "'[c1] (Nguồn: Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Khách hạng Bạc)⏎Khách hạng Bạc được đổi trả trong vòng 10 ngày nếu sản phẩm còn nguyên hộp.⏎⏎⏎**Lưu ý bảo mật**⏎Không thông báo các thời hạn ngoại lệ …(+1517 ký tự)'"
+  },
+  {
+   "name": "pipeline.no_answer_text",
+   "line": 28,
+   "args": {},
+   "children": [
+    341
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 340,
+   "ms": 0.0,
+   "result": "'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'"
+  },
+  {
+   "name": "prompts.text",
+   "line": 28,
+   "args": {
+    "name": "'no_answer_text'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 340,
+   "id": 341,
+   "ms": 0.0,
+   "result": "'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'"
+  },
+  {
+   "name": "llm.generate",
+   "line": 31,
+   "args": {
+    "prompt_name": "'rag_answer'",
+    "variables": "{question: 'Khách VIP được đổi trả trong bao lâu?', context: '[c1] (Nguồn: Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Khách hạng Bạc)⏎Khách hạng Bạc được đổi trả trong …(+1617 ký tự)', history: '(không có)', no_answer: 'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'}"
+   },
+   "children": [
+    343,
+    344,
+    348,
+    349,
+    360,
+    361
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 342,
+   "ms": 3771.7,
+   "result": "LLMResult(text='Khách hàng hạng VIP được đổi trả trong vòng 33 ngày kể từ ngày nhận hàng [c2]. Trưởng ca CSKH có thể duyệt kéo dài đến t…(+19 ký tự)', tokens_in=725, tokens_out=44, latency_ms=3056.1994, model='gemini-3.5-flash-lite', prompt_version='v1-8cc4d02d')"
+  },
+  {
+   "name": "prompts.get",
+   "line": 21,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 342,
+   "id": 343,
+   "ms": 0.0,
+   "result": "{description: 'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.', temperature: 0.1, max_output_tokens: 600, system: 'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+298 ký tự)', user: '# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎ…(+13 ký tự)'}"
+  },
+  {
+   "name": "prompts.render",
+   "line": 42,
+   "args": {
+    "name": "'rag_answer'",
+    "kwargs": "{question: 'Khách VIP được đổi trả trong bao lâu?', context: '[c1] (Nguồn: Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Khách hạng Bạc)⏎Khách hạng Bạc được đổi trả trong …(+1617 ký tự)', history: '(không có)', no_answer: 'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'}"
+   },
+   "children": [
+    345,
+    347
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 342,
+   "id": 344,
+   "ms": 0.1,
+   "result": "('Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+362 ký tự)', '# NGỮ CẢNH⏎[c1] (Nguồn: Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Khách hạng Bạc)⏎Khách hạng Bạc được đổi…(+1769 ký tự)')"
+  },
+  {
+   "name": "prompts.variables",
+   "line": 32,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [
+    346
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 344,
+   "id": 345,
+   "ms": 0.0,
+   "result": "{'history', 'context', 'question', 'no_answer'}"
+  },
+  {
+   "name": "prompts.get",
+   "line": 21,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 345,
+   "id": 346,
+   "ms": 0.0,
+   "result": "{description: 'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.', temperature: 0.1, max_output_tokens: 600, system: 'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+298 ký tự)', user: '# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎ…(+13 ký tự)'}"
+  },
+  {
+   "name": "prompts.get",
+   "line": 21,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 344,
+   "id": 347,
+   "ms": 0.0,
+   "result": "{description: 'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.', temperature: 0.1, max_output_tokens: 600, system: 'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+298 ký tự)', user: '# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎ…(+13 ký tự)'}"
+  },
+  {
+   "name": "clients.gemini_client",
+   "line": 29,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 342,
+   "id": 348,
+   "ms": 37.0,
+   "result": "<Client>"
+  },
+  {
+   "name": "llm.model",
+   "line": 22,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 342,
+   "id": 349,
+   "ms": 0.0,
+   "result": "'gemini-3.5-flash-lite'"
+  },
+  {
+   "name": "sync.PermissionSync.poll_once",
+   "line": 66,
+   "args": {},
+   "children": [
+    351
+   ],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 96,
+   "id": 350,
+   "ms": 19.6,
+   "result": "0"
+  },
+  {
+   "name": "iam.keycloak.KeycloakEventSource.poll",
+   "line": 156,
+   "args": {},
+   "children": [
+    352
+   ],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 350,
+   "id": 351,
+   "ms": 19.5,
+   "result": "[]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.admin_events",
+   "line": 112,
+   "args": {
+    "max_results": "200"
+   },
+   "children": [
+    353
+   ],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 351,
+   "id": 352,
+   "ms": 19.3,
+   "result": "[{time: 1794370061899, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370051386, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369953009, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369939412, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794339261520, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.6'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794339241649, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.6'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, …(+48)]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/admin-events'",
+    "kw": "{params: {max: 200}}"
+   },
+   "children": [
+    354
+   ],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 352,
+   "id": 353,
+   "ms": 18.6,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/admin-events?max=200>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 353,
+   "id": 354,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMjM3NDlhMGQtMGYxNC00NGI0LThlNjQtODZiODliZGQ5YzZhIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "sync.PermissionSync.poll_once",
+   "line": 66,
+   "args": {},
+   "children": [
+    356
+   ],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 96,
+   "id": 355,
+   "ms": 22.8,
+   "result": "0"
+  },
+  {
+   "name": "iam.keycloak.KeycloakEventSource.poll",
+   "line": 156,
+   "args": {},
+   "children": [
+    357
+   ],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 355,
+   "id": 356,
+   "ms": 22.8,
+   "result": "[]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.admin_events",
+   "line": 112,
+   "args": {
+    "max_results": "200"
+   },
+   "children": [
+    358
+   ],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 356,
+   "id": 357,
+   "ms": 22.6,
+   "result": "[{time: 1794370061899, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370051386, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369953009, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369939412, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794339261520, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.6'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794339241649, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.6'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, …(+48)]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/admin-events'",
+    "kw": "{params: {max: 200}}"
+   },
+   "children": [
+    359
+   ],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 357,
+   "id": 358,
+   "ms": 21.0,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/admin-events?max=200>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 358,
+   "id": 359,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMjM3NDlhMGQtMGYxNC00NGI0LThlNjQtODZiODliZGQ5YzZhIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "llm.model",
+   "line": 22,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 342,
+   "id": 360,
+   "ms": 0.0,
+   "result": "'gemini-3.5-flash-lite'"
+  },
+  {
+   "name": "prompts.version",
+   "line": 51,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [
+    362
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 342,
+   "id": 361,
+   "ms": 0.1,
+   "result": "'v1-8cc4d02d'"
+  },
+  {
+   "name": "prompts.get",
+   "line": 21,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 361,
+   "id": 362,
+   "ms": 0.0,
+   "result": "{description: 'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.', temperature: 0.1, max_output_tokens: 600, system: 'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+298 ký tự)', user: '# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎ…(+13 ký tự)'}"
+  },
+  {
+   "name": "llm.cost_usd",
+   "line": 26,
+   "args": {
+    "tokens_in": "725",
+    "tokens_out": "44",
+    "embed_tokens": "0"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 363,
+   "ms": 0.0,
+   "result": "0.0001"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'llm'",
+    "title": "'LLM sinh câu trả lời'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 364,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "pipeline._citations",
+   "line": 32,
+   "args": {
+    "answer": "'Khách hàng hạng VIP được đổi trả trong vòng 33 ngày kể từ ngày nhận hàng [c2]. Trưởng ca CSKH có thể duyệt kéo dài đến tối đa 47 ngày [c2].'",
+    "chunks": "[Retrieved(label='c1', chunk_id='6d104000587bf29f', doc_id='vip_return_exception', version=1, collection='cskh', title='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', section_path='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Khách hạng Bạc', text='Khách hạng Bạc được đổi trả trong vòng 10 ngày nếu sản phẩm còn nguyên hộp.⏎⏎⏎**Lưu ý bảo mật**⏎Không thông báo các thời…(+81 ký tự)', score=0.7714), Retrieved(label='c2', chunk_id='9037da49391df36c', doc_id='vip_return_exception', version=1, collection='cskh', title='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', section_path='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Thời hạn đổi trả của khách VIP', text='Khách hàng hạng VIP được đổi trả trong vòng **33 ngày** kể từ ngày nhận hàng, thay vì thời hạn tiêu chuẩn công bố cho kh…(+232 ký tự)', score=0.7577), Retrieved(label='c3', chunk_id='7f3df74338ef5336', doc_id='membership_faq', version=1, collection='public', title='Câu hỏi thường gặp về hạng thành viên', section_path='Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung', text='Thành viên được tích điểm 1% giá trị đơn hàng. Thành viên Bạc và VIP được ưu tiên tổng đài và được hỗ trợ đổi trả linh h…(+61 ký tự)', score=0.5546), Retrieved(label='c4', chunk_id='232c157bca68b49d', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng', text='Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh m…(+194 ký tự)', score=0.5449), Retrieved(label='c5', chunk_id='267228f9c1321d68', doc_id='complaint_handling', version=1, collection='cskh', title='Kịch bản xử lý khiếu nại khách hàng', section_path='Kịch bản xử lý khiếu nại khách hàng > Thời gian phản hồi', text='Mọi khiếu nại phải được phản hồi lần đầu trong vòng **24 giờ** và đóng trong vòng 5 ngày làm việc.⏎⏎⏎**Bồi thường giao h…(+176 ký tự)', score=0.5334)]"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 365,
+   "ms": 0.0,
+   "result": "[{label: 'c2', doc_id: 'vip_return_exception', title: 'Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', section: 'Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Thời hạn đổi trả của khách VIP', collection: 'cskh', version: 1}]"
+  },
+  {
+   "name": "llm.cost_usd",
+   "line": 26,
+   "args": {
+    "tokens_in": "725",
+    "tokens_out": "44",
+    "embed_tokens": "15"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 366,
+   "ms": 0.0,
+   "result": "0.0001"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'admission'",
+    "title": "'Quyết định lưu cache'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 367,
+   "ms": 0.0,
+   "result": "{}"
+  },
+  {
+   "name": "pipeline.no_answer_text",
+   "line": 28,
+   "args": {},
+   "children": [
+    369
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 368,
+   "ms": 0.0,
+   "result": "'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'"
+  },
+  {
+   "name": "prompts.text",
+   "line": 28,
+   "args": {
+    "name": "'no_answer_text'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 368,
+   "id": 369,
+   "ms": 0.0,
+   "result": "'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'"
+  },
+  {
+   "name": "cache.new_entry_id",
+   "line": 188,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 370,
+   "ms": 0.0,
+   "result": "'13c22a20-a6b2-4a03-9448-46772e13273d'"
+  },
+  {
+   "name": "llm.cost_usd",
+   "line": 26,
+   "args": {
+    "tokens_in": "725",
+    "tokens_out": "44",
+    "embed_tokens": "0"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 371,
+   "ms": 0.0,
+   "result": "0.0001"
+  },
+  {
+   "name": "cache.store",
+   "line": 174,
+   "args": {
+    "e": "CacheEntry(entry_id='13c22a20-a6b2-4a03-9448-46772e13273d', partition='95503c7831d2f7ed', question='Khách VIP được đổi trả trong bao lâu?', answer='Khách hàng hạng VIP được đổi trả trong vòng 33 ngày kể từ ngày nhận hàng [c2]. Trưởng ca CSKH có thể duyệt kéo dài đến t…(+19 ký tự)', citations=[{label: 'c2', doc_id: 'vip_return_exception', title: 'Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', section: 'Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Thời hạn đổi trả của khách VIP', collection: 'cskh', version: 1}], provenance=[Provenance(chunk_id='6d104000587bf29f', doc_id='vip_return_exception', version=1, collection='cskh', title='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', section_path='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Khách hạng Bạc'), Provenance(chunk_id='9037da49391df36c', doc_id='vip_return_exception', version=1, collection='cskh', title='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', section_path='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Thời hạn đổi trả của khách VIP'), Provenance(chunk_id='7f3df74338ef5336', doc_id='membership_faq', version=1, collection='public', title='Câu hỏi thường gặp về hạng thành viên', section_path='Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung'), Provenance(chunk_id='232c157bca68b49d', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng'), Provenance(chunk_id='267228f9c1321d68', doc_id='complaint_handling', version=1, collection='cskh', title='Kịch bản xử lý khiếu nại khách hàng', section_path='Kịch bản xử lý khiếu nại khách hàng > Thời gian phản hồi')], intent='return_policy', entities={tier: 'vip'}, policy='NORMAL', prompt_version='v1-8cc4d02d', model='gemini-3.5-flash-lite', created_at=1.794e+09, ttl=604800, gen_tokens_in=725, gen_tokens_out=44, gen_cost_usd=0.0001, gen_latency_ms=3056.1994, hits=0, last_hit=None)",
+    "vec": "<vector 1536 số: [-0.0111, 0.0120, -0.0202, …]>"
+   },
+   "children": [
+    373,
+    374,
+    375
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 372,
+   "ms": 46.8,
+   "result": "None"
+  },
+  {
+   "name": "cache.ensure_collection",
+   "line": 92,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 372,
+   "id": 373,
+   "ms": 5.4,
+   "result": "None"
+  },
+  {
+   "name": "cache.CacheEntry.to_json",
+   "line": 65,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 372,
+   "id": 374,
+   "ms": 0.4,
+   "result": "'{\"entry_id\": \"13c22a20-a6b2-4a03-9448-46772e13273d\", \"partition\": \"95503c7831d2f7ed\", \"question\": \"Khách VIP được đổi trả trong bao lâu?\", \"answer\": \"Khách hàng hạng VIP được đổi trả trong vòng 33 ngày kể từ ngày nhận hà…(+1872 ký tự)'"
+  },
+  {
+   "name": "cache.evict_if_needed",
+   "line": 220,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 372,
+   "id": 375,
+   "ms": 1.1,
+   "result": "[]"
+  },
+  {
+   "name": "tracing.Trace.set",
+   "line": 40,
+   "args": {
+    "kw": "{entry_id: '13c22a20-a6b2-4a03-9448-46772e13273d'}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 376,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'admission'",
+    "title": "'Quyết định lưu cache'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 377,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.elapsed_ms",
+   "line": 43,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 378,
+   "ms": 0.0,
+   "result": "5284.3"
+  },
+  {
+   "name": "tracing.Trace.set",
+   "line": 40,
+   "args": {
+    "kw": "{status: 'MISS', latency_ms: 5284.3, llm_tokens_in: 725, llm_tokens_out: 44, cost_usd: 0.0001}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 127,
+   "id": 379,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.save",
+   "line": 46,
+   "args": {},
+   "children": [
+    381,
+    384,
+    389
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 116,
+   "id": 380,
+   "ms": 14.0,
+   "result": "None"
+  },
+  {
+   "name": "db.execute",
+   "line": 109,
+   "args": {
+    "sql": "'INSERT INTO traces(id,created_at,user_id,username,session_id,question,status,policy,intent,partition,⏎               similarity,entry_id,latency_ms,llm_tokens_in,llm_tokens_out,embed_tokens,cost_usd,saved_tokens,⏎       …(+363 ký tự)'",
+    "params": "{id: '69867628-3075-495d-8f5e-30ee64405ecd', created_at: <datetime>, user_id: '829671b9-5f8b-431d-9b2f-8a31158a3a2d', username: 'cskh1', session_id: '7808365c-6682-411c-82ba-438243673b27', question: 'Khách VIP được đổi trả trong bao lâu?', status: 'MISS', policy: 'NORMAL', intent: 'return_policy', partition: '95503c7831d2f7ed', …(+10 khoá)}"
+   },
+   "children": [
+    382,
+    383
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 380,
+   "id": 381,
+   "ms": 8.7,
+   "result": "None"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 381,
+   "id": 382,
+   "ms": 0.1,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 381,
+   "id": 383,
+   "ms": 2.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.summary",
+   "line": 66,
+   "args": {
+    "trace_id": "'69867628-3075-495d-8f5e-30ee64405ecd'"
+   },
+   "children": [
+    385,
+    388
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 380,
+   "id": 384,
+   "ms": 4.0,
+   "result": "{id: '69867628-3075-495d-8f5e-30ee64405ecd', created_at: '2026-11-11T04:37:26.389205+00:00', username: 'cskh1', question: 'Khách VIP được đổi trả trong bao lâu?', status: 'MISS', policy: 'NORMAL', intent: 'return_policy', partition: '95503c7831d2f7ed', similarity: None, latency_ms: 5284.3, …(+7 khoá)}"
+  },
+  {
+   "name": "db.fetch_one",
+   "line": 104,
+   "args": {
+    "sql": "'SELECT id,created_at,username,question,status,policy,intent,partition,similarity,latency_ms,⏎                          llm_tokens_in,llm_tokens_out,cost_usd,saved_tokens,saved_cost_usd,unauthorized,feedback⏎             …(+36 ký tự)'",
+    "params": "('69867628-3075-495d-8f5e-30ee64405ecd')"
+   },
+   "children": [
+    386,
+    387
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 384,
+   "id": 385,
+   "ms": 3.8,
+   "result": "{id: <UUID>, created_at: <datetime>, username: 'cskh1', question: 'Khách VIP được đổi trả trong bao lâu?', status: 'MISS', policy: 'NORMAL', intent: 'return_policy', partition: '95503c7831d2f7ed', similarity: None, latency_ms: 5284.3, …(+7 khoá)}"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 385,
+   "id": 386,
+   "ms": 0.0,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 385,
+   "id": 387,
+   "ms": 0.8,
+   "result": "None"
+  },
+  {
+   "name": "tracing.jsonable",
+   "line": 73,
+   "args": {
+    "row": "{id: <UUID>, created_at: <datetime>, username: 'cskh1', question: 'Khách VIP được đổi trả trong bao lâu?', status: 'MISS', policy: 'NORMAL', intent: 'return_policy', partition: '95503c7831d2f7ed', similarity: None, latency_ms: 5284.3, …(+7 khoá)}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 384,
+   "id": 388,
+   "ms": 0.0,
+   "result": "{id: '69867628-3075-495d-8f5e-30ee64405ecd', created_at: '2026-11-11T04:37:26.389205+00:00', username: 'cskh1', question: 'Khách VIP được đổi trả trong bao lâu?', status: 'MISS', policy: 'NORMAL', intent: 'return_policy', partition: '95503c7831d2f7ed', similarity: None, latency_ms: 5284.3, …(+7 khoá)}"
+  },
+  {
+   "name": "tracing.publish",
+   "line": 85,
+   "args": {
+    "kind": "'trace'",
+    "data": "{id: '69867628-3075-495d-8f5e-30ee64405ecd', created_at: '2026-11-11T04:37:26.389205+00:00', username: 'cskh1', question: 'Khách VIP được đổi trả trong bao lâu?', status: 'MISS', policy: 'NORMAL', intent: 'return_policy', partition: '95503c7831d2f7ed', similarity: None, latency_ms: 5284.3, …(+7 khoá)}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 380,
+   "id": 389,
+   "ms": 1.1,
+   "result": "None"
+  },
+  {
+   "name": "db.execute",
+   "line": 109,
+   "args": {
+    "sql": "\"INSERT INTO messages(id,session_id,role,content,trace_id,cache_status,citations)⏎                  VALUES (%s,%s,'assistant',%s,%s,%s,%s)\"",
+    "params": "('d643980e-2f40-4012-842c-b3e05932ea9f', '7808365c-6682-411c-82ba-438243673b27', 'Khách hàng hạng VIP được đổi trả trong vòng 33 ngày kể từ ngày nhận hàng [c2]. Trưởng ca CSKH có thể duyệt kéo dài đến t…(+19 ký tự)', '69867628-3075-495d-8f5e-30ee64405ecd', 'MISS', <Jsonb>)"
+   },
+   "children": [
+    391,
+    392
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 116,
+   "id": 390,
+   "ms": 4.6,
+   "result": "None"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 390,
+   "id": 391,
+   "ms": 0.0,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 390,
+   "id": 392,
+   "ms": 1.9,
+   "result": "None"
+  },
+  {
+   "name": "db.execute",
+   "line": 109,
+   "args": {
+    "sql": "'UPDATE sessions SET updated_at=now() WHERE id=%s'",
+    "params": "('7808365c-6682-411c-82ba-438243673b27')"
+   },
+   "children": [
+    394,
+    395
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 116,
+   "id": 393,
+   "ms": 3.8,
+   "result": "None"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 393,
+   "id": 394,
+   "ms": 0.0,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 393,
+   "id": 395,
+   "ms": 1.6,
+   "result": "None"
+  },
+  {
+   "name": "audit.run",
+   "line": 35,
+   "args": {
+    "trace_id": "'69867628-3075-495d-8f5e-30ee64405ecd'",
+    "user": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')",
+    "answer": "'Khách hàng hạng VIP được đổi trả trong vòng 33 ngày kể từ ngày nhận hàng [c2]. Trưởng ca CSKH có thể duyệt kéo dài đến tối đa 47 ngày [c2].'"
+   },
+   "children": [
+    397,
+    400,
+    406,
+    409
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": null,
+   "id": 396,
+   "ms": 45.1,
+   "result": "{canaries: [{id: 'vip_33', collection: 'cskh'}, {id: 'vip_47', collection: 'cskh'}], denied_collections: [], checked_with_iam: True}"
+  },
+  {
+   "name": "audit.find",
+   "line": 31,
+   "args": {
+    "text": "'Khách hàng hạng VIP được đổi trả trong vòng 33 ngày kể từ ngày nhận hàng [c2]. Trưởng ca CSKH có thể duyệt kéo dài đến tối đa 47 ngày [c2].'"
+   },
+   "children": [
+    398
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 396,
+   "id": 397,
+   "ms": 9.8,
+   "result": "[{id: 'vip_33', collection: 'cskh'}, {id: 'vip_47', collection: 'cskh'}]"
+  },
+  {
+   "name": "audit.canaries",
+   "line": 20,
+   "args": {},
+   "children": [
+    399
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 397,
+   "id": 398,
+   "ms": 9.8,
+   "result": "[{id: 'vip_33', collection: 'cskh', pattern: '\\\\b33\\\\s*ngày', _re: <Pattern>}, {id: 'vip_47', collection: 'cskh', pattern: '\\\\b47\\\\s*ngày|VIP-RT-47', _re: <Pattern>}, {id: 'comp_175', collection: 'cskh', pattern: '175[.,]?000|BT-175', _re: <Pattern>}, {id: 'hr_tet', collection: 'hr_confidential', pattern: '1[,.]7\\\\s*tháng', _re: <Pattern>}, {id: 'hr_raise', collection: 'hr_confidential', pattern: '6[,.]3\\\\s*%', _re: <Pattern>}, {id: 'n_c1', collection: 'sales_north', pattern: '12[,.]5\\\\s*%', _re: <Pattern>}, …(+3)]"
+  },
+  {
+   "name": "config.data_dir",
+   "line": 79,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 398,
+   "id": 399,
+   "ms": 0.0,
+   "result": "<PosixPath>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAccessControl.check_collections",
+   "line": 126,
+   "args": {
+    "user": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')",
+    "collections": "{'cskh'}"
+   },
+   "children": [
+    401
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 396,
+   "id": 400,
+   "ms": 27.6,
+   "result": "{cskh: True}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.evaluate",
+   "line": 83,
+   "args": {
+    "user_id": "'829671b9-5f8b-431d-9b2f-8a31158a3a2d'",
+    "resource_names": "['collection:cskh']"
+   },
+   "children": [
+    402,
+    403,
+    404
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 400,
+   "id": 401,
+   "ms": 27.6,
+   "result": "{collection:cskh: True}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.client_uuid",
+   "line": 59,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 401,
+   "id": 402,
+   "ms": 0.0,
+   "result": "'b241a711-46be-488a-b226-d122149c1b86'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.resources",
+   "line": 104,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 401,
+   "id": 403,
+   "ms": 0.0,
+   "result": "{collection:cskh: '2d0c7fd6-1799-4bbb-a29c-9cde95c01c79', collection:hr_confidential: '78267cbd-2453-4a4f-a081-7d143775c4d5', collection:internal_all: 'cc2eac6b-fcb4-4fb9-b405-f317e4ec5f21', collection:public: 'ee6bb87a-00a8-454e-8116-0ed8a00577e4', collection:sales_north: 'e52e5a77-2054-43a5-8fc1-769830c8dfe1', collection:sales_south: '90f68666-328d-43da-b9e8-150072e05287'}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'POST'",
+    "path": "'/clients/b241a711-46be-488a-b226-d122149c1b86/authz/resource-server/policy/evaluate'",
+    "kw": "{json: {userId: '829671b9-5f8b-431d-9b2f-8a31158a3a2d', clientId: 'b241a711-46be-488a-b226-d122149c1b86', resources: [<dict>], roleIds: [], entitlements: False, context: {attributes: <dict>}}}"
+   },
+   "children": [
+    405
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 401,
+   "id": 404,
+   "ms": 27.4,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/clients/b241a711-46be-488a-b226-d122149c1b86/authz/resource-server/policy/evaluate>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 404,
+   "id": 405,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "db.execute",
+   "line": 109,
+   "args": {
+    "sql": "'UPDATE traces SET audit=%s, unauthorized=%s WHERE id=%s'",
+    "params": "(<Jsonb>, False, '69867628-3075-495d-8f5e-30ee64405ecd')"
+   },
+   "children": [
+    407,
+    408
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 396,
+   "id": 406,
+   "ms": 6.1,
+   "result": "None"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 406,
+   "id": 407,
+   "ms": 0.1,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 406,
+   "id": 408,
+   "ms": 2.7,
+   "result": "None"
+  },
+  {
+   "name": "tracing.publish",
+   "line": 85,
+   "args": {
+    "kind": "'audit'",
+    "data": "{id: '69867628-3075-495d-8f5e-30ee64405ecd', unauthorized: False, audit: {canaries: [<dict>, <dict>], denied_collections: [], checked_with_iam: True}}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "02_chat_miss",
+   "parent": 396,
+   "id": 409,
+   "ms": 1.4,
+   "result": "None"
+  },
+  {
+   "name": "sync.PermissionSync.poll_once",
+   "line": 66,
+   "args": {},
+   "children": [
+    411
+   ],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 96,
+   "id": 410,
+   "ms": 26.7,
+   "result": "0"
+  },
+  {
+   "name": "iam.keycloak.KeycloakEventSource.poll",
+   "line": 156,
+   "args": {},
+   "children": [
+    412
+   ],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 410,
+   "id": 411,
+   "ms": 26.7,
+   "result": "[]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.admin_events",
+   "line": 112,
+   "args": {
+    "max_results": "200"
+   },
+   "children": [
+    413
+   ],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 411,
+   "id": 412,
+   "ms": 26.5,
+   "result": "[{time: 1794370061899, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370051386, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369953009, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369939412, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794339261520, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.6'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794339241649, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.6'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, …(+48)]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/admin-events'",
+    "kw": "{params: {max: 200}}"
+   },
+   "children": [
+    414
+   ],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 412,
+   "id": 413,
+   "ms": 25.8,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/admin-events?max=200>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "permission-sync",
+   "label": "02_chat_miss",
+   "parent": 413,
+   "id": 414,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMjM3NDlhMGQtMGYxNC00NGI0LThlNjQtODZiODliZGQ5YzZhIiwi…(+1419 ký tự)'"
+  }
+ ]
+}

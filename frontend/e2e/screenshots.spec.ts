@@ -1,0 +1,20 @@
+import { test } from '@playwright/test';
+import { ask, loginAs } from './helpers';
+const OUT = process.env.SHOTS_DIR;
+test.skip(!OUT, 'chỉ chạy khi chụp màn hình (SHOTS_DIR)');
+test('screens', async ({ browser }) => {
+  const p = await loginAs(browser, 'cskh1');
+  await p.screenshot({ path: `${OUT}/chat-empty.png` });
+  await ask(p, 'Khách VIP được đổi trả trong bao lâu?');
+  await ask(p, 'Thời hạn đổi trả hàng cho khách VIP là bao lâu?');
+  await p.screenshot({ path: `${OUT}/chat.png` });
+  const a = await loginAs(browser, 'admin_ops');
+  await a.waitForTimeout(1500);
+  await a.screenshot({ path: `${OUT}/overview.png` });
+  await a.goto('/console/requests'); await a.waitForTimeout(1000);
+  await a.screenshot({ path: `${OUT}/requests.png` });
+  await a.getByTestId('request-row').first().click(); await a.waitForTimeout(1500);
+  await a.screenshot({ path: `${OUT}/detail.png`, fullPage: true });
+  await a.goto('/console/admin'); await a.waitForTimeout(1500);
+  await a.screenshot({ path: `${OUT}/admin.png`, fullPage: true });
+});

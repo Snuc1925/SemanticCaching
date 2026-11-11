@@ -1,0 +1,39 @@
+# Classifier dạng rule (không gọi LLM). So khớp không phân biệt hoa thường, trên câu đã chuẩn hoá khoảng trắng.
+policies:
+  # Câu phụ thuộc người hỏi -> không cache (sai về nghĩa và có thể lộ dữ liệu cá nhân).
+  NO_CACHE:
+    keywords: ["của tôi", "của mình", "tôi còn", "mình còn", "đơn hàng của", "tài khoản của", "lương của tôi"]
+  # Câu phụ thuộc thời điểm -> cache với TTL ngắn.
+  SHORT_TTL:
+    keywords: ["hôm nay", "ngày mai", "tuần này", "tháng này", "năm nay", "hiện tại", "bây giờ", "đang có"]
+  # Câu nối tiếp, thiếu ngữ cảnh -> BYPASS (không tra, không lưu cache).
+  BYPASS:
+    starts_with: ["thế còn", "còn ", "vậy còn", "vậy thì", "thế thì", "cái đó", "nó "]
+    keywords: ["cái đó", "cái này thì", "như trên"]
+    min_words: 4          # câu ngắn hơn số từ này coi là câu nối tiếp
+
+# Intent: chọn intent có độ tương đồng lớn nhất giữa embedding câu hỏi và embedding trung bình các câu mẫu.
+# Dưới min_similarity -> intent "default".
+intent:
+  min_similarity: 0.45
+  examples:
+    return_policy: ["Chính sách đổi trả hàng thế nào?", "Được trả lại sản phẩm trong bao lâu?"]
+    warranty: ["Bảo hành sản phẩm bao lâu?", "Gói bảo hành mở rộng giá bao nhiêu?"]
+    shipping: ["Giao hàng mất bao lâu?", "Phí giao hàng là bao nhiêu?"]
+    membership: ["Có những hạng thành viên nào?", "Điều kiện lên hạng VIP là gì?"]
+    hr_leave: ["Nhân viên có bao nhiêu ngày phép?", "Quy trình xin nghỉ phép thế nào?"]
+    hr_salary: ["Thưởng Tết bao nhiêu?", "Tăng lương mấy phần trăm?"]
+    sales_discount: ["Chiết khấu đại lý là bao nhiêu?", "Đại lý được công nợ bao lâu?"]
+    complaint: ["Xử lý khiếu nại thế nào?", "Giao hàng trễ được bồi thường gì?"]
+
+# Entity: nếu câu hỏi và cache entry có entity khác nhau cho cùng một loại -> không được hit.
+entities:
+  package:
+    bac: ["gói bạc", "bạc"]
+    vang: ["gói vàng", "vàng"]
+  region:
+    north: ["miền bắc", "hà nội", "phía bắc"]
+    south: ["miền nam", "hồ chí minh", "phía nam", "sài gòn"]
+  tier:
+    vip: ["vip"]
+    silver: ["hạng bạc", "khách bạc"]

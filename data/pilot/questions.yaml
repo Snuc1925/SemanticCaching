@@ -1,0 +1,72 @@
+# Bộ câu hỏi pilot: mỗi câu gốc có vài cách diễn đạt.
+# expect: kỳ vọng theo nhóm quyền (dùng trong test). contains = chuỗi/regex nên có; absent = không được có.
+questions:
+  - id: q_vip_return
+    intent: return_policy
+    text: "Khách VIP được đổi trả trong bao lâu?"
+    paraphrases:
+      - "Khách hàng VIP được đổi trả hàng trong thời hạn bao lâu?"
+      - "Thời hạn đổi trả hàng cho khách VIP là bao lâu?"
+    expect:
+      cskh: {contains: ['33']}
+      public: {absent_canaries: [vip_33, vip_47]}
+
+  - id: q_return_days
+    intent: return_policy
+    text: "Chính sách đổi trả cho phép trả hàng trong mấy ngày?"
+    paraphrases:
+      - "Tôi được đổi trả sản phẩm trong bao nhiêu ngày?"
+      - "Thời hạn đổi trả hàng là bao nhiêu ngày?"
+    expect:
+      public_v1: {contains: ['7']}
+      public_v2: {contains: ['15']}
+
+  - id: q_warranty_silver_price
+    intent: warranty
+    entities: {package: bac}
+    text: "Giá gói bảo hành mở rộng Bạc là bao nhiêu?"
+    paraphrases: ["Gói bảo hành Bạc giá bao nhiêu tiền?"]
+    hard_negative_of: q_warranty_gold_price
+    expect: {public: {contains: ['490']}}
+
+  - id: q_warranty_gold_price
+    intent: warranty
+    entities: {package: vang}
+    text: "Giá gói bảo hành mở rộng Vàng là bao nhiêu?"
+    paraphrases: ["Gói bảo hành Vàng giá bao nhiêu tiền?"]
+    expect: {public: {contains: ['890']}}
+
+  - id: q_shipping_time
+    intent: shipping
+    text: "Giao hàng nội thành mất bao lâu?"
+    paraphrases: ["Đặt hàng ở Hà Nội thì bao lâu nhận được hàng?"]
+
+  - id: q_leave_days
+    intent: hr_leave
+    text: "Nhân viên được bao nhiêu ngày phép một năm?"
+    paraphrases: ["Mỗi năm tôi có mấy ngày nghỉ phép?"]
+
+  - id: q_tet_bonus
+    intent: hr_salary
+    text: "Thưởng Tết năm nay là bao nhiêu tháng lương?"
+    paraphrases: ["Năm nay công ty thưởng Tết mấy tháng lương?"]
+    expect:
+      hr: {contains: ['1[,.]7']}
+      cskh: {absent_canaries: [hr_tet]}
+
+  - id: q_dealer_discount_c1
+    intent: sales_discount
+    entities: {region: north}
+    text: "Chiết khấu cho đại lý cấp 1 miền Bắc là bao nhiêu?"
+    paraphrases: ["Đại lý cấp 1 ở miền Bắc được chiết khấu bao nhiêu phần trăm?"]
+
+  - id: q_late_delivery_comp
+    intent: complaint
+    text: "Giao hàng trễ thì khách được bồi thường thế nào?"
+    paraphrases: ["Đơn giao trễ hơn cam kết được đền bù gì?"]
+
+# Câu không được cache
+bypass:
+  personal: ["Đơn hàng của tôi đang ở đâu rồi?", "Tôi còn bao nhiêu ngày phép?"]
+  time_sensitive: ["Khuyến mãi tháng này có gì?"]
+  follow_up: ["Thế còn hàng điện tử thì sao?"]

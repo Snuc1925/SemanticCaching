@@ -1,0 +1,250 @@
+{
+ "title": "GET /api/me của cskh1 (lần đầu: tính access signature)",
+ "calls": [
+  {
+   "name": "auth.current_user",
+   "line": 35,
+   "args": {
+    "request": "<Request>"
+   },
+   "children": [
+    98
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "01_me",
+   "parent": null,
+   "id": 97,
+   "ms": 1.0,
+   "result": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')"
+  },
+  {
+   "name": "auth.decode",
+   "line": 23,
+   "args": {
+    "token": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiZGUwNzI1NzQtOWQyZS00ODY3LWI0OTItOWNkZGM4OWQ5MGM1Iiwi…(+1167 ký tự)'"
+   },
+   "children": [
+    99
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "01_me",
+   "parent": 97,
+   "id": 98,
+   "ms": 0.8,
+   "result": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')"
+  },
+  {
+   "name": "auth.issuer",
+   "line": 19,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "01_me",
+   "parent": 98,
+   "id": 99,
+   "ms": 0.0,
+   "result": "'http://localhost:8080/realms/semcache'"
+  },
+  {
+   "name": "main.me",
+   "line": 55,
+   "args": {
+    "user": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')"
+   },
+   "children": [
+    101
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "01_me",
+   "parent": null,
+   "id": 100,
+   "ms": 81.7,
+   "result": "{user_id: '829671b9-5f8b-431d-9b2f-8a31158a3a2d', username: 'cskh1', name: 'Lan CSKH', roles: ['default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'], is_console: False, signature: '95503c7831d2f7ed', collections: ['cskh', 'internal_all', 'public']}"
+  },
+  {
+   "name": "access.get",
+   "line": 42,
+   "args": {
+    "user": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')"
+   },
+   "children": [
+    102,
+    103
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "01_me",
+   "parent": 100,
+   "id": 101,
+   "ms": 81.6,
+   "result": "Signature(signature='95503c7831d2f7ed', collections=['cskh', 'internal_all', 'public'], computed_at=1.794e+09, from_cache=False)"
+  },
+  {
+   "name": "access._key",
+   "line": 33,
+   "args": {
+    "user_id": "'829671b9-5f8b-431d-9b2f-8a31158a3a2d'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "01_me",
+   "parent": 101,
+   "id": 102,
+   "ms": 0.0,
+   "result": "'sig:user:829671b9-5f8b-431d-9b2f-8a31158a3a2d'"
+  },
+  {
+   "name": "access.refresh",
+   "line": 50,
+   "args": {
+    "user": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')"
+   },
+   "children": [
+    104,
+    111,
+    112
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "01_me",
+   "parent": 101,
+   "id": 103,
+   "ms": 78.5,
+   "result": "Signature(signature='95503c7831d2f7ed', collections=['cskh', 'internal_all', 'public'], computed_at=1.794e+09, from_cache=False)"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAccessControl.list_accessible_collections",
+   "line": 122,
+   "args": {
+    "user": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')"
+   },
+   "children": [
+    105
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "01_me",
+   "parent": 103,
+   "id": 104,
+   "ms": 56.7,
+   "result": "{'public', 'cskh', 'internal_all'}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.evaluate",
+   "line": 83,
+   "args": {
+    "user_id": "'829671b9-5f8b-431d-9b2f-8a31158a3a2d'",
+    "resource_names": "None"
+   },
+   "children": [
+    106,
+    109
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "01_me",
+   "parent": 104,
+   "id": 105,
+   "ms": 56.6,
+   "result": "{collection:cskh: True, collection:sales_north: False, collection:hr_confidential: False, collection:internal_all: True, collection:public: True, collection:sales_south: False}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.client_uuid",
+   "line": 59,
+   "args": {},
+   "children": [
+    107
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "01_me",
+   "parent": 105,
+   "id": 106,
+   "ms": 16.1,
+   "result": "'b241a711-46be-488a-b226-d122149c1b86'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/clients'",
+    "kw": "{params: {clientId: 'semcache-backend'}}"
+   },
+   "children": [
+    108
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "01_me",
+   "parent": 106,
+   "id": 107,
+   "ms": 15.9,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/clients?clientId=semcache-backend>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "01_me",
+   "parent": 107,
+   "id": 108,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'POST'",
+    "path": "'/clients/b241a711-46be-488a-b226-d122149c1b86/authz/resource-server/policy/evaluate'",
+    "kw": "{json: {userId: '829671b9-5f8b-431d-9b2f-8a31158a3a2d', clientId: 'b241a711-46be-488a-b226-d122149c1b86', resources: [], roleIds: [], entitlements: False, context: {attributes: <dict>}}}"
+   },
+   "children": [
+    110
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "01_me",
+   "parent": 105,
+   "id": 109,
+   "ms": 40.3,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/clients/b241a711-46be-488a-b226-d122149c1b86/authz/resource-server/policy/evaluate>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "01_me",
+   "parent": 109,
+   "id": 110,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "access.compute_hash",
+   "line": 37,
+   "args": {
+    "namespaced": "['keycloak:cskh', 'keycloak:internal_all', 'keycloak:public']"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "01_me",
+   "parent": 103,
+   "id": 111,
+   "ms": 0.1,
+   "result": "'95503c7831d2f7ed'"
+  },
+  {
+   "name": "access._key",
+   "line": 33,
+   "args": {
+    "user_id": "'829671b9-5f8b-431d-9b2f-8a31158a3a2d'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "01_me",
+   "parent": 103,
+   "id": 112,
+   "ms": 0.0,
+   "result": "'sig:user:829671b9-5f8b-431d-9b2f-8a31158a3a2d'"
+  }
+ ]
+}

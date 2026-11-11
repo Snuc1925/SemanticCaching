@@ -1,0 +1,47 @@
+# Cấu hình hệ thống (không chứa secret). Secret và địa chỉ hạ tầng lấy từ .env.
+data_dir: data/pilot
+
+models:
+  llm: ${LLM_MODEL:gemini-3.5-flash-lite}
+  embedding: ${EMBEDDING_MODEL:text-embedding-3-small}
+
+chunking:
+  max_tokens: 400
+  min_tokens: 80
+  overlap_tokens: 50
+
+retrieval:
+  top_k: 5
+  min_score: 0.25          # bỏ chunk quá xa câu hỏi
+
+cache:
+  enabled: true
+  # Ngưỡng similarity, đo trên bộ pilot (text-embedding-3-small, 10/11/2026):
+  #   paraphrase cùng câu hỏi: min 0.57 / trung bình 0.77 / max 0.92
+  #   hard negative "gói Bạc" vs "gói Vàng": 0.84  -> KHÔNG ngưỡng nào tách được, phải dùng entity check
+  # Ngưỡng tạm 0.75; calibrate chính thức ở thí nghiệm E1.
+  threshold_default: 0.75
+  threshold_by_intent: {}
+  ttl_seconds:
+    NORMAL: 604800          # 7 ngày
+    SHORT_TTL: 3600         # 1 giờ
+  max_entries: 5000         # vượt thì loại theo LRU
+  candidates: 3             # số entry ứng viên lấy ra để kiểm tra điều kiện
+  reverify_iam_on_hit: true # điều kiện 6 (mục 4.5): kiểm lại IAM cho các collection trong provenance
+
+access:
+  signature_scheme_version: 1
+  signature_ttl_seconds: 300   # TTL dự phòng khi lỡ event
+  event_poll_seconds: 2        # chu kỳ đọc Keycloak admin-events
+
+keycloak:
+  realm: semcache
+  frontend_client: semcache-frontend
+  backend_client: semcache-backend
+  backend_client_secret: ${KEYCLOAK_BACKEND_SECRET:semcache-backend-dev-secret}
+  console_role: ops_admin
+
+pricing:   # USD / 1 triệu token, chỉ để ước lượng chi phí trên Console (chỉnh theo bảng giá thực tế)
+  llm_input: 0.10
+  llm_output: 0.40
+  embedding: 0.02

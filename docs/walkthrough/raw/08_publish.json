@@ -1,0 +1,1655 @@
+{
+ "title": "Console: xuất bản return_policy v2 → nạp lại tài liệu, xoá cache entry liên quan",
+ "calls": [
+  {
+   "name": "auth.current_user",
+   "line": 35,
+   "args": {
+    "request": "<Request>"
+   },
+   "children": [
+    944
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": null,
+   "id": 943,
+   "ms": 0.8,
+   "result": "UserContext(user_id='5b7a9394-f2ca-44a8-acb5-37953e298ad1', username='admin_ops', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'ops_admin', 'employee'), display_name='Quản trị vận hành')"
+  },
+  {
+   "name": "auth.decode",
+   "line": 23,
+   "args": {
+    "token": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiZGU1ODRiZGQtOTA3OS00NTQ1LTkwZWQtZmE1MGNjYjAyNzA3Iiwi…(+1219 ký tự)'"
+   },
+   "children": [
+    945
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 943,
+   "id": 944,
+   "ms": 0.6,
+   "result": "UserContext(user_id='5b7a9394-f2ca-44a8-acb5-37953e298ad1', username='admin_ops', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'ops_admin', 'employee'), display_name='Quản trị vận hành')"
+  },
+  {
+   "name": "auth.issuer",
+   "line": 19,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 944,
+   "id": 945,
+   "ms": 0.0,
+   "result": "'http://localhost:8080/realms/semcache'"
+  },
+  {
+   "name": "auth.console_user",
+   "line": 42,
+   "args": {
+    "user": "UserContext(user_id='5b7a9394-f2ca-44a8-acb5-37953e298ad1', username='admin_ops', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'ops_admin', 'employee'), display_name='Quản trị vận hành')"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": null,
+   "id": 946,
+   "ms": 0.0,
+   "result": "UserContext(user_id='5b7a9394-f2ca-44a8-acb5-37953e298ad1', username='admin_ops', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'ops_admin', 'employee'), display_name='Quản trị vận hành')"
+  },
+  {
+   "name": "main.admin_publish",
+   "line": 262,
+   "args": {
+    "doc_id": "'return_policy'",
+    "body": "PublishIn({version: 2})",
+    "actor": "UserContext(user_id='5b7a9394-f2ca-44a8-acb5-37953e298ad1', username='admin_ops', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'ops_admin', 'employee'), display_name='Quản trị vận hành')"
+   },
+   "children": [
+    948,
+    962
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": null,
+   "id": 947,
+   "ms": 977.2,
+   "result": "{id: 23, kind: 'doc_update', source: 'admin_api', occurred_at: '2026-11-11T04:37:58.351167+00:00', detected_at: '2026-11-11T04:37:58.276886+00:00', effective_at: '2026-11-11T04:37:58.276901+00:00', summary: 'return_policy: v1 -> v2 (4 chunk), xoá 4 cache entry', details: {actor: 'admin_ops', chunks: 4, doc_id: 'return_policy', to_version: 2, from_version: 1, invalidated_entries: ['89b29268-88ac-4d02-aa9f-213ed5d83917', '13c22a20-a6b2-4a03-9448-46772e13273d', '58268469-9c80-4a96-a8d5-fe6ff9944f8b', '09176751-c2c5-46a1-abf9-9cb46fbb0af4']}}"
+  },
+  {
+   "name": "documents.available_versions",
+   "line": 30,
+   "args": {},
+   "children": [
+    949,
+    951,
+    952,
+    953,
+    954,
+    955,
+    956,
+    957,
+    958,
+    959,
+    960,
+    961
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 947,
+   "id": 948,
+   "ms": 20.0,
+   "result": "{complaint_handling: {title: 'Kịch bản xử lý khiếu nại khách hàng', collection: 'cskh', versions: [1]}, dealer_discount_north: {title: 'Bảng chiết khấu đại lý miền Bắc', collection: 'sales_north', versions: [1]}, dealer_discount_south: {title: 'Bảng chiết khấu đại lý miền Nam', collection: 'sales_south', versions: [1]}, leave_policy: {title: 'Nội quy nghỉ phép', collection: 'internal_all', versions: [1]}, membership_faq: {title: 'Câu hỏi thường gặp về hạng thành viên', collection: 'public', versions: [1]}, return_policy: {title: 'Chính sách đổi trả hàng', collection: 'public', versions: [1, 2]}, salary_bonus: {title: 'Quy chế lương thưởng (MẬT)', collection: 'hr_confidential', versions: [1]}, shipping_policy: {title: 'Chính sách giao hàng và lắp đặt', collection: 'public', versions: [1]}, vip_return_exception: {title: 'Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', collection: 'cskh', versions: [1]}, warranty_policy: {title: 'Chính sách bảo hành và gói bảo hành mở rộng', collection: 'public', versions: [1]}}"
+  },
+  {
+   "name": "documents.docs_dir",
+   "line": 19,
+   "args": {},
+   "children": [
+    950
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 948,
+   "id": 949,
+   "ms": 0.1,
+   "result": "<PosixPath>"
+  },
+  {
+   "name": "config.data_dir",
+   "line": 79,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 949,
+   "id": 950,
+   "ms": 0.0,
+   "result": "<PosixPath>"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 948,
+   "id": 951,
+   "ms": 2.6,
+   "result": "({doc_id: 'complaint_handling', title: 'Kịch bản xử lý khiếu nại khách hàng', collection: 'cskh', version: 1}, '# Kịch bản xử lý khiếu nại khách hàng⏎⏎## Thời gian phản hồi⏎Mọi khiếu nại phải được phản hồi lần đầu trong vòng **24 gi…(+494 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 948,
+   "id": 952,
+   "ms": 2.3,
+   "result": "({doc_id: 'dealer_discount_north', title: 'Bảng chiết khấu đại lý miền Bắc', collection: 'sales_north', version: 1}, '# Bảng chiết khấu đại lý miền Bắc⏎⏎## Mức chiết khấu theo cấp đại lý⏎| Cấp đại lý | Doanh số tháng tối thiểu | Chiết khấ…(+327 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 948,
+   "id": 953,
+   "ms": 2.2,
+   "result": "({doc_id: 'dealer_discount_south', title: 'Bảng chiết khấu đại lý miền Nam', collection: 'sales_south', version: 1}, '# Bảng chiết khấu đại lý miền Nam⏎⏎## Mức chiết khấu theo cấp đại lý⏎| Cấp đại lý | Doanh số tháng tối thiểu | Chiết khấ…(+321 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 948,
+   "id": 954,
+   "ms": 2.5,
+   "result": "({doc_id: 'leave_policy', title: 'Nội quy nghỉ phép', collection: 'internal_all', version: 1}, '# Nội quy nghỉ phép⏎⏎## Số ngày phép năm⏎Nhân viên chính thức được **12 ngày phép năm**. Cứ đủ 5 năm làm việc được cộng …(+363 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 948,
+   "id": 955,
+   "ms": 2.3,
+   "result": "({doc_id: 'membership_faq', title: 'Câu hỏi thường gặp về hạng thành viên', collection: 'public', version: 1}, '# Câu hỏi thường gặp về hạng thành viên⏎⏎## Có những hạng thành viên nào?⏎Có 3 hạng: **Thường**, **Bạc** và **VIP**. Hạn…(+457 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 948,
+   "id": 956,
+   "ms": 1.5,
+   "result": "({doc_id: 'return_policy', title: 'Chính sách đổi trả hàng', collection: 'public', version: 1}, '# Chính sách đổi trả hàng⏎⏎## Phạm vi áp dụng⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Đ…(+892 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 948,
+   "id": 957,
+   "ms": 1.2,
+   "result": "({doc_id: 'return_policy', title: 'Chính sách đổi trả hàng', collection: 'public', version: 2}, '# Chính sách đổi trả hàng⏎⏎## Phạm vi áp dụng⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Đ…(+908 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 948,
+   "id": 958,
+   "ms": 1.1,
+   "result": "({doc_id: 'salary_bonus', title: 'Quy chế lương thưởng (MẬT)', collection: 'hr_confidential', version: 1}, '# Quy chế lương thưởng (MẬT)⏎⏎## Thưởng Tết⏎Thưởng Tết năm nay bằng **1,7 tháng lương** cơ bản cho nhân viên có thời gia…(+335 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 948,
+   "id": 959,
+   "ms": 1.0,
+   "result": "({doc_id: 'shipping_policy', title: 'Chính sách giao hàng và lắp đặt', collection: 'public', version: 1}, '# Chính sách giao hàng và lắp đặt⏎⏎## Thời gian giao hàng⏎- Nội thành Hà Nội và TP. Hồ Chí Minh: giao trong **2 giờ** vớ…(+572 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 948,
+   "id": 960,
+   "ms": 1.0,
+   "result": "({doc_id: 'vip_return_exception', title: 'Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', collection: 'cskh', version: 1}, '# Hướng dẫn nội bộ CSKH: Ngoại lệ đổi trả cho khách VIP⏎⏎## Thời hạn đổi trả của khách VIP⏎Khách hàng hạng VIP được đổi …(+541 ký tự)')"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 948,
+   "id": 961,
+   "ms": 1.0,
+   "result": "({doc_id: 'warranty_policy', title: 'Chính sách bảo hành và gói bảo hành mở rộng', collection: 'public', version: 1}, '# Chính sách bảo hành và gói bảo hành mở rộng⏎⏎## Bảo hành tiêu chuẩn⏎Tất cả sản phẩm điện máy được bảo hành tiêu chuẩn …(+736 ký tự)')"
+  },
+  {
+   "name": "sync.publish_document_version",
+   "line": 94,
+   "args": {
+    "doc_id": "'return_policy'",
+    "version": "2",
+    "actor": "'admin_ops'"
+   },
+   "children": [
+    963,
+    964,
+    965,
+    1031,
+    1048,
+    1049,
+    1050
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 947,
+   "id": 962,
+   "ms": 957.1,
+   "result": "{id: 23, kind: 'doc_update', source: 'admin_api', occurred_at: '2026-11-11T04:37:58.351167+00:00', detected_at: '2026-11-11T04:37:58.276886+00:00', effective_at: '2026-11-11T04:37:58.276901+00:00', summary: 'return_policy: v1 -> v2 (4 chunk), xoá 4 cache entry', details: {actor: 'admin_ops', chunks: 4, doc_id: 'return_policy', to_version: 2, from_version: 1, invalidated_entries: ['89b29268-88ac-4d02-aa9f-213ed5d83917', '13c22a20-a6b2-4a03-9448-46772e13273d', '58268469-9c80-4a96-a8d5-fe6ff9944f8b', '09176751-c2c5-46a1-abf9-9cb46fbb0af4']}}"
+  },
+  {
+   "name": "sync._now",
+   "line": 23,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 962,
+   "id": 963,
+   "ms": 0.0,
+   "result": "<datetime>"
+  },
+  {
+   "name": "documents.current_version",
+   "line": 52,
+   "args": {
+    "doc_id": "'return_policy'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 962,
+   "id": 964,
+   "ms": 1.8,
+   "result": "1"
+  },
+  {
+   "name": "documents.ingest",
+   "line": 70,
+   "args": {
+    "doc_id": "'return_policy'",
+    "version": "2"
+   },
+   "children": [
+    966,
+    969,
+    970,
+    1009,
+    1027,
+    1028
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 962,
+   "id": 965,
+   "ms": 903.9,
+   "result": "4"
+  },
+  {
+   "name": "documents.file_for",
+   "line": 40,
+   "args": {
+    "doc_id": "'return_policy'",
+    "version": "2"
+   },
+   "children": [
+    967
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 965,
+   "id": 966,
+   "ms": 0.1,
+   "result": "<PosixPath>"
+  },
+  {
+   "name": "documents.docs_dir",
+   "line": 19,
+   "args": {},
+   "children": [
+    968
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 966,
+   "id": 967,
+   "ms": 0.0,
+   "result": "<PosixPath>"
+  },
+  {
+   "name": "config.data_dir",
+   "line": 79,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 967,
+   "id": 968,
+   "ms": 0.0,
+   "result": "<PosixPath>"
+  },
+  {
+   "name": "documents.parse_file",
+   "line": 23,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 965,
+   "id": 969,
+   "ms": 1.9,
+   "result": "({doc_id: 'return_policy', title: 'Chính sách đổi trả hàng', collection: 'public', version: 2}, '# Chính sách đổi trả hàng⏎⏎## Phạm vi áp dụng⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Đ…(+908 ký tự)')"
+  },
+  {
+   "name": "chunking.chunk_document",
+   "line": 107,
+   "args": {
+    "doc_id": "'return_policy'",
+    "version": "2",
+    "collection": "'public'",
+    "title": "'Chính sách đổi trả hàng'",
+    "md": "'# Chính sách đổi trả hàng⏎⏎## Phạm vi áp dụng⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎## Thời hạn đổi trả⏎Từ ngày…(+808 ký tự)'",
+    "max_tokens": "400",
+    "min_tokens": "80",
+    "overlap": "50"
+   },
+   "children": [
+    971,
+    980,
+    981,
+    983,
+    984,
+    985,
+    986,
+    987,
+    988,
+    989,
+    990,
+    991,
+    992,
+    993,
+    994,
+    995,
+    996,
+    997,
+    998,
+    999,
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 965,
+   "id": 970,
+   "ms": 490.3,
+   "result": "[Chunk(chunk_id='0a1ca18b30d10659', doc_id='return_policy', version=2, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng', text='Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh m…(+210 ký tự)', embed_text='[Chính sách đổi trả hàng > Phạm vi áp dụng]⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điệ…(+254 ký tự)', index=0), Chunk(chunk_id='772a89c5b6f4c616', doc_id='return_policy', version=2, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Điều kiện đổi trả', text='- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎-…(+64 ký tự)', embed_text='[Chính sách đổi trả hàng > Điều kiện đổi trả]⏎- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá …(+110 ký tự)', index=1), Chunk(chunk_id='d61fcdd6987e3134', doc_id='return_policy', version=2, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Hàng điện tử và điện thoại', text='Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâ…(+164 ký tự)', embed_text='[Chính sách đổi trả hàng > Hàng điện tử và điện thoại]⏎Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử…(+219 ký tự)', index=2), Chunk(chunk_id='619b0692d2b149ce', doc_id='return_policy', version=2, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả', text='Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".', embed_text='[Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả]⏎Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi…(+35 ký tự)', index=3)]"
+  },
+  {
+   "name": "chunking._sections",
+   "line": 54,
+   "args": {
+    "md": "'# Chính sách đổi trả hàng⏎⏎## Phạm vi áp dụng⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎## Thời hạn đổi trả⏎Từ ngày…(+808 ký tự)'",
+    "title": "'Chính sách đổi trả hàng'"
+   },
+   "children": [
+    972,
+    973,
+    974,
+    975,
+    976,
+    977,
+    978,
+    979
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 971,
+   "ms": 0.1,
+   "result": "[_Section(path=['Chính sách đổi trả hàng', 'Phạm vi áp dụng'], lines=['Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh m…(+25 ký tự)', '']), _Section(path=['Chính sách đổi trả hàng', 'Thời hạn đổi trả'], lines=['Từ ngày 01/12, khách hàng được đổi trả sản phẩm trong vòng **15 ngày** kể từ ngày nhận hàng. Sau thời hạn này, sản phẩm …(+41 ký tự)', '']), _Section(path=['Chính sách đổi trả hàng', 'Điều kiện đổi trả'], lines=['- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.', '- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.', '- Sản phẩm không có dấu hiệu va đập, vào nước hoặc tự ý sửa chữa.', '']), _Section(path=['Chính sách đổi trả hàng', 'Hàng điện tử và điện thoại'], lines=['Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâ…(+20 ký tự)', '']), _Section(path=['Chính sách đổi trả hàng', 'Hoàn tiền'], lines=['Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh toán ban đầu. Đơn thanh toán tiền mặt được hoàn bằng chuyển…(+7 ký tự)', '']), _Section(path=['Chính sách đổi trả hàng', 'Sản phẩm không áp dụng đổi trả'], lines=['Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".'])]"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 971,
+   "id": 972,
+   "ms": 0.0,
+   "result": "''"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 971,
+   "id": 973,
+   "ms": 0.0,
+   "result": "''"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 971,
+   "id": 974,
+   "ms": 0.0,
+   "result": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 971,
+   "id": 975,
+   "ms": 0.0,
+   "result": "'Từ ngày 01/12, khách hàng được đổi trả sản phẩm trong vòng **15 ngày** kể từ ngày nhận hàng. Sau thời hạn này, sản phẩm chỉ được hỗ trợ theo chính sách bảo hành.'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 971,
+   "id": 976,
+   "ms": 0.0,
+   "result": "'- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎- Sản phẩm không có dấu hiệu va đập, vào nước hoặc tự ý sửa chữa.'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 971,
+   "id": 977,
+   "ms": 0.0,
+   "result": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 971,
+   "id": 978,
+   "ms": 0.0,
+   "result": "'Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh toán ban đầu. Đơn thanh toán tiền mặt được hoàn bằng chuyển khoản.'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 971,
+   "id": 979,
+   "ms": 0.0,
+   "result": "'Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 980,
+   "ms": 0.0,
+   "result": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.'"
+   },
+   "children": [
+    982
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 981,
+   "ms": 489.2,
+   "result": "60"
+  },
+  {
+   "name": "chunking._enc",
+   "line": 22,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 981,
+   "id": 982,
+   "ms": 485.9,
+   "result": "<Encoding>"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 983,
+   "ms": 0.0,
+   "result": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 984,
+   "ms": 0.0,
+   "result": "'Từ ngày 01/12, khách hàng được đổi trả sản phẩm trong vòng **15 ngày** kể từ ngày nhận hàng. Sau thời hạn này, sản phẩm chỉ được hỗ trợ theo chính sách bảo hành.'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.Từ ngày 01/12, khách hàng được đổi trả sản phẩm trong vòng **15 ngày** kể t…(+86 ký tự)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 985,
+   "ms": 0.1,
+   "result": "124"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 986,
+   "ms": 0.0,
+   "result": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎⏎**Thời hạn đổi trả**⏎Từ ngày 01/12, khách hàng được đổi trả sản phẩm tro…(+110 ký tự)'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎⏎**Thời hạn đổi trả**⏎Từ ngày 01/12, khách hàng được đổi trả sản phẩm tro…(+110 ký tự)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 987,
+   "ms": 0.1,
+   "result": "136"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 988,
+   "ms": 0.0,
+   "result": "'- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎- Sản phẩm không có dấu hiệu va đập, vào nước hoặc tự ý sửa chữa.'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎- Sản phẩm không có dấu hiệu va đập, vào nước hoặc tự ý sửa chữa.'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 989,
+   "ms": 0.1,
+   "result": "91"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 990,
+   "ms": 0.0,
+   "result": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 991,
+   "ms": 0.0,
+   "result": "61"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 992,
+   "ms": 0.0,
+   "result": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 993,
+   "ms": 0.0,
+   "result": "'Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh toán ban đầu. Đơn thanh toán tiền mặt được hoàn bằng chuyển khoản.'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh toán ban đầu. Đơn t…(+47 ký tự)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 994,
+   "ms": 0.1,
+   "result": "115"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 995,
+   "ms": 0.0,
+   "result": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.⏎⏎⏎**Hoàn tiền**⏎Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh to…(+64 ký tự)'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.⏎⏎⏎**Hoàn tiền**⏎Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh to…(+64 ký tự)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 996,
+   "ms": 0.1,
+   "result": "121"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 997,
+   "ms": 0.0,
+   "result": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎⏎**Thời hạn đổi trả**⏎Từ ngày 01/12, khách hàng được đổi trả sản phẩm tro…(+110 ký tự)'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎⏎**Thời hạn đổi trả**⏎Từ ngày 01/12, khách hàng được đổi trả sản phẩm tro…(+110 ký tự)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 998,
+   "ms": 0.1,
+   "result": "136"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 999,
+   "ms": 0.0,
+   "result": "'Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎⏎**Thời hạn đổi trả**⏎Từ ngày 01/12, khách hàng được đổi trả sản phẩm tro…(+110 ký tự)'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 1000,
+   "ms": 0.0,
+   "result": "'- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎- Sản phẩm không có dấu hiệu va đập, vào nước hoặc tự ý sửa chữa.'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎- Sản phẩm không có dấu hiệu va đập, vào nước hoặc tự ý sửa chữa.'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 1001,
+   "ms": 0.0,
+   "result": "91"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 1002,
+   "ms": 0.0,
+   "result": "'- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎- Sản phẩm không có dấu hiệu va đập, vào nước hoặc tự ý sửa chữa.'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 1003,
+   "ms": 0.0,
+   "result": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.⏎⏎⏎**Hoàn tiền**⏎Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh to…(+64 ký tự)'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.⏎⏎⏎**Hoàn tiền**⏎Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh to…(+64 ký tự)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 1004,
+   "ms": 0.0,
+   "result": "121"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 1005,
+   "ms": 0.0,
+   "result": "'Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.⏎⏎⏎**Hoàn tiền**⏎Tiền được hoàn trong 3–5 ngày làm việc qua phương thức thanh to…(+64 ký tự)'"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 1006,
+   "ms": 0.0,
+   "result": "'Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".'"
+  },
+  {
+   "name": "chunking.ntokens",
+   "line": 27,
+   "args": {
+    "text": "'Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 1007,
+   "ms": 0.0,
+   "result": "48"
+  },
+  {
+   "name": "chunking._Section.body",
+   "line": 49,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 970,
+   "id": 1008,
+   "ms": 0.0,
+   "result": "'Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".'"
+  },
+  {
+   "name": "embeddings.embed",
+   "line": 23,
+   "args": {
+    "texts": "['[Chính sách đổi trả hàng > Phạm vi áp dụng]⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điệ…(+254 ký tự)', '[Chính sách đổi trả hàng > Điều kiện đổi trả]⏎- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá …(+110 ký tự)', '[Chính sách đổi trả hàng > Hàng điện tử và điện thoại]⏎Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử…(+219 ký tự)', '[Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả]⏎Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi…(+35 ký tự)']"
+   },
+   "children": [
+    1010,
+    1012,
+    1014,
+    1016,
+    1018,
+    1019,
+    1021,
+    1023,
+    1025
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 965,
+   "id": 1009,
+   "ms": 366.3,
+   "result": "([<vector 1536 số: [0.0091, 0.0230, -0.0536, …]>, <vector 1536 số: [0.0212, 0.0231, -0.0797, …]>, <vector 1536 số: [-0.0054, 0.0251, -0.0288, …]>, <vector 1536 số: [-0.0192, 0.0438, -0.0110, …]>], 487, False)"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'[Chính sách đổi trả hàng > Phạm vi áp dụng]⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎⏎**Thời hạn đổi trả**⏎Từ ngày…(+154 ký tự)'"
+   },
+   "children": [
+    1011
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1009,
+   "id": 1010,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:ae8014b3d78dc29865b3463a35f1e1380e11ad37'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1010,
+   "id": 1011,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'[Chính sách đổi trả hàng > Điều kiện đổi trả]⏎- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎- Sản phẩm không có dấu hiệu va đập, vào nước hoặc tự ý…(+10 ký tự)'"
+   },
+   "children": [
+    1013
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1009,
+   "id": 1012,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:872843448abcb558d8c77d6292b8b5496bfaeb7f'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1012,
+   "id": 1013,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'[Chính sách đổi trả hàng > Hàng điện tử và điện thoại]⏎Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.⏎⏎⏎**Hoàn tiền**⏎Tiền đượ…(+119 ký tự)'"
+   },
+   "children": [
+    1015
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1009,
+   "id": 1014,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:e60f1f0be5f599a69f386d76f64b1fe899e5dc0d'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1014,
+   "id": 1015,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'[Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả]⏎Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".'"
+   },
+   "children": [
+    1017
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1009,
+   "id": 1016,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:0c8e429913bdb13e51a615a96772ff5972d5b661'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1016,
+   "id": 1017,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1009,
+   "id": 1018,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'[Chính sách đổi trả hàng > Phạm vi áp dụng]⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎⏎**Thời hạn đổi trả**⏎Từ ngày…(+154 ký tự)'"
+   },
+   "children": [
+    1020
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1009,
+   "id": 1019,
+   "ms": 0.1,
+   "result": "'emb:text-embedding-3-small:ae8014b3d78dc29865b3463a35f1e1380e11ad37'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1019,
+   "id": 1020,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'[Chính sách đổi trả hàng > Điều kiện đổi trả]⏎- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎- Sản phẩm không có dấu hiệu va đập, vào nước hoặc tự ý…(+10 ký tự)'"
+   },
+   "children": [
+    1022
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1009,
+   "id": 1021,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:872843448abcb558d8c77d6292b8b5496bfaeb7f'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1021,
+   "id": 1022,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'[Chính sách đổi trả hàng > Hàng điện tử và điện thoại]⏎Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâm bảo hành xác nhận.⏎⏎⏎**Hoàn tiền**⏎Tiền đượ…(+119 ký tự)'"
+   },
+   "children": [
+    1024
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1009,
+   "id": 1023,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:e60f1f0be5f599a69f386d76f64b1fe899e5dc0d'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1023,
+   "id": 1024,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'[Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả]⏎Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".'"
+   },
+   "children": [
+    1026
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1009,
+   "id": 1025,
+   "ms": 0.1,
+   "result": "'emb:text-embedding-3-small:0c8e429913bdb13e51a615a96772ff5972d5b661'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1025,
+   "id": 1026,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "documents.ensure_collection",
+   "line": 44,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 965,
+   "id": 1027,
+   "ms": 9.4,
+   "result": "None"
+  },
+  {
+   "name": "db.execute",
+   "line": 109,
+   "args": {
+    "sql": "'INSERT INTO documents(doc_id,title,collection,version,updated_at) VALUES (%s,%s,%s,%s,now())⏎                  ON CONFLICT (doc_id) DO UPDATE SET title=EXCLUDED.title, collection=EXCLUDED.collection,⏎                  ve…(+40 ký tự)'",
+    "params": "('return_policy', 'Chính sách đổi trả hàng', 'public', 2)"
+   },
+   "children": [
+    1029,
+    1030
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 965,
+   "id": 1028,
+   "ms": 4.6,
+   "result": "None"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1028,
+   "id": 1029,
+   "ms": 0.0,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1028,
+   "id": 1030,
+   "ms": 1.5,
+   "result": "None"
+  },
+  {
+   "name": "cache.invalidate_doc",
+   "line": 209,
+   "args": {
+    "doc_id": "'return_policy'"
+   },
+   "children": [
+    1032,
+    1036,
+    1040,
+    1044
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 962,
+   "id": 1031,
+   "ms": 47.2,
+   "result": "['89b29268-88ac-4d02-aa9f-213ed5d83917', '13c22a20-a6b2-4a03-9448-46772e13273d', '58268469-9c80-4a96-a8d5-fe6ff9944f8b', '09176751-c2c5-46a1-abf9-9cb46fbb0af4']"
+  },
+  {
+   "name": "cache.delete",
+   "line": 196,
+   "args": {
+    "entry_id": "'89b29268-88ac-4d02-aa9f-213ed5d83917'"
+   },
+   "children": [
+    1033,
+    1035
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1031,
+   "id": 1032,
+   "ms": 8.7,
+   "result": "None"
+  },
+  {
+   "name": "cache.get_entry",
+   "line": 104,
+   "args": {
+    "entry_id": "'89b29268-88ac-4d02-aa9f-213ed5d83917'"
+   },
+   "children": [
+    1034
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1032,
+   "id": 1033,
+   "ms": 0.9,
+   "result": "CacheEntry(entry_id='89b29268-88ac-4d02-aa9f-213ed5d83917', partition='3963a48f4b463545', question='Khách VIP được đổi trả trong bao lâu?', answer='Khách hàng được đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng [c2].', citations=[{label: 'c2', doc_id: 'return_policy', title: 'Chính sách đổi trả hàng', section: 'Chính sách đổi trả hàng > Phạm vi áp dụng', collection: 'public', version: 1}], provenance=[Provenance(chunk_id='7f3df74338ef5336', doc_id='membership_faq', version=1, collection='public', title='Câu hỏi thường gặp về hạng thành viên', section_path='Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung'), Provenance(chunk_id='232c157bca68b49d', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng'), Provenance(chunk_id='2bca42c3afd3fc40', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Hàng điện tử và điện thoại'), Provenance(chunk_id='0d3884b099feeb56', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả'), Provenance(chunk_id='5f795b0c2ed5e7a5', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Điều kiện đổi trả')], intent='return_policy', entities={tier: 'vip'}, policy='NORMAL', prompt_version='v1-8cc4d02d', model='gemini-3.5-flash-lite', created_at=1.794e+09, ttl=604800, gen_tokens_in=605, gen_tokens_out=22, gen_cost_usd=0.0001, gen_latency_ms=1958.8714, hits=0, last_hit=None)"
+  },
+  {
+   "name": "cache.CacheEntry.from_json",
+   "line": 68,
+   "args": {
+    "s": "'{\"entry_id\": \"89b29268-88ac-4d02-aa9f-213ed5d83917\", \"partition\": \"3963a48f4b463545\", \"question\": \"Khách VIP được đổi trả trong bao lâu?\", \"answer\": \"Khách hàng được đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàn…(+1593 ký tự)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1033,
+   "id": 1034,
+   "ms": 0.1,
+   "result": "CacheEntry(entry_id='89b29268-88ac-4d02-aa9f-213ed5d83917', partition='3963a48f4b463545', question='Khách VIP được đổi trả trong bao lâu?', answer='Khách hàng được đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng [c2].', citations=[{label: 'c2', doc_id: 'return_policy', title: 'Chính sách đổi trả hàng', section: 'Chính sách đổi trả hàng > Phạm vi áp dụng', collection: 'public', version: 1}], provenance=[Provenance(chunk_id='7f3df74338ef5336', doc_id='membership_faq', version=1, collection='public', title='Câu hỏi thường gặp về hạng thành viên', section_path='Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung'), Provenance(chunk_id='232c157bca68b49d', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng'), Provenance(chunk_id='2bca42c3afd3fc40', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Hàng điện tử và điện thoại'), Provenance(chunk_id='0d3884b099feeb56', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả'), Provenance(chunk_id='5f795b0c2ed5e7a5', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Điều kiện đổi trả')], intent='return_policy', entities={tier: 'vip'}, policy='NORMAL', prompt_version='v1-8cc4d02d', model='gemini-3.5-flash-lite', created_at=1.794e+09, ttl=604800, gen_tokens_in=605, gen_tokens_out=22, gen_cost_usd=0.0001, gen_latency_ms=1958.8714, hits=0, last_hit=None)"
+  },
+  {
+   "name": "cache._delete_vector",
+   "line": 192,
+   "args": {
+    "entry_id": "'89b29268-88ac-4d02-aa9f-213ed5d83917'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1032,
+   "id": 1035,
+   "ms": 6.8,
+   "result": "None"
+  },
+  {
+   "name": "cache.delete",
+   "line": 196,
+   "args": {
+    "entry_id": "'13c22a20-a6b2-4a03-9448-46772e13273d'"
+   },
+   "children": [
+    1037,
+    1039
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1031,
+   "id": 1036,
+   "ms": 7.4,
+   "result": "None"
+  },
+  {
+   "name": "cache.get_entry",
+   "line": 104,
+   "args": {
+    "entry_id": "'13c22a20-a6b2-4a03-9448-46772e13273d'"
+   },
+   "children": [
+    1038
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1036,
+   "id": 1037,
+   "ms": 0.8,
+   "result": "CacheEntry(entry_id='13c22a20-a6b2-4a03-9448-46772e13273d', partition='95503c7831d2f7ed', question='Khách VIP được đổi trả trong bao lâu?', answer='Khách hàng hạng VIP được đổi trả trong vòng 33 ngày kể từ ngày nhận hàng [c2]. Trưởng ca CSKH có thể duyệt kéo dài đến t…(+19 ký tự)', citations=[{label: 'c2', doc_id: 'vip_return_exception', title: 'Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', section: 'Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Thời hạn đổi trả của khách VIP', collection: 'cskh', version: 1}], provenance=[Provenance(chunk_id='6d104000587bf29f', doc_id='vip_return_exception', version=1, collection='cskh', title='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', section_path='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Khách hạng Bạc'), Provenance(chunk_id='9037da49391df36c', doc_id='vip_return_exception', version=1, collection='cskh', title='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', section_path='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Thời hạn đổi trả của khách VIP'), Provenance(chunk_id='7f3df74338ef5336', doc_id='membership_faq', version=1, collection='public', title='Câu hỏi thường gặp về hạng thành viên', section_path='Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung'), Provenance(chunk_id='232c157bca68b49d', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng'), Provenance(chunk_id='267228f9c1321d68', doc_id='complaint_handling', version=1, collection='cskh', title='Kịch bản xử lý khiếu nại khách hàng', section_path='Kịch bản xử lý khiếu nại khách hàng > Thời gian phản hồi')], intent='return_policy', entities={tier: 'vip'}, policy='NORMAL', prompt_version='v1-8cc4d02d', model='gemini-3.5-flash-lite', created_at=1.794e+09, ttl=604800, gen_tokens_in=725, gen_tokens_out=44, gen_cost_usd=0.0001, gen_latency_ms=3056.1994, hits=1, last_hit=1.794e+09)"
+  },
+  {
+   "name": "cache.CacheEntry.from_json",
+   "line": 68,
+   "args": {
+    "s": "'{\"entry_id\": \"13c22a20-a6b2-4a03-9448-46772e13273d\", \"partition\": \"95503c7831d2f7ed\", \"question\": \"Khách VIP được đổi trả trong bao lâu?\", \"answer\": \"Khách hàng hạng VIP được đổi trả trong vòng 33 ngày kể từ ngày nhận hà…(+1886 ký tự)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1037,
+   "id": 1038,
+   "ms": 0.1,
+   "result": "CacheEntry(entry_id='13c22a20-a6b2-4a03-9448-46772e13273d', partition='95503c7831d2f7ed', question='Khách VIP được đổi trả trong bao lâu?', answer='Khách hàng hạng VIP được đổi trả trong vòng 33 ngày kể từ ngày nhận hàng [c2]. Trưởng ca CSKH có thể duyệt kéo dài đến t…(+19 ký tự)', citations=[{label: 'c2', doc_id: 'vip_return_exception', title: 'Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', section: 'Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Thời hạn đổi trả của khách VIP', collection: 'cskh', version: 1}], provenance=[Provenance(chunk_id='6d104000587bf29f', doc_id='vip_return_exception', version=1, collection='cskh', title='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', section_path='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Khách hạng Bạc'), Provenance(chunk_id='9037da49391df36c', doc_id='vip_return_exception', version=1, collection='cskh', title='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP', section_path='Hướng dẫn nội bộ CSKH - Ngoại lệ đổi trả cho khách VIP > Thời hạn đổi trả của khách VIP'), Provenance(chunk_id='7f3df74338ef5336', doc_id='membership_faq', version=1, collection='public', title='Câu hỏi thường gặp về hạng thành viên', section_path='Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung'), Provenance(chunk_id='232c157bca68b49d', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng'), Provenance(chunk_id='267228f9c1321d68', doc_id='complaint_handling', version=1, collection='cskh', title='Kịch bản xử lý khiếu nại khách hàng', section_path='Kịch bản xử lý khiếu nại khách hàng > Thời gian phản hồi')], intent='return_policy', entities={tier: 'vip'}, policy='NORMAL', prompt_version='v1-8cc4d02d', model='gemini-3.5-flash-lite', created_at=1.794e+09, ttl=604800, gen_tokens_in=725, gen_tokens_out=44, gen_cost_usd=0.0001, gen_latency_ms=3056.1994, hits=1, last_hit=1.794e+09)"
+  },
+  {
+   "name": "cache._delete_vector",
+   "line": 192,
+   "args": {
+    "entry_id": "'13c22a20-a6b2-4a03-9448-46772e13273d'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1036,
+   "id": 1039,
+   "ms": 5.6,
+   "result": "None"
+  },
+  {
+   "name": "cache.delete",
+   "line": 196,
+   "args": {
+    "entry_id": "'58268469-9c80-4a96-a8d5-fe6ff9944f8b'"
+   },
+   "children": [
+    1041,
+    1043
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1031,
+   "id": 1040,
+   "ms": 8.3,
+   "result": "None"
+  },
+  {
+   "name": "cache.get_entry",
+   "line": 104,
+   "args": {
+    "entry_id": "'58268469-9c80-4a96-a8d5-fe6ff9944f8b'"
+   },
+   "children": [
+    1042
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1040,
+   "id": 1041,
+   "ms": 0.7,
+   "result": "CacheEntry(entry_id='58268469-9c80-4a96-a8d5-fe6ff9944f8b', partition='1fb84ec24c927b56', question='Thời hạn đổi trả hàng cho khách VIP là bao lâu?', answer='Khách hàng được đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng [c1]. Thành viên VIP được hỗ trợ đổi trả linh ho…(+65 ký tự)', citations=[{label: 'c1', doc_id: 'return_policy', title: 'Chính sách đổi trả hàng', section: 'Chính sách đổi trả hàng > Phạm vi áp dụng', collection: 'public', version: 1}, {label: 'c2', doc_id: 'membership_faq', title: 'Câu hỏi thường gặp về hạng thành viên', section: 'Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung', collection: 'public', version: 1}], provenance=[Provenance(chunk_id='232c157bca68b49d', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng'), Provenance(chunk_id='7f3df74338ef5336', doc_id='membership_faq', version=1, collection='public', title='Câu hỏi thường gặp về hạng thành viên', section_path='Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung'), Provenance(chunk_id='5f795b0c2ed5e7a5', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Điều kiện đổi trả'), Provenance(chunk_id='0d3884b099feeb56', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả'), Provenance(chunk_id='2bca42c3afd3fc40', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Hàng điện tử và điện thoại')], intent='return_policy', entities={tier: 'vip'}, policy='NORMAL', prompt_version='v1-8cc4d02d', model='gemini-3.5-flash-lite', created_at=1.794e+09, ttl=604800, gen_tokens_in=607, gen_tokens_out=49, gen_cost_usd=0.0001, gen_latency_ms=7305.2847, hits=0, last_hit=None)"
+  },
+  {
+   "name": "cache.CacheEntry.from_json",
+   "line": 68,
+   "args": {
+    "s": "'{\"entry_id\": \"58268469-9c80-4a96-a8d5-fe6ff9944f8b\", \"partition\": \"1fb84ec24c927b56\", \"question\": \"Thời hạn đổi trả hàng cho khách VIP là bao lâu?\", \"answer\": \"Khách hàng được đổi trả sản phẩm trong vòng 7 ngày kể từ ngà…(+1913 ký tự)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1041,
+   "id": 1042,
+   "ms": 0.0,
+   "result": "CacheEntry(entry_id='58268469-9c80-4a96-a8d5-fe6ff9944f8b', partition='1fb84ec24c927b56', question='Thời hạn đổi trả hàng cho khách VIP là bao lâu?', answer='Khách hàng được đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng [c1]. Thành viên VIP được hỗ trợ đổi trả linh ho…(+65 ký tự)', citations=[{label: 'c1', doc_id: 'return_policy', title: 'Chính sách đổi trả hàng', section: 'Chính sách đổi trả hàng > Phạm vi áp dụng', collection: 'public', version: 1}, {label: 'c2', doc_id: 'membership_faq', title: 'Câu hỏi thường gặp về hạng thành viên', section: 'Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung', collection: 'public', version: 1}], provenance=[Provenance(chunk_id='232c157bca68b49d', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng'), Provenance(chunk_id='7f3df74338ef5336', doc_id='membership_faq', version=1, collection='public', title='Câu hỏi thường gặp về hạng thành viên', section_path='Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung'), Provenance(chunk_id='5f795b0c2ed5e7a5', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Điều kiện đổi trả'), Provenance(chunk_id='0d3884b099feeb56', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả'), Provenance(chunk_id='2bca42c3afd3fc40', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Hàng điện tử và điện thoại')], intent='return_policy', entities={tier: 'vip'}, policy='NORMAL', prompt_version='v1-8cc4d02d', model='gemini-3.5-flash-lite', created_at=1.794e+09, ttl=604800, gen_tokens_in=607, gen_tokens_out=49, gen_cost_usd=0.0001, gen_latency_ms=7305.2847, hits=0, last_hit=None)"
+  },
+  {
+   "name": "cache._delete_vector",
+   "line": 192,
+   "args": {
+    "entry_id": "'58268469-9c80-4a96-a8d5-fe6ff9944f8b'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1040,
+   "id": 1043,
+   "ms": 6.8,
+   "result": "None"
+  },
+  {
+   "name": "cache.delete",
+   "line": 196,
+   "args": {
+    "entry_id": "'09176751-c2c5-46a1-abf9-9cb46fbb0af4'"
+   },
+   "children": [
+    1045,
+    1047
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1031,
+   "id": 1044,
+   "ms": 19.3,
+   "result": "None"
+  },
+  {
+   "name": "cache.get_entry",
+   "line": 104,
+   "args": {
+    "entry_id": "'09176751-c2c5-46a1-abf9-9cb46fbb0af4'"
+   },
+   "children": [
+    1046
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1044,
+   "id": 1045,
+   "ms": 0.8,
+   "result": "CacheEntry(entry_id='09176751-c2c5-46a1-abf9-9cb46fbb0af4', partition='3963a48f4b463545', question='Chính sách đổi trả cho phép trả hàng trong bao nhiêu ngày?', answer='Khách hàng được đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng [c1].', citations=[{label: 'c1', doc_id: 'return_policy', title: 'Chính sách đổi trả hàng', section: 'Chính sách đổi trả hàng > Phạm vi áp dụng', collection: 'public', version: 1}], provenance=[Provenance(chunk_id='232c157bca68b49d', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng'), Provenance(chunk_id='2bca42c3afd3fc40', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Hàng điện tử và điện thoại'), Provenance(chunk_id='0d3884b099feeb56', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả'), Provenance(chunk_id='5f795b0c2ed5e7a5', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Điều kiện đổi trả'), Provenance(chunk_id='508f6d007ba2eeee', doc_id='shipping_policy', version=1, collection='public', title='Chính sách giao hàng và lắp đặt', section_path='Chính sách giao hàng và lắp đặt > Thời gian giao hàng')], intent='return_policy', entities={}, policy='NORMAL', prompt_version='v1-8cc4d02d', model='gemini-3.5-flash-lite', created_at=1.794e+09, ttl=604800, gen_tokens_in=660, gen_tokens_out=22, gen_cost_usd=0.0001, gen_latency_ms=778.8788, hits=0, last_hit=None)"
+  },
+  {
+   "name": "cache.CacheEntry.from_json",
+   "line": 68,
+   "args": {
+    "s": "'{\"entry_id\": \"09176751-c2c5-46a1-abf9-9cb46fbb0af4\", \"partition\": \"3963a48f4b463545\", \"question\": \"Chính sách đổi trả cho phép trả hàng trong bao nhiêu ngày?\", \"answer\": \"Khách hàng được đổi trả sản phẩm trong vòng 7 ngà…(+1579 ký tự)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1045,
+   "id": 1046,
+   "ms": 0.0,
+   "result": "CacheEntry(entry_id='09176751-c2c5-46a1-abf9-9cb46fbb0af4', partition='3963a48f4b463545', question='Chính sách đổi trả cho phép trả hàng trong bao nhiêu ngày?', answer='Khách hàng được đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng [c1].', citations=[{label: 'c1', doc_id: 'return_policy', title: 'Chính sách đổi trả hàng', section: 'Chính sách đổi trả hàng > Phạm vi áp dụng', collection: 'public', version: 1}], provenance=[Provenance(chunk_id='232c157bca68b49d', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng'), Provenance(chunk_id='2bca42c3afd3fc40', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Hàng điện tử và điện thoại'), Provenance(chunk_id='0d3884b099feeb56', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả'), Provenance(chunk_id='5f795b0c2ed5e7a5', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Điều kiện đổi trả'), Provenance(chunk_id='508f6d007ba2eeee', doc_id='shipping_policy', version=1, collection='public', title='Chính sách giao hàng và lắp đặt', section_path='Chính sách giao hàng và lắp đặt > Thời gian giao hàng')], intent='return_policy', entities={}, policy='NORMAL', prompt_version='v1-8cc4d02d', model='gemini-3.5-flash-lite', created_at=1.794e+09, ttl=604800, gen_tokens_in=660, gen_tokens_out=22, gen_cost_usd=0.0001, gen_latency_ms=778.8788, hits=0, last_hit=None)"
+  },
+  {
+   "name": "cache._delete_vector",
+   "line": 192,
+   "args": {
+    "entry_id": "'09176751-c2c5-46a1-abf9-9cb46fbb0af4'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1044,
+   "id": 1047,
+   "ms": 17.7,
+   "result": "None"
+  },
+  {
+   "name": "sync._now",
+   "line": 23,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 962,
+   "id": 1048,
+   "ms": 0.0,
+   "result": "<datetime>"
+  },
+  {
+   "name": "sync._now",
+   "line": 23,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 962,
+   "id": 1049,
+   "ms": 0.0,
+   "result": "<datetime>"
+  },
+  {
+   "name": "sync.record_event",
+   "line": 27,
+   "args": {
+    "kind": "'doc_update'",
+    "source": "'admin_api'",
+    "occurred_at": "<datetime>",
+    "detected_at": "<datetime>",
+    "effective_at": "<datetime>",
+    "summary": "'return_policy: v1 -> v2 (4 chunk), xoá 4 cache entry'",
+    "details": "{doc_id: 'return_policy', from_version: 1, to_version: 2, chunks: 4, invalidated_entries: ['89b29268-88ac-4d02-aa9f-213ed5d83917', '13c22a20-a6b2-4a03-9448-46772e13273d', '58268469-9c80-4a96-a8d5-fe6ff9944f8b', '09176751-c2c5-46a1-abf9-9cb46fbb0af4'], actor: 'admin_ops'}"
+   },
+   "children": [
+    1051,
+    1054,
+    1055
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 962,
+   "id": 1050,
+   "ms": 4.0,
+   "result": "{id: 23, kind: 'doc_update', source: 'admin_api', occurred_at: '2026-11-11T04:37:58.351167+00:00', detected_at: '2026-11-11T04:37:58.276886+00:00', effective_at: '2026-11-11T04:37:58.276901+00:00', summary: 'return_policy: v1 -> v2 (4 chunk), xoá 4 cache entry', details: {actor: 'admin_ops', chunks: 4, doc_id: 'return_policy', to_version: 2, from_version: 1, invalidated_entries: ['89b29268-88ac-4d02-aa9f-213ed5d83917', '13c22a20-a6b2-4a03-9448-46772e13273d', '58268469-9c80-4a96-a8d5-fe6ff9944f8b', '09176751-c2c5-46a1-abf9-9cb46fbb0af4']}}"
+  },
+  {
+   "name": "db.fetch_one",
+   "line": 104,
+   "args": {
+    "sql": "'INSERT INTO security_events(kind,source,occurred_at,detected_at,effective_at,summary,details)⏎           VALUES (%s,%s,%s,%s,%s,%s,%s) RETURNING *'",
+    "params": "('doc_update', 'admin_api', <datetime>, <datetime>, <datetime>, 'return_policy: v1 -> v2 (4 chunk), xoá 4 cache entry', …(+1))"
+   },
+   "children": [
+    1052,
+    1053
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1050,
+   "id": 1051,
+   "ms": 3.2,
+   "result": "{id: 23, kind: 'doc_update', source: 'admin_api', occurred_at: <datetime>, detected_at: <datetime>, effective_at: <datetime>, summary: 'return_policy: v1 -> v2 (4 chunk), xoá 4 cache entry', details: {actor: 'admin_ops', chunks: 4, doc_id: 'return_policy', to_version: 2, from_version: 1, invalidated_entries: ['89b29268-88ac-4d02-aa9f-213ed5d83917', '13c22a20-a6b2-4a03-9448-46772e13273d', '58268469-9c80-4a96-a8d5-fe6ff9944f8b', '09176751-c2c5-46a1-abf9-9cb46fbb0af4']}}"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1051,
+   "id": 1052,
+   "ms": 0.0,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1051,
+   "id": 1053,
+   "ms": 1.3,
+   "result": "None"
+  },
+  {
+   "name": "tracing.jsonable",
+   "line": 73,
+   "args": {
+    "row": "{id: 23, kind: 'doc_update', source: 'admin_api', occurred_at: <datetime>, detected_at: <datetime>, effective_at: <datetime>, summary: 'return_policy: v1 -> v2 (4 chunk), xoá 4 cache entry', details: {actor: 'admin_ops', chunks: 4, doc_id: 'return_policy', to_version: 2, from_version: 1, invalidated_entries: ['89b29268-88ac-4d02-aa9f-213ed5d83917', '13c22a20-a6b2-4a03-9448-46772e13273d', '58268469-9c80-4a96-a8d5-fe6ff9944f8b', '09176751-c2c5-46a1-abf9-9cb46fbb0af4']}}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1050,
+   "id": 1054,
+   "ms": 0.0,
+   "result": "{id: 23, kind: 'doc_update', source: 'admin_api', occurred_at: '2026-11-11T04:37:58.351167+00:00', detected_at: '2026-11-11T04:37:58.276886+00:00', effective_at: '2026-11-11T04:37:58.276901+00:00', summary: 'return_policy: v1 -> v2 (4 chunk), xoá 4 cache entry', details: {actor: 'admin_ops', chunks: 4, doc_id: 'return_policy', to_version: 2, from_version: 1, invalidated_entries: ['89b29268-88ac-4d02-aa9f-213ed5d83917', '13c22a20-a6b2-4a03-9448-46772e13273d', '58268469-9c80-4a96-a8d5-fe6ff9944f8b', '09176751-c2c5-46a1-abf9-9cb46fbb0af4']}}"
+  },
+  {
+   "name": "tracing.publish",
+   "line": 85,
+   "args": {
+    "kind": "'security'",
+    "data": "{id: 23, kind: 'doc_update', source: 'admin_api', occurred_at: '2026-11-11T04:37:58.351167+00:00', detected_at: '2026-11-11T04:37:58.276886+00:00', effective_at: '2026-11-11T04:37:58.276901+00:00', summary: 'return_policy: v1 -> v2 (4 chunk), xoá 4 cache entry', details: {actor: 'admin_ops', chunks: 4, doc_id: 'return_policy', to_version: 2, from_version: 1, invalidated_entries: ['89b29268-88ac-4d02-aa9f-213ed5d83917', '13c22a20-a6b2-4a03-9448-46772e13273d', '58268469-9c80-4a96-a8d5-fe6ff9944f8b', '09176751-c2c5-46a1-abf9-9cb46fbb0af4']}}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "08_publish",
+   "parent": 1050,
+   "id": 1055,
+   "ms": 0.6,
+   "result": "None"
+  }
+ ]
+}

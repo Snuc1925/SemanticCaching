@@ -1,0 +1,1388 @@
+{
+ "title": "Khởi động / import",
+ "calls": [
+  {
+   "name": "config.Env",
+   "line": 36,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 0,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "iam.base.UserContext",
+   "line": 14,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 1,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "iam.base.AccessChangeEvent",
+   "line": 22,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 2,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "iam.base.AccessControlBase",
+   "line": 32,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 3,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "iam.base.ChangeEventSource",
+   "line": 48,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 4,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin",
+   "line": 23,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 5,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAccessControl",
+   "line": 116,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 6,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "iam.keycloak.KeycloakEventSource",
+   "line": 150,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 7,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "access.Signature",
+   "line": 25,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 8,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace",
+   "line": 16,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 9,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "chunking.Chunk",
+   "line": 31,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 10,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "chunking._Section",
+   "line": 44,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 11,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "cache.Provenance",
+   "line": 33,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 12,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "cache.CacheEntry",
+   "line": 43,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 13,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "cache.Candidate",
+   "line": 75,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 14,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "cache.LookupResult",
+   "line": 85,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 15,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "classifier.Classification",
+   "line": 14,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 16,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "prompts.PromptError",
+   "line": 12,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 17,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "llm.LLMResult",
+   "line": 12,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 18,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "retrieval.Retrieved",
+   "line": 17,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 19,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "pipeline.ChatResult",
+   "line": 17,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 20,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "sync.PermissionSync",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 21,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "main.ChatIn",
+   "line": 64,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 22,
+   "ms": 0.1,
+   "result": "None"
+  },
+  {
+   "name": "main.FeedbackIn",
+   "line": 134,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 23,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "main.RoleIn",
+   "line": 231,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 24,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "main.PublishIn",
+   "line": 258,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 25,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "main.ResetIn",
+   "line": 270,
+   "args": {},
+   "children": [],
+   "thread": "MainThread",
+   "label": "00_startup",
+   "parent": null,
+   "id": 26,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "main.lifespan",
+   "line": 29,
+   "args": {
+    "_": "<FastAPI>"
+   },
+   "children": [
+    28,
+    32,
+    46,
+    48,
+    49,
+    90
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": null,
+   "id": 27,
+   "ms": 235.2,
+   "result": "<async_generator_wrapped_value>"
+  },
+  {
+   "name": "db.init_schema",
+   "line": 94,
+   "args": {},
+   "children": [
+    29,
+    31
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 27,
+   "id": 28,
+   "ms": 31.2,
+   "result": "None"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [
+    30
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 28,
+   "id": 29,
+   "ms": 25.3,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.pool",
+   "line": 82,
+   "args": {},
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 29,
+   "id": 30,
+   "ms": 1.1,
+   "result": "<ConnectionPool>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 28,
+   "id": 31,
+   "ms": 0.5,
+   "result": "None"
+  },
+  {
+   "name": "prompts.validate",
+   "line": 58,
+   "args": {
+    "required": "{rag_answer: {'history', 'context', 'question', 'no_answer'}}"
+   },
+   "children": [
+    33
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 27,
+   "id": 32,
+   "ms": 4.7,
+   "result": "None"
+  },
+  {
+   "name": "prompts.variables",
+   "line": 32,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [
+    34
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 32,
+   "id": 33,
+   "ms": 4.7,
+   "result": "{'history', 'context', 'question', 'no_answer'}"
+  },
+  {
+   "name": "prompts.get",
+   "line": 21,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [
+    35
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 33,
+   "id": 34,
+   "ms": 4.6,
+   "result": "{description: 'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.', temperature: 0.1, max_output_tokens: 600, system: 'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+298 ký tự)', user: '# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎ…(+13 ký tự)'}"
+  },
+  {
+   "name": "prompts._all",
+   "line": 16,
+   "args": {},
+   "children": [
+    36
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 34,
+   "id": 35,
+   "ms": 4.5,
+   "result": "{version: 1, rag_answer: {description: 'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.', temperature: 0.1, max_output_tokens: 600, system: 'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+298 ký tự)', user: '# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎ…(+13 ký tự)'}, no_answer_text: 'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'}"
+  },
+  {
+   "name": "config.load_yaml",
+   "line": 31,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [
+    37
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 35,
+   "id": 36,
+   "ms": 4.5,
+   "result": "{version: 1, rag_answer: {description: 'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.', temperature: 0.1, max_output_tokens: 600, system: 'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+298 ký tự)', user: '# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎ…(+13 ký tự)'}, no_answer_text: 'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{version: 1, rag_answer: {description: 'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.', temperature: 0.1, max_output_tokens: 600, system: 'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+298 ký tự)', user: '# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎ…(+13 ký tự)'}, no_answer_text: 'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'}"
+   },
+   "children": [
+    38,
+    39,
+    45
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 36,
+   "id": 37,
+   "ms": 0.1,
+   "result": "{version: 1, rag_answer: {description: 'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.', temperature: 0.1, max_output_tokens: 600, system: 'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+298 ký tự)', user: '# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎ…(+13 ký tự)'}, no_answer_text: 'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "1"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 37,
+   "id": 38,
+   "ms": 0.0,
+   "result": "1"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{description: 'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.', temperature: 0.1, max_output_tokens: 600, system: 'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+298 ký tự)', user: '# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎ…(+13 ký tự)'}"
+   },
+   "children": [
+    40,
+    41,
+    42,
+    43,
+    44
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 37,
+   "id": 39,
+   "ms": 0.1,
+   "result": "{description: 'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.', temperature: 0.1, max_output_tokens: 600, system: 'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+298 ký tự)', user: '# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎ…(+13 ký tự)'}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.'"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 39,
+   "id": 40,
+   "ms": 0.0,
+   "result": "'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "0.1"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 39,
+   "id": 41,
+   "ms": 0.0,
+   "result": "0.1"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "600"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 39,
+   "id": 42,
+   "ms": 0.0,
+   "result": "600"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung cấp. Không dùng kiến thức bên ngoài, không suy đoán.⏎2. Nếu ngữ cảnh không có thông tin để trả lời, …(+198 ký tự)'"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 39,
+   "id": 43,
+   "ms": 0.0,
+   "result": "'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung cấp. Không dùng kiến thức bên ngoài, không suy đoán.⏎2. Nếu ngữ cảnh không có thông tin để trả lời, …(+198 ký tự)'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎI⏎{question}⏎'"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 39,
+   "id": 44,
+   "ms": 0.0,
+   "result": "'# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎI⏎{question}⏎'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 37,
+   "id": 45,
+   "ms": 0.0,
+   "result": "'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'"
+  },
+  {
+   "name": "documents.ensure_collection",
+   "line": 44,
+   "args": {},
+   "children": [
+    47
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 27,
+   "id": 46,
+   "ms": 166.5,
+   "result": "None"
+  },
+  {
+   "name": "clients.qdrant",
+   "line": 17,
+   "args": {},
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 46,
+   "id": 47,
+   "ms": 153.4,
+   "result": "<QdrantClient>"
+  },
+  {
+   "name": "cache.ensure_collection",
+   "line": 92,
+   "args": {},
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 27,
+   "id": 48,
+   "ms": 7.9,
+   "result": "None"
+  },
+  {
+   "name": "sync.PermissionSync.__init__",
+   "line": 40,
+   "args": {},
+   "children": [
+    50,
+    89
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 27,
+   "id": 49,
+   "ms": 23.4,
+   "result": "None"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.__init__",
+   "line": 26,
+   "args": {
+    "realm": "None",
+    "client_id": "None",
+    "client_secret": "None"
+   },
+   "children": [
+    51
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 49,
+   "id": 50,
+   "ms": 23.3,
+   "result": "None"
+  },
+  {
+   "name": "config.settings",
+   "line": 69,
+   "args": {},
+   "children": [
+    52
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 50,
+   "id": 51,
+   "ms": 9.3,
+   "result": "{data_dir: 'data/pilot', models: {llm: 'gemini-3.5-flash-lite', embedding: 'text-embedding-3-small'}, chunking: {max_tokens: 400, min_tokens: 80, overlap_tokens: 50}, retrieval: {top_k: 5, min_score: 0.25}, cache: {enabled: True, threshold_default: 0.75, threshold_by_intent: {}, ttl_seconds: {NORMAL: 604800, SHORT_TTL: 3600}, max_entries: 5000, candidates: 3, reverify_iam_on_hit: True}, access: {signature_scheme_version: 1, signature_ttl_seconds: 300, event_poll_seconds: 2}, keycloak: {realm: 'semcache', frontend_client: 'semcache-frontend', backend_client: 'semcache-backend', backend_client_secret: 'semcache-backend-dev-secret', console_role: 'ops_admin'}, pricing: {llm_input: 0.1, llm_output: 0.4, embedding: 0.02}}"
+  },
+  {
+   "name": "config.load_yaml",
+   "line": 31,
+   "args": {
+    "path": "<PosixPath>"
+   },
+   "children": [
+    53
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 51,
+   "id": 52,
+   "ms": 9.2,
+   "result": "{data_dir: 'data/pilot', models: {llm: 'gemini-3.5-flash-lite', embedding: 'text-embedding-3-small'}, chunking: {max_tokens: 400, min_tokens: 80, overlap_tokens: 50}, retrieval: {top_k: 5, min_score: 0.25}, cache: {enabled: True, threshold_default: 0.75, threshold_by_intent: {}, ttl_seconds: {NORMAL: 604800, SHORT_TTL: 3600}, max_entries: 5000, candidates: 3, reverify_iam_on_hit: True}, access: {signature_scheme_version: 1, signature_ttl_seconds: 300, event_poll_seconds: 2}, keycloak: {realm: 'semcache', frontend_client: 'semcache-frontend', backend_client: 'semcache-backend', backend_client_secret: 'semcache-backend-dev-secret', console_role: 'ops_admin'}, pricing: {llm_input: 0.1, llm_output: 0.4, embedding: 0.02}}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{data_dir: 'data/pilot', models: {llm: '${LLM_MODEL:gemini-3.5-flash-lite}', embedding: '${EMBEDDING_MODEL:text-embedding-3-small}'}, chunking: {max_tokens: 400, min_tokens: 80, overlap_tokens: 50}, retrieval: {top_k: 5, min_score: 0.25}, cache: {enabled: True, threshold_default: 0.75, threshold_by_intent: {}, ttl_seconds: {NORMAL: 604800, SHORT_TTL: 3600}, max_entries: 5000, candidates: 3, reverify_iam_on_hit: True}, access: {signature_scheme_version: 1, signature_ttl_seconds: 300, event_poll_seconds: 2}, keycloak: {realm: 'semcache', frontend_client: 'semcache-frontend', backend_client: 'semcache-backend', backend_client_secret: '${KEYCLOAK_BACKEND_SECRET:semcache-backend-dev-secret}', console_role: 'ops_admin'}, pricing: {llm_input: 0.1, llm_output: 0.4, embedding: 0.02}}"
+   },
+   "children": [
+    54,
+    55,
+    58,
+    62,
+    65,
+    75,
+    79,
+    85
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 52,
+   "id": 53,
+   "ms": 0.3,
+   "result": "{data_dir: 'data/pilot', models: {llm: 'gemini-3.5-flash-lite', embedding: 'text-embedding-3-small'}, chunking: {max_tokens: 400, min_tokens: 80, overlap_tokens: 50}, retrieval: {top_k: 5, min_score: 0.25}, cache: {enabled: True, threshold_default: 0.75, threshold_by_intent: {}, ttl_seconds: {NORMAL: 604800, SHORT_TTL: 3600}, max_entries: 5000, candidates: 3, reverify_iam_on_hit: True}, access: {signature_scheme_version: 1, signature_ttl_seconds: 300, event_poll_seconds: 2}, keycloak: {realm: 'semcache', frontend_client: 'semcache-frontend', backend_client: 'semcache-backend', backend_client_secret: 'semcache-backend-dev-secret', console_role: 'ops_admin'}, pricing: {llm_input: 0.1, llm_output: 0.4, embedding: 0.02}}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'data/pilot'"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 53,
+   "id": 54,
+   "ms": 0.0,
+   "result": "'data/pilot'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{llm: '${LLM_MODEL:gemini-3.5-flash-lite}', embedding: '${EMBEDDING_MODEL:text-embedding-3-small}'}"
+   },
+   "children": [
+    56,
+    57
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 53,
+   "id": 55,
+   "ms": 0.0,
+   "result": "{llm: 'gemini-3.5-flash-lite', embedding: 'text-embedding-3-small'}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'${LLM_MODEL:gemini-3.5-flash-lite}'"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 55,
+   "id": 56,
+   "ms": 0.0,
+   "result": "'gemini-3.5-flash-lite'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'${EMBEDDING_MODEL:text-embedding-3-small}'"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 55,
+   "id": 57,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{max_tokens: 400, min_tokens: 80, overlap_tokens: 50}"
+   },
+   "children": [
+    59,
+    60,
+    61
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 53,
+   "id": 58,
+   "ms": 0.0,
+   "result": "{max_tokens: 400, min_tokens: 80, overlap_tokens: 50}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "400"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 58,
+   "id": 59,
+   "ms": 0.0,
+   "result": "400"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "80"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 58,
+   "id": 60,
+   "ms": 0.0,
+   "result": "80"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "50"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 58,
+   "id": 61,
+   "ms": 0.0,
+   "result": "50"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{top_k: 5, min_score: 0.25}"
+   },
+   "children": [
+    63,
+    64
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 53,
+   "id": 62,
+   "ms": 0.0,
+   "result": "{top_k: 5, min_score: 0.25}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "5"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 62,
+   "id": 63,
+   "ms": 0.0,
+   "result": "5"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "0.25"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 62,
+   "id": 64,
+   "ms": 0.0,
+   "result": "0.25"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{enabled: True, threshold_default: 0.75, threshold_by_intent: {}, ttl_seconds: {NORMAL: 604800, SHORT_TTL: 3600}, max_entries: 5000, candidates: 3, reverify_iam_on_hit: True}"
+   },
+   "children": [
+    66,
+    67,
+    68,
+    69,
+    72,
+    73,
+    74
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 53,
+   "id": 65,
+   "ms": 0.1,
+   "result": "{enabled: True, threshold_default: 0.75, threshold_by_intent: {}, ttl_seconds: {NORMAL: 604800, SHORT_TTL: 3600}, max_entries: 5000, candidates: 3, reverify_iam_on_hit: True}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "True"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 65,
+   "id": 66,
+   "ms": 0.0,
+   "result": "True"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "0.75"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 65,
+   "id": 67,
+   "ms": 0.0,
+   "result": "0.75"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{}"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 65,
+   "id": 68,
+   "ms": 0.0,
+   "result": "{}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{NORMAL: 604800, SHORT_TTL: 3600}"
+   },
+   "children": [
+    70,
+    71
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 65,
+   "id": 69,
+   "ms": 0.0,
+   "result": "{NORMAL: 604800, SHORT_TTL: 3600}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "604800"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 69,
+   "id": 70,
+   "ms": 0.0,
+   "result": "604800"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "3600"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 69,
+   "id": 71,
+   "ms": 0.0,
+   "result": "3600"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "5000"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 65,
+   "id": 72,
+   "ms": 0.0,
+   "result": "5000"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "3"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 65,
+   "id": 73,
+   "ms": 0.0,
+   "result": "3"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "True"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 65,
+   "id": 74,
+   "ms": 0.0,
+   "result": "True"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{signature_scheme_version: 1, signature_ttl_seconds: 300, event_poll_seconds: 2}"
+   },
+   "children": [
+    76,
+    77,
+    78
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 53,
+   "id": 75,
+   "ms": 0.0,
+   "result": "{signature_scheme_version: 1, signature_ttl_seconds: 300, event_poll_seconds: 2}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "1"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 75,
+   "id": 76,
+   "ms": 0.0,
+   "result": "1"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "300"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 75,
+   "id": 77,
+   "ms": 0.0,
+   "result": "300"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "2"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 75,
+   "id": 78,
+   "ms": 0.0,
+   "result": "2"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{realm: 'semcache', frontend_client: 'semcache-frontend', backend_client: 'semcache-backend', backend_client_secret: '${KEYCLOAK_BACKEND_SECRET:semcache-backend-dev-secret}', console_role: 'ops_admin'}"
+   },
+   "children": [
+    80,
+    81,
+    82,
+    83,
+    84
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 53,
+   "id": 79,
+   "ms": 0.0,
+   "result": "{realm: 'semcache', frontend_client: 'semcache-frontend', backend_client: 'semcache-backend', backend_client_secret: 'semcache-backend-dev-secret', console_role: 'ops_admin'}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'semcache'"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 79,
+   "id": 80,
+   "ms": 0.0,
+   "result": "'semcache'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'semcache-frontend'"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 79,
+   "id": 81,
+   "ms": 0.0,
+   "result": "'semcache-frontend'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'semcache-backend'"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 79,
+   "id": 82,
+   "ms": 0.0,
+   "result": "'semcache-backend'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'${KEYCLOAK_BACKEND_SECRET:semcache-backend-dev-secret}'"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 79,
+   "id": 83,
+   "ms": 0.0,
+   "result": "'semcache-backend-dev-secret'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "'ops_admin'"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 79,
+   "id": 84,
+   "ms": 0.0,
+   "result": "'ops_admin'"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "{llm_input: 0.1, llm_output: 0.4, embedding: 0.02}"
+   },
+   "children": [
+    86,
+    87,
+    88
+   ],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 53,
+   "id": 85,
+   "ms": 0.0,
+   "result": "{llm_input: 0.1, llm_output: 0.4, embedding: 0.02}"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "0.1"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 85,
+   "id": 86,
+   "ms": 0.0,
+   "result": "0.1"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "0.4"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 85,
+   "id": 87,
+   "ms": 0.0,
+   "result": "0.4"
+  },
+  {
+   "name": "config._expand",
+   "line": 20,
+   "args": {
+    "value": "0.02"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 85,
+   "id": 88,
+   "ms": 0.0,
+   "result": "0.02"
+  },
+  {
+   "name": "iam.keycloak.KeycloakEventSource.__init__",
+   "line": 151,
+   "args": {
+    "admin": "<KeycloakAdmin>",
+    "since_ms": "1794371838591"
+   },
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 49,
+   "id": 89,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "sync.PermissionSync.start",
+   "line": 48,
+   "args": {},
+   "children": [],
+   "thread": "asyncio-portal-70175f51ca70",
+   "label": "00_startup",
+   "parent": 27,
+   "id": 90,
+   "ms": 1.0,
+   "result": "None"
+  },
+  {
+   "name": "sync.PermissionSync._run",
+   "line": 55,
+   "args": {},
+   "children": [
+    92
+   ],
+   "thread": "permission-sync",
+   "label": "00_startup",
+   "parent": null,
+   "id": 91
+  },
+  {
+   "name": "sync.PermissionSync.poll_once",
+   "line": 66,
+   "args": {},
+   "children": [
+    93
+   ],
+   "thread": "permission-sync",
+   "label": "00_startup",
+   "parent": 91,
+   "id": 92
+  },
+  {
+   "name": "iam.keycloak.KeycloakEventSource.poll",
+   "line": 156,
+   "args": {},
+   "children": [
+    94
+   ],
+   "thread": "permission-sync",
+   "label": "00_startup",
+   "parent": 92,
+   "id": 93
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.admin_events",
+   "line": 112,
+   "args": {
+    "max_results": "200"
+   },
+   "children": [
+    95
+   ],
+   "thread": "permission-sync",
+   "label": "00_startup",
+   "parent": 93,
+   "id": 94
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/admin-events'",
+    "kw": "{params: {max: 200}}"
+   },
+   "children": [
+    96
+   ],
+   "thread": "permission-sync",
+   "label": "00_startup",
+   "parent": 94,
+   "id": 95
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [
+    139,
+    350,
+    355,
+    410,
+    512,
+    595,
+    642,
+    712,
+    768,
+    787,
+    793,
+    877,
+    883,
+    889,
+    937,
+    1211,
+    1245,
+    1251
+   ],
+   "thread": "permission-sync",
+   "label": "00_startup",
+   "parent": 95,
+   "id": 96
+  }
+ ]
+}

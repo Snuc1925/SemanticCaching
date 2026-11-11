@@ -1,0 +1,2193 @@
+{
+ "title": "cskh1 hỏi lại 'Thời hạn đổi trả hàng cho khách VIP là bao lâu?' sau khi bị thu hồi quyền",
+ "calls": [
+  {
+   "name": "auth.current_user",
+   "line": 35,
+   "args": {
+    "request": "<Request>"
+   },
+   "children": [
+    800
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": null,
+   "id": 799,
+   "ms": 0.7,
+   "result": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')"
+  },
+  {
+   "name": "auth.decode",
+   "line": 23,
+   "args": {
+    "token": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiZGUwNzI1NzQtOWQyZS00ODY3LWI0OTItOWNkZGM4OWQ5MGM1Iiwi…(+1167 ký tự)'"
+   },
+   "children": [
+    801
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 799,
+   "id": 800,
+   "ms": 0.6,
+   "result": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')"
+  },
+  {
+   "name": "auth.issuer",
+   "line": 19,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 800,
+   "id": 801,
+   "ms": 0.0,
+   "result": "'http://localhost:8080/realms/semcache'"
+  },
+  {
+   "name": "main.chat",
+   "line": 76,
+   "args": {
+    "body": "ChatIn({message: 'Thời hạn đổi trả hàng cho khách VIP là bao lâu?', session_id: None})",
+    "bg": "<BackgroundTasks>",
+    "user": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')"
+   },
+   "children": [
+    803,
+    806,
+    809,
+    812,
+    813,
+    915,
+    925,
+    928
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": null,
+   "id": 802,
+   "ms": 7435.2,
+   "result": "{session_id: 'cb97a794-7c08-4e8f-a97a-2e61cea48977', message_id: '6411624a-b955-4acb-910b-d2b2e5da0ce5', trace_id: '481d744f-94b6-44de-81fe-5fa45022076e', status: 'MISS', answer: 'Khách hàng được đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng [c1]. Thành viên VIP được hỗ trợ đổi trả linh ho…(+65 ký tự)', citations: [{label: 'c1', doc_id: 'return_policy', title: 'Chính sách đổi trả hàng', section: 'Chính sách đổi trả hàng > Phạm vi áp dụng', collection: 'public', version: 1}, {label: 'c2', doc_id: 'membership_faq', title: 'Câu hỏi thường gặp về hạng thành viên', section: 'Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung', collection: 'public', version: 1}], latency_ms: 7406.1, similarity: None, policy: 'NORMAL'}"
+  },
+  {
+   "name": "db.execute",
+   "line": 109,
+   "args": {
+    "sql": "'INSERT INTO sessions(id,user_id,username,title) VALUES (%s,%s,%s,%s)'",
+    "params": "('cb97a794-7c08-4e8f-a97a-2e61cea48977', '829671b9-5f8b-431d-9b2f-8a31158a3a2d', 'cskh1', 'Thời hạn đổi trả hàng cho khách VIP là bao lâu?')"
+   },
+   "children": [
+    804,
+    805
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 802,
+   "id": 803,
+   "ms": 6.0,
+   "result": "None"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 803,
+   "id": 804,
+   "ms": 0.1,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 803,
+   "id": 805,
+   "ms": 2.7,
+   "result": "None"
+  },
+  {
+   "name": "db.fetch_all",
+   "line": 99,
+   "args": {
+    "sql": "'SELECT role, content FROM messages WHERE session_id=%s ORDER BY created_at DESC LIMIT 4'",
+    "params": "('cb97a794-7c08-4e8f-a97a-2e61cea48977')"
+   },
+   "children": [
+    807,
+    808
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 802,
+   "id": 806,
+   "ms": 4.4,
+   "result": "[]"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 806,
+   "id": 807,
+   "ms": 0.1,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 806,
+   "id": 808,
+   "ms": 0.9,
+   "result": "None"
+  },
+  {
+   "name": "db.execute",
+   "line": 109,
+   "args": {
+    "sql": "\"INSERT INTO messages(id,session_id,role,content) VALUES (%s,%s,'user',%s)\"",
+    "params": "('28f1bea3-6455-4d27-b8ad-9f0686c0457d', 'cb97a794-7c08-4e8f-a97a-2e61cea48977', 'Thời hạn đổi trả hàng cho khách VIP là bao lâu?')"
+   },
+   "children": [
+    810,
+    811
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 802,
+   "id": 809,
+   "ms": 4.9,
+   "result": "None"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 809,
+   "id": 810,
+   "ms": 0.1,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 809,
+   "id": 811,
+   "ms": 2.5,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.__init__",
+   "line": 17,
+   "args": {
+    "user_id": "'829671b9-5f8b-431d-9b2f-8a31158a3a2d'",
+    "username": "'cskh1'",
+    "question": "'Thời hạn đổi trả hàng cho khách VIP là bao lâu?'",
+    "session_id": "'cb97a794-7c08-4e8f-a97a-2e61cea48977'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 802,
+   "id": 812,
+   "ms": 0.1,
+   "result": "None"
+  },
+  {
+   "name": "pipeline.answer",
+   "line": 44,
+   "args": {
+    "user": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')",
+    "question": "'Thời hạn đổi trả hàng cho khách VIP là bao lâu?'",
+    "session_id": "'cb97a794-7c08-4e8f-a97a-2e61cea48977'",
+    "history": "[]",
+    "tr": "Trace(id='481d744f-94b6-44de-81fe-5fa45022076e', status='ERROR', 0 span)"
+   },
+   "children": [
+    814,
+    815,
+    825,
+    826,
+    827,
+    828,
+    832,
+    833,
+    834,
+    835,
+    836,
+    845,
+    846,
+    847,
+    849,
+    850,
+    852,
+    853,
+    854,
+    855,
+    856,
+    857,
+    858,
+    859,
+    865,
+    866,
+    867,
+    868,
+    870,
+    898,
+    899,
+    900,
+    901,
+    902,
+    903,
+    905,
+    906,
+    907,
+    911,
+    912,
+    913,
+    914
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 802,
+   "id": 813,
+   "ms": 7406.0,
+   "result": "(ChatResult(trace_id='481d744f-94b6-44de-81fe-5fa45022076e', status='MISS', answer='Khách hàng được đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng [c1]. Thành viên VIP được hỗ trợ đổi trả linh ho…(+65 ký tự)', citations=[<dict>, <dict>], latency_ms=7406.1, policy='NORMAL', similarity=None), Trace(id='481d744f-94b6-44de-81fe-5fa45022076e', status='MISS', 8 span))"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'identity'",
+    "title": "'Danh tính & access signature'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 814,
+   "ms": 0.0,
+   "result": "{}"
+  },
+  {
+   "name": "access.get",
+   "line": 42,
+   "args": {
+    "user": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')"
+   },
+   "children": [
+    816,
+    817
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 815,
+   "ms": 32.5,
+   "result": "Signature(signature='1fb84ec24c927b56', collections=['internal_all', 'public'], computed_at=1.794e+09, from_cache=False)"
+  },
+  {
+   "name": "access._key",
+   "line": 33,
+   "args": {
+    "user_id": "'829671b9-5f8b-431d-9b2f-8a31158a3a2d'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 815,
+   "id": 816,
+   "ms": 0.0,
+   "result": "'sig:user:829671b9-5f8b-431d-9b2f-8a31158a3a2d'"
+  },
+  {
+   "name": "access.refresh",
+   "line": 50,
+   "args": {
+    "user": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')"
+   },
+   "children": [
+    818,
+    823,
+    824
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 815,
+   "id": 817,
+   "ms": 31.0,
+   "result": "Signature(signature='1fb84ec24c927b56', collections=['internal_all', 'public'], computed_at=1.794e+09, from_cache=False)"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAccessControl.list_accessible_collections",
+   "line": 122,
+   "args": {
+    "user": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')"
+   },
+   "children": [
+    819
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 817,
+   "id": 818,
+   "ms": 28.3,
+   "result": "{'public', 'internal_all'}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.evaluate",
+   "line": 83,
+   "args": {
+    "user_id": "'829671b9-5f8b-431d-9b2f-8a31158a3a2d'",
+    "resource_names": "None"
+   },
+   "children": [
+    820,
+    821
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 818,
+   "id": 819,
+   "ms": 28.2,
+   "result": "{collection:cskh: False, collection:sales_north: False, collection:hr_confidential: False, collection:internal_all: True, collection:public: True, collection:sales_south: False}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.client_uuid",
+   "line": 59,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 819,
+   "id": 820,
+   "ms": 0.0,
+   "result": "'b241a711-46be-488a-b226-d122149c1b86'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'POST'",
+    "path": "'/clients/b241a711-46be-488a-b226-d122149c1b86/authz/resource-server/policy/evaluate'",
+    "kw": "{json: {userId: '829671b9-5f8b-431d-9b2f-8a31158a3a2d', clientId: 'b241a711-46be-488a-b226-d122149c1b86', resources: [], roleIds: [], entitlements: False, context: {attributes: <dict>}}}"
+   },
+   "children": [
+    822
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 819,
+   "id": 821,
+   "ms": 28.0,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/clients/b241a711-46be-488a-b226-d122149c1b86/authz/resource-server/policy/evaluate>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 821,
+   "id": 822,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "access.compute_hash",
+   "line": 37,
+   "args": {
+    "namespaced": "['keycloak:internal_all', 'keycloak:public']"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 817,
+   "id": 823,
+   "ms": 0.0,
+   "result": "'1fb84ec24c927b56'"
+  },
+  {
+   "name": "access._key",
+   "line": 33,
+   "args": {
+    "user_id": "'829671b9-5f8b-431d-9b2f-8a31158a3a2d'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 817,
+   "id": 824,
+   "ms": 0.0,
+   "result": "'sig:user:829671b9-5f8b-431d-9b2f-8a31158a3a2d'"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'identity'",
+    "title": "'Danh tính & access signature'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 825,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.set",
+   "line": 40,
+   "args": {
+    "kw": "{partition: '1fb84ec24c927b56'}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 826,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'embed'",
+    "title": "'Embedding câu hỏi'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 827,
+   "ms": 0.0,
+   "result": "{}"
+  },
+  {
+   "name": "embeddings.embed_one",
+   "line": 43,
+   "args": {
+    "text": "'Thời hạn đổi trả hàng cho khách VIP là bao lâu?'"
+   },
+   "children": [
+    829
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 828,
+   "ms": 2.1,
+   "result": "(<vector 1536 số: [-0.0030, 0.0249, -0.0019, …]>, 0, True)"
+  },
+  {
+   "name": "embeddings.embed",
+   "line": 23,
+   "args": {
+    "texts": "['Thời hạn đổi trả hàng cho khách VIP là bao lâu?']"
+   },
+   "children": [
+    830
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 828,
+   "id": 829,
+   "ms": 2.0,
+   "result": "([<vector 1536 số: [-0.0030, 0.0249, -0.0019, …]>], 0, True)"
+  },
+  {
+   "name": "embeddings._key",
+   "line": 19,
+   "args": {
+    "text": "'Thời hạn đổi trả hàng cho khách VIP là bao lâu?'"
+   },
+   "children": [
+    831
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 829,
+   "id": 830,
+   "ms": 0.0,
+   "result": "'emb:text-embedding-3-small:5d4649074546f6edfc210afbe3e83ee49e6279e4'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 830,
+   "id": 831,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "embeddings.model",
+   "line": 15,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 832,
+   "ms": 0.0,
+   "result": "'text-embedding-3-small'"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'embed'",
+    "title": "'Embedding câu hỏi'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 833,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.set",
+   "line": 40,
+   "args": {
+    "kw": "{embed_tokens: 0}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 834,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'classify'",
+    "title": "'Phân loại câu hỏi'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 835,
+   "ms": 0.0,
+   "result": "{}"
+  },
+  {
+   "name": "classifier.classify",
+   "line": 95,
+   "args": {
+    "question": "'Thời hạn đổi trả hàng cho khách VIP là bao lâu?'",
+    "vec": "<vector 1536 số: [-0.0030, 0.0249, -0.0019, …]>"
+   },
+   "children": [
+    837,
+    842,
+    843
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 836,
+   "ms": 0.3,
+   "result": "Classification(policy='NORMAL', reason='câu hỏi tĩnh', intent='return_policy', intent_similarity=0.6918, entities={tier: 'vip'})"
+  },
+  {
+   "name": "classifier.cache_policy",
+   "line": 34,
+   "args": {
+    "question": "'Thời hạn đổi trả hàng cho khách VIP là bao lâu?'"
+   },
+   "children": [
+    838,
+    839,
+    840,
+    841
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 836,
+   "id": 837,
+   "ms": 0.1,
+   "result": "('NORMAL', 'câu hỏi tĩnh')"
+  },
+  {
+   "name": "classifier.normalize",
+   "line": 23,
+   "args": {
+    "text": "'Thời hạn đổi trả hàng cho khách VIP là bao lâu?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 837,
+   "id": 838,
+   "ms": 0.0,
+   "result": "'thời hạn đổi trả hàng cho khách vip là bao lâu?'"
+  },
+  {
+   "name": "classifier._has",
+   "line": 27,
+   "args": {
+    "text": "'thời hạn đổi trả hàng cho khách vip là bao lâu?'",
+    "words": "['của tôi', 'của mình', 'tôi còn', 'mình còn', 'đơn hàng của', 'tài khoản của', …(+1)]"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 837,
+   "id": 839,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "classifier._has",
+   "line": 27,
+   "args": {
+    "text": "'thời hạn đổi trả hàng cho khách vip là bao lâu?'",
+    "words": "['cái đó', 'cái này thì', 'như trên']"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 837,
+   "id": 840,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "classifier._has",
+   "line": 27,
+   "args": {
+    "text": "'thời hạn đổi trả hàng cho khách vip là bao lâu?'",
+    "words": "['hôm nay', 'ngày mai', 'tuần này', 'tháng này', 'năm nay', 'hiện tại', …(+2)]"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 837,
+   "id": 841,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "classifier.intent",
+   "line": 68,
+   "args": {
+    "vec": "<vector 1536 số: [-0.0030, 0.0249, -0.0019, …]>"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 836,
+   "id": 842,
+   "ms": 0.1,
+   "result": "('return_policy', 0.6918)"
+  },
+  {
+   "name": "classifier.extract_entities",
+   "line": 80,
+   "args": {
+    "question": "'Thời hạn đổi trả hàng cho khách VIP là bao lâu?'"
+   },
+   "children": [
+    844
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 836,
+   "id": 843,
+   "ms": 0.1,
+   "result": "{tier: 'vip'}"
+  },
+  {
+   "name": "classifier.normalize",
+   "line": 23,
+   "args": {
+    "text": "'Thời hạn đổi trả hàng cho khách VIP là bao lâu?'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 843,
+   "id": 844,
+   "ms": 0.0,
+   "result": "'thời hạn đổi trả hàng cho khách vip là bao lâu?'"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'classify'",
+    "title": "'Phân loại câu hỏi'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 845,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.set",
+   "line": 40,
+   "args": {
+    "kw": "{policy: 'NORMAL', intent: 'return_policy'}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 846,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "prompts.version",
+   "line": 51,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [
+    848
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 847,
+   "ms": 0.1,
+   "result": "'v1-8cc4d02d'"
+  },
+  {
+   "name": "prompts.get",
+   "line": 21,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 847,
+   "id": 848,
+   "ms": 0.0,
+   "result": "{description: 'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.', temperature: 0.1, max_output_tokens: 600, system: 'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+298 ký tự)', user: '# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎ…(+13 ký tự)'}"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'cache_lookup'",
+    "title": "'Tra cache (partition theo signature)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 849,
+   "ms": 0.0,
+   "result": "{}"
+  },
+  {
+   "name": "cache.lookup",
+   "line": 109,
+   "args": {
+    "vec": "<vector 1536 số: [-0.0030, 0.0249, -0.0019, …]>",
+    "partition": "'1fb84ec24c927b56'",
+    "intent": "'return_policy'",
+    "entities": "{tier: 'vip'}",
+    "prompt_version": "'v1-8cc4d02d'",
+    "reverify": "<function>"
+   },
+   "children": [
+    851
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 850,
+   "ms": 10.4,
+   "result": "LookupResult(hit=None, similarity=None, candidates=[])"
+  },
+  {
+   "name": "cache.threshold_for",
+   "line": 99,
+   "args": {
+    "intent": "'return_policy'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 850,
+   "id": 851,
+   "ms": 0.0,
+   "result": "0.75"
+  },
+  {
+   "name": "cache.threshold_for",
+   "line": 99,
+   "args": {
+    "intent": "'return_policy'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 852,
+   "ms": 0.0,
+   "result": "0.75"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'cache_lookup'",
+    "title": "'Tra cache (partition theo signature)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 853,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.set",
+   "line": 40,
+   "args": {
+    "kw": "{similarity: None}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 854,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'retrieval'",
+    "title": "'Retrieval (pre-filter theo quyền)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 855,
+   "ms": 0.0,
+   "result": "{}"
+  },
+  {
+   "name": "retrieval.search",
+   "line": 30,
+   "args": {
+    "vec": "<vector 1536 số: [-0.0030, 0.0249, -0.0019, …]>",
+    "collections": "['internal_all', 'public']",
+    "top_k": "None"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 856,
+   "ms": 10.2,
+   "result": "[Retrieved(label='', chunk_id='232c157bca68b49d', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng', text='Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh m…(+194 ký tự)', score=0.6172), Retrieved(label='', chunk_id='7f3df74338ef5336', doc_id='membership_faq', version=1, collection='public', title='Câu hỏi thường gặp về hạng thành viên', section_path='Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung', text='Thành viên được tích điểm 1% giá trị đơn hàng. Thành viên Bạc và VIP được ưu tiên tổng đài và được hỗ trợ đổi trả linh h…(+61 ký tự)', score=0.5634), Retrieved(label='', chunk_id='5f795b0c2ed5e7a5', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Điều kiện đổi trả', text='- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎-…(+64 ký tự)', score=0.5585), Retrieved(label='', chunk_id='0d3884b099feeb56', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả', text='Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".', score=0.5483), Retrieved(label='', chunk_id='2bca42c3afd3fc40', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Hàng điện tử và điện thoại', text='Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâ…(+164 ký tự)', score=0.5395)]"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'retrieval'",
+    "title": "'Retrieval (pre-filter theo quyền)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 857,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'iam_verify'",
+    "title": "'IAM kiểm tra lại (post-verify)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 858,
+   "ms": 0.0,
+   "result": "{}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAccessControl.check_collections",
+   "line": 126,
+   "args": {
+    "user": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')",
+    "collections": "{'public'}"
+   },
+   "children": [
+    860
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 859,
+   "ms": 14.5,
+   "result": "{public: True}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.evaluate",
+   "line": 83,
+   "args": {
+    "user_id": "'829671b9-5f8b-431d-9b2f-8a31158a3a2d'",
+    "resource_names": "['collection:public']"
+   },
+   "children": [
+    861,
+    862,
+    863
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 859,
+   "id": 860,
+   "ms": 14.4,
+   "result": "{collection:public: True}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.client_uuid",
+   "line": 59,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 860,
+   "id": 861,
+   "ms": 0.0,
+   "result": "'b241a711-46be-488a-b226-d122149c1b86'"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.resources",
+   "line": 104,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 860,
+   "id": 862,
+   "ms": 0.0,
+   "result": "{collection:cskh: '2d0c7fd6-1799-4bbb-a29c-9cde95c01c79', collection:hr_confidential: '78267cbd-2453-4a4f-a081-7d143775c4d5', collection:internal_all: 'cc2eac6b-fcb4-4fb9-b405-f317e4ec5f21', collection:public: 'ee6bb87a-00a8-454e-8116-0ed8a00577e4', collection:sales_north: 'e52e5a77-2054-43a5-8fc1-769830c8dfe1', collection:sales_south: '90f68666-328d-43da-b9e8-150072e05287'}"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'POST'",
+    "path": "'/clients/b241a711-46be-488a-b226-d122149c1b86/authz/resource-server/policy/evaluate'",
+    "kw": "{json: {userId: '829671b9-5f8b-431d-9b2f-8a31158a3a2d', clientId: 'b241a711-46be-488a-b226-d122149c1b86', resources: [<dict>], roleIds: [], entitlements: False, context: {attributes: <dict>}}}"
+   },
+   "children": [
+    864
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 860,
+   "id": 863,
+   "ms": 14.3,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/clients/b241a711-46be-488a-b226-d122149c1b86/authz/resource-server/policy/evaluate>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 863,
+   "id": 864,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMDQ5ZmM2YzItNmE5YS00NzQ2LThjNWMtYjZlNDkwMDlhYWJmIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'iam_verify'",
+    "title": "'IAM kiểm tra lại (post-verify)'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 865,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'llm'",
+    "title": "'LLM sinh câu trả lời'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 866,
+   "ms": 0.0,
+   "result": "{}"
+  },
+  {
+   "name": "retrieval.format_context",
+   "line": 48,
+   "args": {
+    "chunks": "[Retrieved(label='', chunk_id='232c157bca68b49d', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng', text='Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh m…(+194 ký tự)', score=0.6172), Retrieved(label='', chunk_id='7f3df74338ef5336', doc_id='membership_faq', version=1, collection='public', title='Câu hỏi thường gặp về hạng thành viên', section_path='Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung', text='Thành viên được tích điểm 1% giá trị đơn hàng. Thành viên Bạc và VIP được ưu tiên tổng đài và được hỗ trợ đổi trả linh h…(+61 ký tự)', score=0.5634), Retrieved(label='', chunk_id='5f795b0c2ed5e7a5', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Điều kiện đổi trả', text='- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎-…(+64 ký tự)', score=0.5585), Retrieved(label='', chunk_id='0d3884b099feeb56', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả', text='Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".', score=0.5483), Retrieved(label='', chunk_id='2bca42c3afd3fc40', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Hàng điện tử và điện thoại', text='Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâ…(+164 ký tự)', score=0.5395)]"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 867,
+   "ms": 0.0,
+   "result": "'[c1] (Nguồn: Chính sách đổi trả hàng > Phạm vi áp dụng)⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh mục không áp dụng đổi trả.⏎⏎⏎**Thời hạn đổi t…(+1169 ký tự)'"
+  },
+  {
+   "name": "pipeline.no_answer_text",
+   "line": 28,
+   "args": {},
+   "children": [
+    869
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 868,
+   "ms": 0.0,
+   "result": "'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'"
+  },
+  {
+   "name": "prompts.text",
+   "line": 28,
+   "args": {
+    "name": "'no_answer_text'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 868,
+   "id": 869,
+   "ms": 0.0,
+   "result": "'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'"
+  },
+  {
+   "name": "llm.generate",
+   "line": 31,
+   "args": {
+    "prompt_name": "'rag_answer'",
+    "variables": "{question: 'Thời hạn đổi trả hàng cho khách VIP là bao lâu?', context: '[c1] (Nguồn: Chính sách đổi trả hàng > Phạm vi áp dụng)⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên web…(+1269 ký tự)', history: '(không có)', no_answer: 'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'}"
+   },
+   "children": [
+    871,
+    872,
+    876,
+    895,
+    896
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 870,
+   "ms": 7305.6,
+   "result": "LLMResult(text='Khách hàng được đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng [c1]. Thành viên VIP được hỗ trợ đổi trả linh ho…(+65 ký tự)', tokens_in=607, tokens_out=49, latency_ms=7305.2847, model='gemini-3.5-flash-lite', prompt_version='v1-8cc4d02d')"
+  },
+  {
+   "name": "prompts.get",
+   "line": 21,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 870,
+   "id": 871,
+   "ms": 0.0,
+   "result": "{description: 'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.', temperature: 0.1, max_output_tokens: 600, system: 'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+298 ký tự)', user: '# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎ…(+13 ký tự)'}"
+  },
+  {
+   "name": "prompts.render",
+   "line": 42,
+   "args": {
+    "name": "'rag_answer'",
+    "kwargs": "{question: 'Thời hạn đổi trả hàng cho khách VIP là bao lâu?', context: '[c1] (Nguồn: Chính sách đổi trả hàng > Phạm vi áp dụng)⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên web…(+1269 ký tự)', history: '(không có)', no_answer: 'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'}"
+   },
+   "children": [
+    873,
+    875
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 870,
+   "id": 872,
+   "ms": 0.1,
+   "result": "('Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+362 ký tự)', '# NGỮ CẢNH⏎[c1] (Nguồn: Chính sách đổi trả hàng > Phạm vi áp dụng)⏎Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng …(+1431 ký tự)')"
+  },
+  {
+   "name": "prompts.variables",
+   "line": 32,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [
+    874
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 872,
+   "id": 873,
+   "ms": 0.0,
+   "result": "{'history', 'context', 'question', 'no_answer'}"
+  },
+  {
+   "name": "prompts.get",
+   "line": 21,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 873,
+   "id": 874,
+   "ms": 0.0,
+   "result": "{description: 'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.', temperature: 0.1, max_output_tokens: 600, system: 'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+298 ký tự)', user: '# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎ…(+13 ký tự)'}"
+  },
+  {
+   "name": "prompts.get",
+   "line": 21,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 872,
+   "id": 875,
+   "ms": 0.0,
+   "result": "{description: 'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.', temperature: 0.1, max_output_tokens: 600, system: 'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+298 ký tự)', user: '# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎ…(+13 ký tự)'}"
+  },
+  {
+   "name": "llm.model",
+   "line": 22,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 870,
+   "id": 876,
+   "ms": 0.0,
+   "result": "'gemini-3.5-flash-lite'"
+  },
+  {
+   "name": "sync.PermissionSync.poll_once",
+   "line": 66,
+   "args": {},
+   "children": [
+    878
+   ],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 96,
+   "id": 877,
+   "ms": 23.2,
+   "result": "0"
+  },
+  {
+   "name": "iam.keycloak.KeycloakEventSource.poll",
+   "line": 156,
+   "args": {},
+   "children": [
+    879,
+    882
+   ],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 877,
+   "id": 878,
+   "ms": 23.1,
+   "result": "[]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.admin_events",
+   "line": 112,
+   "args": {
+    "max_results": "200"
+   },
+   "children": [
+    880
+   ],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 878,
+   "id": 879,
+   "ms": 22.8,
+   "result": "[{time: 1794371861745, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370061899, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370051386, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369953009, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369939412, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794339261520, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.6'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, …(+49)]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/admin-events'",
+    "kw": "{params: {max: 200}}"
+   },
+   "children": [
+    881
+   ],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 879,
+   "id": 880,
+   "ms": 22.1,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/admin-events?max=200>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 880,
+   "id": 881,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMjM3NDlhMGQtMGYxNC00NGI0LThlNjQtODZiODliZGQ5YzZhIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak._event_key",
+   "line": 142,
+   "args": {
+    "e": "{time: 1794371861745, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}"
+   },
+   "children": [],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 878,
+   "id": 882,
+   "ms": 0.0,
+   "result": "'1794371861745|DELETE|REALM_ROLE_MAPPING|users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm|35052e3dac'"
+  },
+  {
+   "name": "sync.PermissionSync.poll_once",
+   "line": 66,
+   "args": {},
+   "children": [
+    884
+   ],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 96,
+   "id": 883,
+   "ms": 18.7,
+   "result": "0"
+  },
+  {
+   "name": "iam.keycloak.KeycloakEventSource.poll",
+   "line": 156,
+   "args": {},
+   "children": [
+    885,
+    888
+   ],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 883,
+   "id": 884,
+   "ms": 18.6,
+   "result": "[]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.admin_events",
+   "line": 112,
+   "args": {
+    "max_results": "200"
+   },
+   "children": [
+    886
+   ],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 884,
+   "id": 885,
+   "ms": 18.3,
+   "result": "[{time: 1794371861745, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370061899, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370051386, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369953009, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369939412, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794339261520, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.6'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, …(+49)]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/admin-events'",
+    "kw": "{params: {max: 200}}"
+   },
+   "children": [
+    887
+   ],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 885,
+   "id": 886,
+   "ms": 17.7,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/admin-events?max=200>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 886,
+   "id": 887,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMjM3NDlhMGQtMGYxNC00NGI0LThlNjQtODZiODliZGQ5YzZhIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak._event_key",
+   "line": 142,
+   "args": {
+    "e": "{time: 1794371861745, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}"
+   },
+   "children": [],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 884,
+   "id": 888,
+   "ms": 0.0,
+   "result": "'1794371861745|DELETE|REALM_ROLE_MAPPING|users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm|35052e3dac'"
+  },
+  {
+   "name": "sync.PermissionSync.poll_once",
+   "line": 66,
+   "args": {},
+   "children": [
+    890
+   ],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 96,
+   "id": 889,
+   "ms": 28.8,
+   "result": "0"
+  },
+  {
+   "name": "iam.keycloak.KeycloakEventSource.poll",
+   "line": 156,
+   "args": {},
+   "children": [
+    891,
+    894
+   ],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 889,
+   "id": 890,
+   "ms": 28.7,
+   "result": "[]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.admin_events",
+   "line": 112,
+   "args": {
+    "max_results": "200"
+   },
+   "children": [
+    892
+   ],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 890,
+   "id": 891,
+   "ms": 28.4,
+   "result": "[{time: 1794371861745, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370061899, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370051386, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369953009, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369939412, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794339261520, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.6'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, …(+49)]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/admin-events'",
+    "kw": "{params: {max: 200}}"
+   },
+   "children": [
+    893
+   ],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 891,
+   "id": 892,
+   "ms": 27.7,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/admin-events?max=200>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 892,
+   "id": 893,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMjM3NDlhMGQtMGYxNC00NGI0LThlNjQtODZiODliZGQ5YzZhIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak._event_key",
+   "line": 142,
+   "args": {
+    "e": "{time: 1794371861745, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}"
+   },
+   "children": [],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 890,
+   "id": 894,
+   "ms": 0.0,
+   "result": "'1794371861745|DELETE|REALM_ROLE_MAPPING|users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm|35052e3dac'"
+  },
+  {
+   "name": "llm.model",
+   "line": 22,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 870,
+   "id": 895,
+   "ms": 0.0,
+   "result": "'gemini-3.5-flash-lite'"
+  },
+  {
+   "name": "prompts.version",
+   "line": 51,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [
+    897
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 870,
+   "id": 896,
+   "ms": 0.1,
+   "result": "'v1-8cc4d02d'"
+  },
+  {
+   "name": "prompts.get",
+   "line": 21,
+   "args": {
+    "name": "'rag_answer'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 896,
+   "id": 897,
+   "ms": 0.0,
+   "result": "{description: 'Trả lời câu hỏi chỉ dựa trên ngữ cảnh đã lọc theo quyền, có trích dẫn nguồn.', temperature: 0.1, max_output_tokens: 600, system: 'Bạn là trợ lý hỏi đáp nội bộ của công ty Điện Máy Sao Mai.⏎Quy tắc bắt buộc:⏎1. Chỉ trả lời dựa trên NGỮ CẢNH được cung …(+298 ký tự)', user: '# NGỮ CẢNH⏎{context}⏎⏎# LỊCH SỬ HỘI THOẠI GẦN NHẤT (chỉ để hiểu câu hỏi, không phải nguồn thông tin)⏎{history}⏎⏎# CÂU HỎ…(+13 ký tự)'}"
+  },
+  {
+   "name": "llm.cost_usd",
+   "line": 26,
+   "args": {
+    "tokens_in": "607",
+    "tokens_out": "49",
+    "embed_tokens": "0"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 898,
+   "ms": 0.0,
+   "result": "0.0001"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'llm'",
+    "title": "'LLM sinh câu trả lời'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 899,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "pipeline._citations",
+   "line": 32,
+   "args": {
+    "answer": "'Khách hàng được đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng [c1]. Thành viên VIP được hỗ trợ đổi trả linh hoạt hơn theo quy định nội bộ của bộ phận chăm sóc khách hàng [c2].'",
+    "chunks": "[Retrieved(label='c1', chunk_id='232c157bca68b49d', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng', text='Chính sách áp dụng cho mọi đơn hàng mua tại cửa hàng và trên website của Điện Máy Sao Mai, trừ các sản phẩm thuộc danh m…(+194 ký tự)', score=0.6172), Retrieved(label='c2', chunk_id='7f3df74338ef5336', doc_id='membership_faq', version=1, collection='public', title='Câu hỏi thường gặp về hạng thành viên', section_path='Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung', text='Thành viên được tích điểm 1% giá trị đơn hàng. Thành viên Bạc và VIP được ưu tiên tổng đài và được hỗ trợ đổi trả linh h…(+61 ký tự)', score=0.5634), Retrieved(label='c3', chunk_id='5f795b0c2ed5e7a5', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Điều kiện đổi trả', text='- Sản phẩm còn nguyên tem, hộp và đầy đủ phụ kiện, quà tặng kèm.⏎- Có hoá đơn mua hàng hoặc mã đơn hàng trên hệ thống.⏎-…(+64 ký tự)', score=0.5585), Retrieved(label='c4', chunk_id='0d3884b099feeb56', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả', text='Thẻ cào, phần mềm bản quyền đã kích hoạt, sản phẩm khuyến mãi xả kho có ghi chú \"không đổi trả\".', score=0.5483), Retrieved(label='c5', chunk_id='2bca42c3afd3fc40', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Hàng điện tử và điện thoại', text='Điện thoại, máy tính bảng và laptop đã kích hoạt bảo hành điện tử chỉ được đổi khi có lỗi do nhà sản xuất, được trung tâ…(+164 ký tự)', score=0.5395)]"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 900,
+   "ms": 0.0,
+   "result": "[{label: 'c1', doc_id: 'return_policy', title: 'Chính sách đổi trả hàng', section: 'Chính sách đổi trả hàng > Phạm vi áp dụng', collection: 'public', version: 1}, {label: 'c2', doc_id: 'membership_faq', title: 'Câu hỏi thường gặp về hạng thành viên', section: 'Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung', collection: 'public', version: 1}]"
+  },
+  {
+   "name": "llm.cost_usd",
+   "line": 26,
+   "args": {
+    "tokens_in": "607",
+    "tokens_out": "49",
+    "embed_tokens": "0"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 901,
+   "ms": 0.0,
+   "result": "0.0001"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'admission'",
+    "title": "'Quyết định lưu cache'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 902,
+   "ms": 0.0,
+   "result": "{}"
+  },
+  {
+   "name": "pipeline.no_answer_text",
+   "line": 28,
+   "args": {},
+   "children": [
+    904
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 903,
+   "ms": 0.0,
+   "result": "'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'"
+  },
+  {
+   "name": "prompts.text",
+   "line": 28,
+   "args": {
+    "name": "'no_answer_text'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 903,
+   "id": 904,
+   "ms": 0.0,
+   "result": "'Tôi không tìm thấy thông tin này trong các tài liệu bạn được phép truy cập.'"
+  },
+  {
+   "name": "cache.new_entry_id",
+   "line": 188,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 905,
+   "ms": 0.0,
+   "result": "'58268469-9c80-4a96-a8d5-fe6ff9944f8b'"
+  },
+  {
+   "name": "llm.cost_usd",
+   "line": 26,
+   "args": {
+    "tokens_in": "607",
+    "tokens_out": "49",
+    "embed_tokens": "0"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 906,
+   "ms": 0.0,
+   "result": "0.0001"
+  },
+  {
+   "name": "cache.store",
+   "line": 174,
+   "args": {
+    "e": "CacheEntry(entry_id='58268469-9c80-4a96-a8d5-fe6ff9944f8b', partition='1fb84ec24c927b56', question='Thời hạn đổi trả hàng cho khách VIP là bao lâu?', answer='Khách hàng được đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng [c1]. Thành viên VIP được hỗ trợ đổi trả linh ho…(+65 ký tự)', citations=[{label: 'c1', doc_id: 'return_policy', title: 'Chính sách đổi trả hàng', section: 'Chính sách đổi trả hàng > Phạm vi áp dụng', collection: 'public', version: 1}, {label: 'c2', doc_id: 'membership_faq', title: 'Câu hỏi thường gặp về hạng thành viên', section: 'Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung', collection: 'public', version: 1}], provenance=[Provenance(chunk_id='232c157bca68b49d', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Phạm vi áp dụng'), Provenance(chunk_id='7f3df74338ef5336', doc_id='membership_faq', version=1, collection='public', title='Câu hỏi thường gặp về hạng thành viên', section_path='Câu hỏi thường gặp về hạng thành viên > Quyền lợi chung'), Provenance(chunk_id='5f795b0c2ed5e7a5', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Điều kiện đổi trả'), Provenance(chunk_id='0d3884b099feeb56', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Sản phẩm không áp dụng đổi trả'), Provenance(chunk_id='2bca42c3afd3fc40', doc_id='return_policy', version=1, collection='public', title='Chính sách đổi trả hàng', section_path='Chính sách đổi trả hàng > Hàng điện tử và điện thoại')], intent='return_policy', entities={tier: 'vip'}, policy='NORMAL', prompt_version='v1-8cc4d02d', model='gemini-3.5-flash-lite', created_at=1.794e+09, ttl=604800, gen_tokens_in=607, gen_tokens_out=49, gen_cost_usd=0.0001, gen_latency_ms=7305.2847, hits=0, last_hit=None)",
+    "vec": "<vector 1536 số: [-0.0030, 0.0249, -0.0019, …]>"
+   },
+   "children": [
+    908,
+    909,
+    910
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 907,
+   "ms": 28.7,
+   "result": "None"
+  },
+  {
+   "name": "cache.ensure_collection",
+   "line": 92,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 907,
+   "id": 908,
+   "ms": 8.4,
+   "result": "None"
+  },
+  {
+   "name": "cache.CacheEntry.to_json",
+   "line": 65,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 907,
+   "id": 909,
+   "ms": 0.4,
+   "result": "'{\"entry_id\": \"58268469-9c80-4a96-a8d5-fe6ff9944f8b\", \"partition\": \"1fb84ec24c927b56\", \"question\": \"Thời hạn đổi trả hàng cho khách VIP là bao lâu?\", \"answer\": \"Khách hàng được đổi trả sản phẩm trong vòng 7 ngày kể từ ngà…(+1913 ký tự)'"
+  },
+  {
+   "name": "cache.evict_if_needed",
+   "line": 220,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 907,
+   "id": 910,
+   "ms": 1.0,
+   "result": "[]"
+  },
+  {
+   "name": "tracing.Trace.set",
+   "line": 40,
+   "args": {
+    "kw": "{entry_id: '58268469-9c80-4a96-a8d5-fe6ff9944f8b'}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 911,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.span",
+   "line": 25,
+   "args": {
+    "name": "'admission'",
+    "title": "'Quyết định lưu cache'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 912,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.elapsed_ms",
+   "line": 43,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 913,
+   "ms": 0.0,
+   "result": "7406.1"
+  },
+  {
+   "name": "tracing.Trace.set",
+   "line": 40,
+   "args": {
+    "kw": "{status: 'MISS', latency_ms: 7406.1, llm_tokens_in: 607, llm_tokens_out: 49, cost_usd: 0.0001}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 813,
+   "id": 914,
+   "ms": 0.0,
+   "result": "None"
+  },
+  {
+   "name": "tracing.Trace.save",
+   "line": 46,
+   "args": {},
+   "children": [
+    916,
+    919,
+    924
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 802,
+   "id": 915,
+   "ms": 8.2,
+   "result": "None"
+  },
+  {
+   "name": "db.execute",
+   "line": 109,
+   "args": {
+    "sql": "'INSERT INTO traces(id,created_at,user_id,username,session_id,question,status,policy,intent,partition,⏎               similarity,entry_id,latency_ms,llm_tokens_in,llm_tokens_out,embed_tokens,cost_usd,saved_tokens,⏎       …(+363 ký tự)'",
+    "params": "{id: '481d744f-94b6-44de-81fe-5fa45022076e', created_at: <datetime>, user_id: '829671b9-5f8b-431d-9b2f-8a31158a3a2d', username: 'cskh1', session_id: 'cb97a794-7c08-4e8f-a97a-2e61cea48977', question: 'Thời hạn đổi trả hàng cho khách VIP là bao lâu?', status: 'MISS', policy: 'NORMAL', intent: 'return_policy', partition: '1fb84ec24c927b56', …(+10 khoá)}"
+   },
+   "children": [
+    917,
+    918
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 915,
+   "id": 916,
+   "ms": 4.9,
+   "result": "None"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 916,
+   "id": 917,
+   "ms": 0.1,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 916,
+   "id": 918,
+   "ms": 1.3,
+   "result": "None"
+  },
+  {
+   "name": "tracing.summary",
+   "line": 66,
+   "args": {
+    "trace_id": "'481d744f-94b6-44de-81fe-5fa45022076e'"
+   },
+   "children": [
+    920,
+    923
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 915,
+   "id": 919,
+   "ms": 2.5,
+   "result": "{id: '481d744f-94b6-44de-81fe-5fa45022076e', created_at: '2026-11-11T04:37:46.302954+00:00', username: 'cskh1', question: 'Thời hạn đổi trả hàng cho khách VIP là bao lâu?', status: 'MISS', policy: 'NORMAL', intent: 'return_policy', partition: '1fb84ec24c927b56', similarity: None, latency_ms: 7406.1, …(+7 khoá)}"
+  },
+  {
+   "name": "db.fetch_one",
+   "line": 104,
+   "args": {
+    "sql": "'SELECT id,created_at,username,question,status,policy,intent,partition,similarity,latency_ms,⏎                          llm_tokens_in,llm_tokens_out,cost_usd,saved_tokens,saved_cost_usd,unauthorized,feedback⏎             …(+36 ký tự)'",
+    "params": "('481d744f-94b6-44de-81fe-5fa45022076e')"
+   },
+   "children": [
+    921,
+    922
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 919,
+   "id": 920,
+   "ms": 2.4,
+   "result": "{id: <UUID>, created_at: <datetime>, username: 'cskh1', question: 'Thời hạn đổi trả hàng cho khách VIP là bao lâu?', status: 'MISS', policy: 'NORMAL', intent: 'return_policy', partition: '1fb84ec24c927b56', similarity: None, latency_ms: 7406.1, …(+7 khoá)}"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 920,
+   "id": 921,
+   "ms": 0.0,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 920,
+   "id": 922,
+   "ms": 0.7,
+   "result": "None"
+  },
+  {
+   "name": "tracing.jsonable",
+   "line": 73,
+   "args": {
+    "row": "{id: <UUID>, created_at: <datetime>, username: 'cskh1', question: 'Thời hạn đổi trả hàng cho khách VIP là bao lâu?', status: 'MISS', policy: 'NORMAL', intent: 'return_policy', partition: '1fb84ec24c927b56', similarity: None, latency_ms: 7406.1, …(+7 khoá)}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 919,
+   "id": 923,
+   "ms": 0.0,
+   "result": "{id: '481d744f-94b6-44de-81fe-5fa45022076e', created_at: '2026-11-11T04:37:46.302954+00:00', username: 'cskh1', question: 'Thời hạn đổi trả hàng cho khách VIP là bao lâu?', status: 'MISS', policy: 'NORMAL', intent: 'return_policy', partition: '1fb84ec24c927b56', similarity: None, latency_ms: 7406.1, …(+7 khoá)}"
+  },
+  {
+   "name": "tracing.publish",
+   "line": 85,
+   "args": {
+    "kind": "'trace'",
+    "data": "{id: '481d744f-94b6-44de-81fe-5fa45022076e', created_at: '2026-11-11T04:37:46.302954+00:00', username: 'cskh1', question: 'Thời hạn đổi trả hàng cho khách VIP là bao lâu?', status: 'MISS', policy: 'NORMAL', intent: 'return_policy', partition: '1fb84ec24c927b56', similarity: None, latency_ms: 7406.1, …(+7 khoá)}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 915,
+   "id": 924,
+   "ms": 0.7,
+   "result": "None"
+  },
+  {
+   "name": "db.execute",
+   "line": 109,
+   "args": {
+    "sql": "\"INSERT INTO messages(id,session_id,role,content,trace_id,cache_status,citations)⏎                  VALUES (%s,%s,'assistant',%s,%s,%s,%s)\"",
+    "params": "('6411624a-b955-4acb-910b-d2b2e5da0ce5', 'cb97a794-7c08-4e8f-a97a-2e61cea48977', 'Khách hàng được đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng [c1]. Thành viên VIP được hỗ trợ đổi trả linh ho…(+65 ký tự)', '481d744f-94b6-44de-81fe-5fa45022076e', 'MISS', <Jsonb>)"
+   },
+   "children": [
+    926,
+    927
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 802,
+   "id": 925,
+   "ms": 2.9,
+   "result": "None"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 925,
+   "id": 926,
+   "ms": 0.0,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 925,
+   "id": 927,
+   "ms": 1.1,
+   "result": "None"
+  },
+  {
+   "name": "db.execute",
+   "line": 109,
+   "args": {
+    "sql": "'UPDATE sessions SET updated_at=now() WHERE id=%s'",
+    "params": "('cb97a794-7c08-4e8f-a97a-2e61cea48977')"
+   },
+   "children": [
+    929,
+    930
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 802,
+   "id": 928,
+   "ms": 2.2,
+   "result": "None"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 928,
+   "id": 929,
+   "ms": 0.0,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 928,
+   "id": 930,
+   "ms": 1.0,
+   "result": "None"
+  },
+  {
+   "name": "audit.run",
+   "line": 35,
+   "args": {
+    "trace_id": "'481d744f-94b6-44de-81fe-5fa45022076e'",
+    "user": "UserContext(user_id='829671b9-5f8b-431d-9b2f-8a31158a3a2d', username='cskh1', roles=('default-roles-semcache', 'offline_access', 'uma_authorization', 'employee', 'cskh_agent'), display_name='Lan CSKH')",
+    "answer": "'Khách hàng được đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng [c1]. Thành viên VIP được hỗ trợ đổi trả linh hoạt hơn theo quy định nội bộ của bộ phận chăm sóc khách hàng [c2].'"
+   },
+   "children": [
+    932,
+    933,
+    936
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": null,
+   "id": 931,
+   "ms": 2.9,
+   "result": "{canaries: [], denied_collections: [], checked_with_iam: False}"
+  },
+  {
+   "name": "audit.find",
+   "line": 31,
+   "args": {
+    "text": "'Khách hàng được đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng [c1]. Thành viên VIP được hỗ trợ đổi trả linh hoạt hơn theo quy định nội bộ của bộ phận chăm sóc khách hàng [c2].'"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 931,
+   "id": 932,
+   "ms": 0.0,
+   "result": "[]"
+  },
+  {
+   "name": "db.execute",
+   "line": 109,
+   "args": {
+    "sql": "'UPDATE traces SET audit=%s, unauthorized=%s WHERE id=%s'",
+    "params": "(<Jsonb>, False, '481d744f-94b6-44de-81fe-5fa45022076e')"
+   },
+   "children": [
+    934,
+    935
+   ],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 931,
+   "id": 933,
+   "ms": 2.3,
+   "result": "None"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 933,
+   "id": 934,
+   "ms": 0.0,
+   "result": "<Connection>"
+  },
+  {
+   "name": "db.conn",
+   "line": 88,
+   "args": {},
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 933,
+   "id": 935,
+   "ms": 1.2,
+   "result": "None"
+  },
+  {
+   "name": "tracing.publish",
+   "line": 85,
+   "args": {
+    "kind": "'audit'",
+    "data": "{id: '481d744f-94b6-44de-81fe-5fa45022076e', unauthorized: False, audit: {canaries: [], denied_collections: [], checked_with_iam: False}}"
+   },
+   "children": [],
+   "thread": "AnyIO worker thread",
+   "label": "07_after_revoke",
+   "parent": 931,
+   "id": 936,
+   "ms": 0.5,
+   "result": "None"
+  },
+  {
+   "name": "sync.PermissionSync.poll_once",
+   "line": 66,
+   "args": {},
+   "children": [
+    938
+   ],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 96,
+   "id": 937,
+   "ms": 25.4,
+   "result": "0"
+  },
+  {
+   "name": "iam.keycloak.KeycloakEventSource.poll",
+   "line": 156,
+   "args": {},
+   "children": [
+    939,
+    942
+   ],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 937,
+   "id": 938,
+   "ms": 25.0,
+   "result": "[]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.admin_events",
+   "line": 112,
+   "args": {
+    "max_results": "200"
+   },
+   "children": [
+    940
+   ],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 938,
+   "id": 939,
+   "ms": 24.7,
+   "result": "[{time: 1794371861745, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370061899, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794370051386, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369953009, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794369939412, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, {time: 1794339261520, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.6'}, operationType: 'CREATE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}, …(+49)]"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.request",
+   "line": 52,
+   "args": {
+    "method": "'GET'",
+    "path": "'/admin-events'",
+    "kw": "{params: {max: 200}}"
+   },
+   "children": [
+    941
+   ],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 939,
+   "id": 940,
+   "ms": 24.2,
+   "result": "<HTTP 200 http://localhost:8080/admin/realms/semcache/admin-events?max=200>"
+  },
+  {
+   "name": "iam.keycloak.KeycloakAdmin.token",
+   "line": 39,
+   "args": {},
+   "children": [],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 940,
+   "id": 941,
+   "ms": 0.0,
+   "result": "'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxZFpSVW9sZEF4eWlsdldiRkh1N3dOVVJtVllaZEVQMmxkVEFnd084eGtNIn0.eyJleHAiOjE3OTQzNzI3MzgsImlhdCI6MTc5NDM3MTgzOCwianRpIjoiMjM3NDlhMGQtMGYxNC00NGI0LThlNjQtODZiODliZGQ5YzZhIiwi…(+1419 ký tự)'"
+  },
+  {
+   "name": "iam.keycloak._event_key",
+   "line": 142,
+   "args": {
+    "e": "{time: 1794371861745, realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', authDetails: {realmId: '36a24d23-b72a-438a-a29d-ea82714c2772', clientId: 'b241a711-46be-488a-b226-d122149c1b86', userId: '4e121ac4-b49f-48e7-8758-ebbbda82b3a5', ipAddress: '172.30.0.1'}, operationType: 'DELETE', resourceType: 'REALM_ROLE_MAPPING', resourcePath: 'users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm', representation: '[{\"id\":\"fce33e7e-8385-4b19-a094-2f378867ecfb\",\"name\":\"cskh_agent\",\"composite\":false}]'}"
+   },
+   "children": [],
+   "thread": "permission-sync",
+   "label": "07_after_revoke",
+   "parent": 938,
+   "id": 942,
+   "ms": 0.1,
+   "result": "'1794371861745|DELETE|REALM_ROLE_MAPPING|users/829671b9-5f8b-431d-9b2f-8a31158a3a2d/role-mappings/realm|35052e3dac'"
+  }
+ ]
+}
